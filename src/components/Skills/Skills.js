@@ -6,22 +6,51 @@ import s from './Skills.scss';
 function Skills() {
   return (
     <section className={s.root}>
-      <div>
-        <h3 className={s.authorTitle}>Simon Hales</h3>
-        <h1 className={s.mainTitle}>Front End Developer</h1>
-        <h2 className={s.subTitle}>specialised in <strong>AngularJS</strong> and <strong>ReactJS</strong></h2>
-        <h4 className={s.contactLinks}>
-          <a className={s.social} href="">
-            <FontAwesome name='twitter' />
-          </a>
-          <a className={s.social} href="">
-            <FontAwesome name='linkedin' />
-          </a>
-          <a className={s.social} href="">
-            <FontAwesome name='github' />
-          </a>
-          <a className={s.email} href="mailto:simonghales@gmail.com">simonghales@gmail.com</a>
-        </h4>
+      <div className={s.skillColumn}>
+        <h3 className={s.title}>Languages &amp; Frameworks</h3>
+        <ul className={s.skillsList}>
+          <li>
+            AngularJS
+          </li>
+          <li>
+            ReactJS
+          </li>
+          <li>
+            SASS + LESS
+          </li>
+          <li>
+            Gulp + Grunt
+          </li>
+          <li>
+            Bower + NPM
+          </li>
+          <li>
+            ES6 / ES2015
+          </li>
+        </ul>
+      </div>
+      <div className={s.skillColumn}>
+        <h3 className={s.title}>Roles &amp; Experience</h3>
+        <ul className={s.skillsList}>
+          <li>
+            Front End
+          </li>
+          <li>
+            Web Design
+          </li>
+          <li>
+            Web Applications
+          </li>
+          <li>
+            Responsive Design
+          </li>
+          <li>
+            Unit &amp; E2E Testing
+          </li>
+          <li>
+            Web Optimisation
+          </li>
+        </ul>
       </div>
     </section>
   );

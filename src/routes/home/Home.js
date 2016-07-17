@@ -11,6 +11,7 @@ import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Intro from '../../components/Intro';
 import Skills from '../../components/Skills';
+import HighlightedProjects from '../../components/HighlightedProjects';
 import s from './Home.scss';
 
 function Home({ news }) {
@@ -18,6 +19,7 @@ function Home({ news }) {
     <div>
       <Intro />
       <Skills />
+      <HighlightedProjects />
     </div>
   );
 }

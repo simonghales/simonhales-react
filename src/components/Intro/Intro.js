@@ -11,13 +11,13 @@ function Intro() {
         <h1 className={s.mainTitle}>Front End Developer</h1>
         <h2 className={s.subTitle}>specialised in <strong>AngularJS</strong> and <strong>ReactJS</strong></h2>
         <h4 className={s.contactLinks}>
-          <a className={s.social} href="">
+          <a className={s.social} href="" target="_blank">
             <FontAwesome name='twitter' />
           </a>
-          <a className={s.social} href="">
+          <a className={s.social} href="" target="_blank">
             <FontAwesome name='linkedin' />
           </a>
-          <a className={s.social} href="">
+          <a className={s.social} href="" target="_blank">
             <FontAwesome name='github' />
           </a>
           <a className={s.email} href="mailto:simonghales@gmail.com">simonghales@gmail.com</a>

@@ -1,0 +1,6 @@
+{
+  "name": "HighlightedProjects",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./HighlightedProjects.js"
+}

@@ -8,14 +8,16 @@
  */
 
 @import '../variables.scss';
+@import '../mixins.scss';
 
 .root {
-  background-color: transparentize(#F0F3F5, 0.03);
+  //@include gradient(#F0F3F5, transparentize(#F0F3F5, 0.03));
+  background-color: lighten(#F0F3F5, 4);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 20px 0 3px 0;
+  padding: 20px 0 18px 0;
 }
 
 .nav {
