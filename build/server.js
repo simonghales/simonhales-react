@@ -48,69 +48,69 @@ module.exports =
 
   'use strict';
   
-  var _regenerator = __webpack_require__(5);
+  var _regenerator = __webpack_require__(6);
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(4);
+  var _asyncToGenerator2 = __webpack_require__(5);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
-  __webpack_require__(87);
+  __webpack_require__(107);
   
-  var _path = __webpack_require__(25);
+  var _path = __webpack_require__(26);
   
   var _path2 = _interopRequireDefault(_path);
   
-  var _express = __webpack_require__(104);
+  var _express = __webpack_require__(124);
   
   var _express2 = _interopRequireDefault(_express);
   
-  var _cookieParser = __webpack_require__(101);
+  var _cookieParser = __webpack_require__(121);
   
   var _cookieParser2 = _interopRequireDefault(_cookieParser);
   
-  var _bodyParser = __webpack_require__(99);
+  var _bodyParser = __webpack_require__(119);
   
   var _bodyParser2 = _interopRequireDefault(_bodyParser);
   
-  var _expressJwt = __webpack_require__(106);
+  var _expressJwt = __webpack_require__(126);
   
   var _expressJwt2 = _interopRequireDefault(_expressJwt);
   
-  var _expressGraphql = __webpack_require__(105);
+  var _expressGraphql = __webpack_require__(125);
   
   var _expressGraphql2 = _interopRequireDefault(_expressGraphql);
   
-  var _jsonwebtoken = __webpack_require__(113);
+  var _jsonwebtoken = __webpack_require__(133);
   
   var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
   
-  var _server = __webpack_require__(120);
+  var _server = __webpack_require__(140);
   
   var _server2 = _interopRequireDefault(_server);
   
-  var _prettyError = __webpack_require__(119);
+  var _prettyError = __webpack_require__(139);
   
   var _prettyError2 = _interopRequireDefault(_prettyError);
   
-  var _passport = __webpack_require__(42);
+  var _passport = __webpack_require__(45);
   
   var _passport2 = _interopRequireDefault(_passport);
   
-  var _schema = __webpack_require__(46);
+  var _schema = __webpack_require__(49);
   
   var _schema2 = _interopRequireDefault(_schema);
   
-  var _routes = __webpack_require__(50);
+  var _routes = __webpack_require__(53);
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(86);
+  var _assets = __webpack_require__(106);
   
   var _assets2 = _interopRequireDefault(_assets);
   
-  var _config = __webpack_require__(12);
+  var _config = __webpack_require__(14);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -190,7 +190,7 @@ module.exports =
                     switch (_context.prev = _context.next) {
                       case 0:
                         statusCode = 200;
-                        template = __webpack_require__(83);
+                        template = __webpack_require__(103);
                         data = { title: '', description: '', css: '', body: '', entry: _assets2.default.main.js };
   
   
@@ -265,7 +265,7 @@ module.exports =
   server.use(function (err, req, res, next) {
     // eslint-disable-line no-unused-vars
     console.log(pe.render(err)); // eslint-disable-line no-console
-    var template = __webpack_require__(82);
+    var template = __webpack_require__(102);
     var statusCode = err.status || 500;
     res.status(statusCode);
     res.send(template({
@@ -290,23 +290,79 @@ module.exports =
 
 /***/ },
 /* 2 */
+/***/ function(module, exports) {
+
+  /*
+  	MIT License http://www.opensource.org/licenses/mit-license.php
+  	Author Tobias Koppers @sokra
+  */
+  // css base code, injected by the css-loader
+  module.exports = function() {
+  	var list = [];
+  
+  	// return the list of modules as css string
+  	list.toString = function toString() {
+  		var result = [];
+  		for(var i = 0; i < this.length; i++) {
+  			var item = this[i];
+  			if(item[2]) {
+  				result.push("@media " + item[2] + "{" + item[1] + "}");
+  			} else {
+  				result.push(item[1]);
+  			}
+  		}
+  		return result.join("");
+  	};
+  
+  	// import a list of modules into the list
+  	list.i = function(modules, mediaQuery) {
+  		if(typeof modules === "string")
+  			modules = [[null, modules, ""]];
+  		var alreadyImportedModules = {};
+  		for(var i = 0; i < this.length; i++) {
+  			var id = this[i][0];
+  			if(typeof id === "number")
+  				alreadyImportedModules[id] = true;
+  		}
+  		for(i = 0; i < modules.length; i++) {
+  			var item = modules[i];
+  			// skip already imported module
+  			// this implementation is not 100% perfect for weird media query combinations
+  			//  when a module is imported multiple times with different media queries.
+  			//  I hope this will never occur (Hey this way we have smaller bundles)
+  			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+  				if(mediaQuery && !item[2]) {
+  					item[2] = mediaQuery;
+  				} else if(mediaQuery) {
+  					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+  				}
+  				list.push(item);
+  			}
+  		}
+  	};
+  	return list;
+  };
+
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
   
-  var _assign = __webpack_require__(22);
+  var _assign = __webpack_require__(23);
   
   var _assign2 = _interopRequireDefault(_assign);
   
-  var _stringify = __webpack_require__(89);
+  var _stringify = __webpack_require__(109);
   
   var _stringify2 = _interopRequireDefault(_stringify);
   
-  var _slicedToArray2 = __webpack_require__(97);
+  var _slicedToArray2 = __webpack_require__(117);
   
   var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
   
-  var _getIterator2 = __webpack_require__(17);
+  var _getIterator2 = __webpack_require__(18);
   
   var _getIterator3 = _interopRequireDefault(_getIterator2);
   
@@ -450,61 +506,67 @@ module.exports =
   module.exports = insertCss;
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
   module.exports = require("isomorphic-style-loader/lib/withStyles");
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/asyncToGenerator");
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/regenerator");
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
 
   module.exports = require("graphql");
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/object/get-prototype-of");
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/classCallCheck");
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/createClass");
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/inherits");
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/possibleConstructorReturn");
 
 /***/ },
-/* 12 */
+/* 13 */
+/***/ function(module, exports) {
+
+  module.exports = require("react-fontawesome");
+
+/***/ },
+/* 14 */
 /***/ function(module, exports) {
 
   'use strict';
@@ -561,7 +623,7 @@ module.exports =
   };
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -570,31 +632,31 @@ module.exports =
     value: true
   });
   
-  var _extends2 = __webpack_require__(95);
+  var _extends2 = __webpack_require__(115);
   
   var _extends3 = _interopRequireDefault(_extends2);
   
-  var _objectWithoutProperties2 = __webpack_require__(96);
+  var _objectWithoutProperties2 = __webpack_require__(116);
   
   var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
   
-  var _getPrototypeOf = __webpack_require__(7);
+  var _getPrototypeOf = __webpack_require__(8);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
   
-  var _classCallCheck2 = __webpack_require__(8);
+  var _classCallCheck2 = __webpack_require__(9);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(9);
+  var _createClass2 = __webpack_require__(10);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _possibleConstructorReturn2 = __webpack_require__(11);
+  var _possibleConstructorReturn2 = __webpack_require__(12);
   
   var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
   
-  var _inherits2 = __webpack_require__(10);
+  var _inherits2 = __webpack_require__(11);
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
@@ -602,7 +664,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Location = __webpack_require__(40);
+  var _Location = __webpack_require__(43);
   
   var _Location2 = _interopRequireDefault(_Location);
   
@@ -689,7 +751,7 @@ module.exports =
   exports.default = Link;
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -699,15 +761,15 @@ module.exports =
   });
   exports.Response = exports.Headers = exports.Request = exports.default = undefined;
   
-  var _bluebird = __webpack_require__(18);
+  var _bluebird = __webpack_require__(19);
   
   var _bluebird2 = _interopRequireDefault(_bluebird);
   
-  var _nodeFetch = __webpack_require__(115);
+  var _nodeFetch = __webpack_require__(135);
   
   var _nodeFetch2 = _interopRequireDefault(_nodeFetch);
   
-  var _config = __webpack_require__(12);
+  var _config = __webpack_require__(14);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -744,7 +806,7 @@ module.exports =
   exports.Response = _nodeFetch.Response;
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports) {
 
   "use strict";
@@ -758,88 +820,32 @@ module.exports =
   };
 
 /***/ },
-/* 16 */
-/***/ function(module, exports) {
-
-  /*
-  	MIT License http://www.opensource.org/licenses/mit-license.php
-  	Author Tobias Koppers @sokra
-  */
-  // css base code, injected by the css-loader
-  module.exports = function() {
-  	var list = [];
-  
-  	// return the list of modules as css string
-  	list.toString = function toString() {
-  		var result = [];
-  		for(var i = 0; i < this.length; i++) {
-  			var item = this[i];
-  			if(item[2]) {
-  				result.push("@media " + item[2] + "{" + item[1] + "}");
-  			} else {
-  				result.push(item[1]);
-  			}
-  		}
-  		return result.join("");
-  	};
-  
-  	// import a list of modules into the list
-  	list.i = function(modules, mediaQuery) {
-  		if(typeof modules === "string")
-  			modules = [[null, modules, ""]];
-  		var alreadyImportedModules = {};
-  		for(var i = 0; i < this.length; i++) {
-  			var id = this[i][0];
-  			if(typeof id === "number")
-  				alreadyImportedModules[id] = true;
-  		}
-  		for(i = 0; i < modules.length; i++) {
-  			var item = modules[i];
-  			// skip already imported module
-  			// this implementation is not 100% perfect for weird media query combinations
-  			//  when a module is imported multiple times with different media queries.
-  			//  I hope this will never occur (Hey this way we have smaller bundles)
-  			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-  				if(mediaQuery && !item[2]) {
-  					item[2] = mediaQuery;
-  				} else if(mediaQuery) {
-  					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-  				}
-  				list.push(item);
-  			}
-  		}
-  	};
-  	return list;
-  };
-
-
-/***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/get-iterator");
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
   module.exports = require("bluebird");
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-  module.exports = { "default": __webpack_require__(103), __esModule: true };
+  module.exports = { "default": __webpack_require__(123), __esModule: true };
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
   "use strict";
   
   exports.__esModule = true;
   
-  var _defineProperty = __webpack_require__(91);
+  var _defineProperty = __webpack_require__(111);
   
   var _defineProperty2 = _interopRequireDefault(_defineProperty);
   
@@ -864,7 +870,7 @@ module.exports =
   }();
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -1084,7 +1090,7 @@ module.exports =
       throw err;
     }
     try {
-      str = str || __webpack_require__(24).readFileSync(filename, 'utf8')
+      str = str || __webpack_require__(25).readFileSync(filename, 'utf8')
     } catch (ex) {
       rethrow(err, null, lineno)
     }
@@ -1116,34 +1122,28 @@ module.exports =
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/object/assign");
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/promise");
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
   module.exports = require("fs");
 
 /***/ },
-/* 25 */
-/***/ function(module, exports) {
-
-  module.exports = require("path");
-
-/***/ },
 /* 26 */
 /***/ function(module, exports) {
 
-  module.exports = require("react-fontawesome");
+  module.exports = require("path");
 
 /***/ },
 /* 27 */
@@ -1155,11 +1155,11 @@ module.exports =
     value: true
   });
   
-  var _create = __webpack_require__(19);
+  var _create = __webpack_require__(20);
   
   var _create2 = _interopRequireDefault(_create);
   
-  var _classCallCheck2 = __webpack_require__(15);
+  var _classCallCheck2 = __webpack_require__(17);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
@@ -1207,15 +1207,15 @@ module.exports =
     value: true
   });
   
-  var _classCallCheck2 = __webpack_require__(15);
+  var _classCallCheck2 = __webpack_require__(17);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(20);
+  var _createClass2 = __webpack_require__(21);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _pathToRegexp = __webpack_require__(84);
+  var _pathToRegexp = __webpack_require__(104);
   
   var _pathToRegexp2 = _interopRequireDefault(_pathToRegexp);
   
@@ -1261,31 +1261,31 @@ module.exports =
     value: true
   });
   
-  var _slicedToArray2 = __webpack_require__(61);
+  var _slicedToArray2 = __webpack_require__(64);
   
   var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
   
-  var _regenerator = __webpack_require__(62);
+  var _regenerator = __webpack_require__(65);
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _getIterator2 = __webpack_require__(59);
+  var _getIterator2 = __webpack_require__(62);
   
   var _getIterator3 = _interopRequireDefault(_getIterator2);
   
-  var _asyncToGenerator2 = __webpack_require__(60);
+  var _asyncToGenerator2 = __webpack_require__(63);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
-  var _create = __webpack_require__(19);
+  var _create = __webpack_require__(20);
   
   var _create2 = _interopRequireDefault(_create);
   
-  var _classCallCheck2 = __webpack_require__(15);
+  var _classCallCheck2 = __webpack_require__(17);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(20);
+  var _createClass2 = __webpack_require__(21);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
@@ -1627,23 +1627,23 @@ module.exports =
     value: true
   });
   
-  var _getPrototypeOf = __webpack_require__(7);
+  var _getPrototypeOf = __webpack_require__(8);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
   
-  var _classCallCheck2 = __webpack_require__(8);
+  var _classCallCheck2 = __webpack_require__(9);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(9);
+  var _createClass2 = __webpack_require__(10);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _possibleConstructorReturn2 = __webpack_require__(11);
+  var _possibleConstructorReturn2 = __webpack_require__(12);
   
   var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
   
-  var _inherits2 = __webpack_require__(10);
+  var _inherits2 = __webpack_require__(11);
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
@@ -1651,11 +1651,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _emptyFunction = __webpack_require__(107);
+  var _emptyFunction = __webpack_require__(127);
   
   var _emptyFunction2 = _interopRequireDefault(_emptyFunction);
   
-  var _App = __webpack_require__(68);
+  var _App = __webpack_require__(85);
   
   var _App2 = _interopRequireDefault(_App);
   
@@ -1755,23 +1755,23 @@ module.exports =
     value: true
   });
   
-  var _getPrototypeOf = __webpack_require__(7);
+  var _getPrototypeOf = __webpack_require__(8);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
   
-  var _classCallCheck2 = __webpack_require__(8);
+  var _classCallCheck2 = __webpack_require__(9);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(9);
+  var _createClass2 = __webpack_require__(10);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _possibleConstructorReturn2 = __webpack_require__(11);
+  var _possibleConstructorReturn2 = __webpack_require__(12);
   
   var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
   
-  var _inherits2 = __webpack_require__(10);
+  var _inherits2 = __webpack_require__(11);
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
@@ -1779,11 +1779,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _ContentPage = __webpack_require__(69);
+  var _ContentPage = __webpack_require__(86);
   
   var _ContentPage2 = _interopRequireDefault(_ContentPage);
   
@@ -1851,23 +1851,23 @@ module.exports =
     value: true
   });
   
-  var _getPrototypeOf = __webpack_require__(7);
+  var _getPrototypeOf = __webpack_require__(8);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
   
-  var _classCallCheck2 = __webpack_require__(8);
+  var _classCallCheck2 = __webpack_require__(9);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(9);
+  var _createClass2 = __webpack_require__(10);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _possibleConstructorReturn2 = __webpack_require__(11);
+  var _possibleConstructorReturn2 = __webpack_require__(12);
   
   var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
   
-  var _inherits2 = __webpack_require__(10);
+  var _inherits2 = __webpack_require__(11);
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
@@ -1875,11 +1875,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _ErrorPage = __webpack_require__(70);
+  var _ErrorPage = __webpack_require__(87);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -1949,11 +1949,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Feedback = __webpack_require__(71);
+  var _Feedback = __webpack_require__(88);
   
   var _Feedback2 = _interopRequireDefault(_Feedback);
   
@@ -2014,15 +2014,15 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Footer = __webpack_require__(72);
+  var _Footer = __webpack_require__(89);
   
   var _Footer2 = _interopRequireDefault(_Footer);
   
-  var _Link = __webpack_require__(13);
+  var _Link = __webpack_require__(15);
   
   var _Link2 = _interopRequireDefault(_Link);
   
@@ -2099,19 +2099,19 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Header = __webpack_require__(73);
+  var _Header = __webpack_require__(90);
   
   var _Header2 = _interopRequireDefault(_Header);
   
-  var _Link = __webpack_require__(13);
+  var _Link = __webpack_require__(15);
   
   var _Link2 = _interopRequireDefault(_Link);
   
-  var _Navigation = __webpack_require__(37);
+  var _Navigation = __webpack_require__(40);
   
   var _Navigation2 = _interopRequireDefault(_Navigation);
   
@@ -2184,17 +2184,203 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Intro = __webpack_require__(74);
+  var _HighlightedProjectsHeader = __webpack_require__(91);
+  
+  var _HighlightedProjectsHeader2 = _interopRequireDefault(_HighlightedProjectsHeader);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var FontAwesome = __webpack_require__(13);
+  
+  
+  function HighlightedProjectsHeader() {
+    return _react2.default.createElement(
+      'header',
+      { className: _HighlightedProjectsHeader2.default.root },
+      _react2.default.createElement(
+        'div',
+        { className: _HighlightedProjectsHeader2.default.content },
+        _react2.default.createElement(
+          'h2',
+          { className: _HighlightedProjectsHeader2.default.title },
+          'Highlighted Projects'
+        ),
+        _react2.default.createElement(
+          'h3',
+          { className: _HighlightedProjectsHeader2.default.subtitle },
+          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam assumenda, blanditiis.'
+        )
+      )
+    );
+  }
+  
+  exports.default = (0, _withStyles2.default)(HighlightedProjectsHeader, _HighlightedProjectsHeader2.default);
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(1);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(4);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _HighlightedProjectsHeader = __webpack_require__(36);
+  
+  var _HighlightedProjectsHeader2 = _interopRequireDefault(_HighlightedProjectsHeader);
+  
+  var _HighlightedProjectsProject = __webpack_require__(38);
+  
+  var _HighlightedProjectsProject2 = _interopRequireDefault(_HighlightedProjectsProject);
+  
+  var _HighlightedProjects = __webpack_require__(92);
+  
+  var _HighlightedProjects2 = _interopRequireDefault(_HighlightedProjects);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var FontAwesome = __webpack_require__(13);
+  
+  
+  function HighlightedProjects() {
+    return _react2.default.createElement(
+      'section',
+      { className: _HighlightedProjects2.default.root },
+      _react2.default.createElement(_HighlightedProjectsHeader2.default, null),
+      _react2.default.createElement(
+        'section',
+        null,
+        _react2.default.createElement(_HighlightedProjectsProject2.default, null),
+        _react2.default.createElement(_HighlightedProjectsProject2.default, null),
+        _react2.default.createElement(_HighlightedProjectsProject2.default, null)
+      )
+    );
+  }
+  
+  exports.default = (0, _withStyles2.default)(HighlightedProjects, _HighlightedProjects2.default);
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(1);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(4);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _HighlightedProjectsProject = __webpack_require__(93);
+  
+  var _HighlightedProjectsProject2 = _interopRequireDefault(_HighlightedProjectsProject);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var FontAwesome = __webpack_require__(13);
+  
+  
+  function HighlightedProjectsProject() {
+    return _react2.default.createElement(
+      'div',
+      { className: _HighlightedProjectsProject2.default.root },
+      _react2.default.createElement(
+        'div',
+        { className: _HighlightedProjectsProject2.default.content },
+        _react2.default.createElement(
+          'div',
+          { className: _HighlightedProjectsProject2.default.image },
+          'image'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _HighlightedProjectsProject2.default.info },
+          _react2.default.createElement(
+            'h3',
+            { className: _HighlightedProjectsProject2.default.title },
+            'soon.is'
+          ),
+          _react2.default.createElement(
+            'h4',
+            { className: _HighlightedProjectsProject2.default.position },
+            '// Front End Developer & Designer'
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: _HighlightedProjectsProject2.default.desc },
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam illum ',
+            _react2.default.createElement(
+              'strong',
+              null,
+              'AngularJS'
+            ),
+            ' nam pariatur porro quibusdam quos tempore! Ab accusantium magnam non numquam quam rerum sint ut. Atque laudantium porro sed voluptatibus.'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: _HighlightedProjectsProject2.default.links },
+            _react2.default.createElement(
+              'a',
+              { href: '', className: _HighlightedProjectsProject2.default.link },
+              'View Website'
+            ),
+            _react2.default.createElement(
+              'a',
+              { href: '', className: _HighlightedProjectsProject2.default.link },
+              'Read More'
+            )
+          )
+        )
+      )
+    );
+  }
+  
+  exports.default = (0, _withStyles2.default)(HighlightedProjectsProject, _HighlightedProjectsProject2.default);
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(1);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(4);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Intro = __webpack_require__(94);
   
   var _Intro2 = _interopRequireDefault(_Intro);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var FontAwesome = __webpack_require__(26);
+  var FontAwesome = __webpack_require__(13);
   
   
   function Intro() {
@@ -2261,7 +2447,7 @@ module.exports =
   exports.default = (0, _withStyles2.default)(Intro, _Intro2.default);
 
 /***/ },
-/* 37 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2274,19 +2460,19 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _classnames = __webpack_require__(100);
+  var _classnames = __webpack_require__(120);
   
   var _classnames2 = _interopRequireDefault(_classnames);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Navigation = __webpack_require__(75);
+  var _Navigation = __webpack_require__(95);
   
   var _Navigation2 = _interopRequireDefault(_Navigation);
   
-  var _Link = __webpack_require__(13);
+  var _Link = __webpack_require__(15);
   
   var _Link2 = _interopRequireDefault(_Link);
   
@@ -2345,7 +2531,7 @@ module.exports =
   exports.default = (0, _withStyles2.default)(Navigation, _Navigation2.default);
 
 /***/ },
-/* 38 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2354,23 +2540,23 @@ module.exports =
     value: true
   });
   
-  var _getPrototypeOf = __webpack_require__(7);
+  var _getPrototypeOf = __webpack_require__(8);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
   
-  var _classCallCheck2 = __webpack_require__(8);
+  var _classCallCheck2 = __webpack_require__(9);
   
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
   
-  var _createClass2 = __webpack_require__(9);
+  var _createClass2 = __webpack_require__(10);
   
   var _createClass3 = _interopRequireDefault(_createClass2);
   
-  var _possibleConstructorReturn2 = __webpack_require__(11);
+  var _possibleConstructorReturn2 = __webpack_require__(12);
   
   var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
   
-  var _inherits2 = __webpack_require__(10);
+  var _inherits2 = __webpack_require__(11);
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
@@ -2378,11 +2564,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _NotFoundPage = __webpack_require__(76);
+  var _NotFoundPage = __webpack_require__(96);
   
   var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
   
@@ -2440,7 +2626,7 @@ module.exports =
   exports.default = (0, _withStyles2.default)(NotFoundPage, _NotFoundPage2.default);
 
 /***/ },
-/* 39 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2453,17 +2639,17 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Skills = __webpack_require__(77);
+  var _Skills = __webpack_require__(97);
   
   var _Skills2 = _interopRequireDefault(_Skills);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var FontAwesome = __webpack_require__(26);
+  var FontAwesome = __webpack_require__(13);
   
   
   function Skills() {
@@ -2562,7 +2748,7 @@ module.exports =
   exports.default = (0, _withStyles2.default)(Skills, _Skills2.default);
 
 /***/ },
-/* 40 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2571,15 +2757,15 @@ module.exports =
     value: true
   });
   
-  var _createBrowserHistory = __webpack_require__(109);
+  var _createBrowserHistory = __webpack_require__(129);
   
   var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
   
-  var _createMemoryHistory = __webpack_require__(110);
+  var _createMemoryHistory = __webpack_require__(130);
   
   var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
   
-  var _useQueries = __webpack_require__(111);
+  var _useQueries = __webpack_require__(131);
   
   var _useQueries2 = _interopRequireDefault(_useQueries);
   
@@ -2597,7 +2783,7 @@ module.exports =
   exports.default = location;
 
 /***/ },
-/* 41 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2606,15 +2792,15 @@ module.exports =
     value: true
   });
   
-  var _pg = __webpack_require__(118);
+  var _pg = __webpack_require__(138);
   
   var _pg2 = _interopRequireDefault(_pg);
   
-  var _bluebird = __webpack_require__(18);
+  var _bluebird = __webpack_require__(19);
   
   var _bluebird2 = _interopRequireDefault(_bluebird);
   
-  var _config = __webpack_require__(12);
+  var _config = __webpack_require__(14);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -2706,7 +2892,7 @@ module.exports =
   exports.default = _pg2.default;
 
 /***/ },
-/* 42 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2715,25 +2901,25 @@ module.exports =
     value: true
   });
   
-  var _regenerator = __webpack_require__(5);
+  var _regenerator = __webpack_require__(6);
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(4);
+  var _asyncToGenerator2 = __webpack_require__(5);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
-  var _passport = __webpack_require__(116);
+  var _passport = __webpack_require__(136);
   
   var _passport2 = _interopRequireDefault(_passport);
   
-  var _passportFacebook = __webpack_require__(117);
+  var _passportFacebook = __webpack_require__(137);
   
-  var _db = __webpack_require__(41);
+  var _db = __webpack_require__(44);
   
   var _db2 = _interopRequireDefault(_db);
   
-  var _config = __webpack_require__(12);
+  var _config = __webpack_require__(14);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -2906,7 +3092,7 @@ module.exports =
   exports.default = _passport2.default;
 
 /***/ },
-/* 43 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2915,19 +3101,19 @@ module.exports =
     value: true
   });
   
-  var _getIterator2 = __webpack_require__(17);
+  var _getIterator2 = __webpack_require__(18);
   
   var _getIterator3 = _interopRequireDefault(_getIterator2);
   
-  var _regenerator = __webpack_require__(5);
+  var _regenerator = __webpack_require__(6);
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(4);
+  var _asyncToGenerator2 = __webpack_require__(5);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
-  var _assign = __webpack_require__(22);
+  var _assign = __webpack_require__(23);
   
   var _assign2 = _interopRequireDefault(_assign);
   
@@ -3076,31 +3262,31 @@ module.exports =
     };
   }();
   
-  var _fs = __webpack_require__(24);
+  var _fs = __webpack_require__(25);
   
   var _fs2 = _interopRequireDefault(_fs);
   
-  var _path = __webpack_require__(25);
+  var _path = __webpack_require__(26);
   
-  var _bluebird = __webpack_require__(18);
+  var _bluebird = __webpack_require__(19);
   
   var _bluebird2 = _interopRequireDefault(_bluebird);
   
-  var _jade = __webpack_require__(112);
+  var _jade = __webpack_require__(132);
   
   var _jade2 = _interopRequireDefault(_jade);
   
-  var _frontMatter = __webpack_require__(108);
+  var _frontMatter = __webpack_require__(128);
   
   var _frontMatter2 = _interopRequireDefault(_frontMatter);
   
-  var _markdownIt = __webpack_require__(114);
+  var _markdownIt = __webpack_require__(134);
   
   var _markdownIt2 = _interopRequireDefault(_markdownIt);
   
-  var _graphql = __webpack_require__(6);
+  var _graphql = __webpack_require__(7);
   
-  var _ContentType = __webpack_require__(47);
+  var _ContentType = __webpack_require__(50);
   
   var _ContentType2 = _interopRequireDefault(_ContentType);
   
@@ -3202,7 +3388,7 @@ module.exports =
   exports.default = content;
 
 /***/ },
-/* 44 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3211,7 +3397,7 @@ module.exports =
     value: true
   });
   
-  var _UserType = __webpack_require__(49);
+  var _UserType = __webpack_require__(52);
   
   var _UserType2 = _interopRequireDefault(_UserType);
   
@@ -3239,7 +3425,7 @@ module.exports =
   exports.default = me;
 
 /***/ },
-/* 45 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3248,13 +3434,13 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(6);
+  var _graphql = __webpack_require__(7);
   
-  var _fetch = __webpack_require__(14);
+  var _fetch = __webpack_require__(16);
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
-  var _NewsItemType = __webpack_require__(48);
+  var _NewsItemType = __webpack_require__(51);
   
   var _NewsItemType2 = _interopRequireDefault(_NewsItemType);
   
@@ -3309,7 +3495,7 @@ module.exports =
   exports.default = news;
 
 /***/ },
-/* 46 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3318,17 +3504,17 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(6);
+  var _graphql = __webpack_require__(7);
   
-  var _me = __webpack_require__(44);
+  var _me = __webpack_require__(47);
   
   var _me2 = _interopRequireDefault(_me);
   
-  var _content = __webpack_require__(43);
+  var _content = __webpack_require__(46);
   
   var _content2 = _interopRequireDefault(_content);
   
-  var _news = __webpack_require__(45);
+  var _news = __webpack_require__(48);
   
   var _news2 = _interopRequireDefault(_news);
   
@@ -3357,7 +3543,7 @@ module.exports =
   exports.default = schema;
 
 /***/ },
-/* 47 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3366,7 +3552,7 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(6);
+  var _graphql = __webpack_require__(7);
   
   var ContentType = new _graphql.GraphQLObjectType({
     name: 'Content',
@@ -3388,7 +3574,7 @@ module.exports =
   exports.default = ContentType;
 
 /***/ },
-/* 48 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3397,7 +3583,7 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(6);
+  var _graphql = __webpack_require__(7);
   
   var NewsItemType = new _graphql.GraphQLObjectType({
     name: 'NewsItem',
@@ -3420,7 +3606,7 @@ module.exports =
   exports.default = NewsItemType;
 
 /***/ },
-/* 49 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3429,7 +3615,7 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(6);
+  var _graphql = __webpack_require__(7);
   
   var UserType = new _graphql.GraphQLObjectType({
     name: 'User',
@@ -3449,7 +3635,7 @@ module.exports =
   exports.default = UserType;
 
 /***/ },
-/* 50 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3458,11 +3644,11 @@ module.exports =
     value: true
   });
   
-  var _regenerator = __webpack_require__(5);
+  var _regenerator = __webpack_require__(6);
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(4);
+  var _asyncToGenerator2 = __webpack_require__(5);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -3474,7 +3660,7 @@ module.exports =
   
   var _Router2 = _interopRequireDefault(_Router);
   
-  var _fetch = __webpack_require__(14);
+  var _fetch = __webpack_require__(16);
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
@@ -3486,7 +3672,7 @@ module.exports =
   
   var _ContentPage2 = _interopRequireDefault(_ContentPage);
   
-  var _NotFoundPage = __webpack_require__(38);
+  var _NotFoundPage = __webpack_require__(41);
   
   var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
   
@@ -3496,7 +3682,7 @@ module.exports =
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var routes = [__webpack_require__(54), __webpack_require__(52), __webpack_require__(56), __webpack_require__(58)]; /**
+  var routes = [__webpack_require__(57), __webpack_require__(55), __webpack_require__(59), __webpack_require__(61)]; /**
                                                                                                                                   * React Starter Kit (https://www.reactstarterkit.com/)
                                                                                                                                   *
                                                                                                                                   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
@@ -3592,7 +3778,7 @@ module.exports =
   exports.default = router;
 
 /***/ },
-/* 51 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3605,11 +3791,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Contact = __webpack_require__(78);
+  var _Contact = __webpack_require__(98);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3650,7 +3836,7 @@ module.exports =
   exports.default = (0, _withStyles2.default)(Contact, _Contact2.default);
 
 /***/ },
-/* 52 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3660,11 +3846,11 @@ module.exports =
   });
   exports.action = exports.path = undefined;
   
-  var _regenerator = __webpack_require__(5);
+  var _regenerator = __webpack_require__(6);
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(4);
+  var _asyncToGenerator2 = __webpack_require__(5);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -3672,7 +3858,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(51);
+  var _Contact = __webpack_require__(54);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -3714,7 +3900,7 @@ module.exports =
   }();
 
 /***/ },
-/* 53 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3727,36 +3913,31 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Intro = __webpack_require__(36);
+  var _Intro = __webpack_require__(39);
   
   var _Intro2 = _interopRequireDefault(_Intro);
   
-  var _Skills = __webpack_require__(39);
+  var _Skills = __webpack_require__(42);
   
   var _Skills2 = _interopRequireDefault(_Skills);
   
-  var _HighlightedProjects = __webpack_require__(132);
+  var _HighlightedProjects = __webpack_require__(37);
   
   var _HighlightedProjects2 = _interopRequireDefault(_HighlightedProjects);
   
-  var _Home = __webpack_require__(79);
+  var _Info = __webpack_require__(141);
+  
+  var _Info2 = _interopRequireDefault(_Info);
+  
+  var _Home = __webpack_require__(99);
   
   var _Home2 = _interopRequireDefault(_Home);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
   
   function Home(_ref) {
     var news = _ref.news;
@@ -3766,9 +3947,17 @@ module.exports =
       null,
       _react2.default.createElement(_Intro2.default, null),
       _react2.default.createElement(_Skills2.default, null),
-      _react2.default.createElement(_HighlightedProjects2.default, null)
+      _react2.default.createElement(_HighlightedProjects2.default, null),
+      _react2.default.createElement(_Info2.default, null)
     );
-  }
+  } /**
+     * React Starter Kit (https://www.reactstarterkit.com/)
+     *
+     * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+     *
+     * This source code is licensed under the MIT license found in the
+     * LICENSE.txt file in the root directory of this source tree.
+     */
   
   Home.propTypes = {
     news: _react.PropTypes.arrayOf(_react.PropTypes.shape({
@@ -3781,7 +3970,7 @@ module.exports =
   exports.default = (0, _withStyles2.default)(Home, _Home2.default);
 
 /***/ },
-/* 54 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3791,11 +3980,11 @@ module.exports =
   });
   exports.action = exports.path = undefined;
   
-  var _regenerator = __webpack_require__(5);
+  var _regenerator = __webpack_require__(6);
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(4);
+  var _asyncToGenerator2 = __webpack_require__(5);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -3803,11 +3992,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Home = __webpack_require__(53);
+  var _Home = __webpack_require__(56);
   
   var _Home2 = _interopRequireDefault(_Home);
   
-  var _fetch = __webpack_require__(14);
+  var _fetch = __webpack_require__(16);
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
@@ -3859,7 +4048,7 @@ module.exports =
   }();
 
 /***/ },
-/* 55 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3872,11 +4061,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Login = __webpack_require__(80);
+  var _Login = __webpack_require__(100);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3917,7 +4106,7 @@ module.exports =
   exports.default = (0, _withStyles2.default)(Login, _Login2.default);
 
 /***/ },
-/* 56 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3927,11 +4116,11 @@ module.exports =
   });
   exports.action = exports.path = undefined;
   
-  var _regenerator = __webpack_require__(5);
+  var _regenerator = __webpack_require__(6);
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(4);
+  var _asyncToGenerator2 = __webpack_require__(5);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -3939,7 +4128,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(55);
+  var _Login = __webpack_require__(58);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -3981,7 +4170,7 @@ module.exports =
   }();
 
 /***/ },
-/* 57 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3994,11 +4183,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Register = __webpack_require__(81);
+  var _Register = __webpack_require__(101);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -4039,7 +4228,7 @@ module.exports =
   exports.default = (0, _withStyles2.default)(Register, _Register2.default);
 
 /***/ },
-/* 58 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4049,11 +4238,11 @@ module.exports =
   });
   exports.action = exports.path = undefined;
   
-  var _regenerator = __webpack_require__(5);
+  var _regenerator = __webpack_require__(6);
   
   var _regenerator2 = _interopRequireDefault(_regenerator);
   
-  var _asyncToGenerator2 = __webpack_require__(4);
+  var _asyncToGenerator2 = __webpack_require__(5);
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
@@ -4061,7 +4250,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(57);
+  var _Register = __webpack_require__(60);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -4103,20 +4292,20 @@ module.exports =
   }();
 
 /***/ },
-/* 59 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
-  module.exports = { "default": __webpack_require__(102), __esModule: true };
+  module.exports = { "default": __webpack_require__(122), __esModule: true };
 
 /***/ },
-/* 60 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
   "use strict";
   
   exports.__esModule = true;
   
-  var _promise = __webpack_require__(23);
+  var _promise = __webpack_require__(24);
   
   var _promise2 = _interopRequireDefault(_promise);
   
@@ -4152,18 +4341,18 @@ module.exports =
   };
 
 /***/ },
-/* 61 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
   "use strict";
   
   exports.__esModule = true;
   
-  var _isIterable2 = __webpack_require__(88);
+  var _isIterable2 = __webpack_require__(108);
   
   var _isIterable3 = _interopRequireDefault(_isIterable2);
   
-  var _getIterator2 = __webpack_require__(17);
+  var _getIterator2 = __webpack_require__(18);
   
   var _getIterator3 = _interopRequireDefault(_getIterator2);
   
@@ -4208,7 +4397,7 @@ module.exports =
   }();
 
 /***/ },
-/* 62 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
   // This method of obtaining a reference to the global object needs to be
@@ -4229,7 +4418,7 @@ module.exports =
   // Force reevalutation of runtime.js.
   g.regeneratorRuntime = undefined;
   
-  module.exports = __webpack_require__(63);
+  module.exports = __webpack_require__(66);
   
   if (hadRuntime) {
     // Restore the original runtime.
@@ -4247,32 +4436,32 @@ module.exports =
 
 
 /***/ },
-/* 63 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
   /* WEBPACK VAR INJECTION */(function(module) {"use strict";
   
-  var _promise = __webpack_require__(23);
+  var _promise = __webpack_require__(24);
   
   var _promise2 = _interopRequireDefault(_promise);
   
-  var _setPrototypeOf = __webpack_require__(92);
+  var _setPrototypeOf = __webpack_require__(112);
   
   var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
   
-  var _create = __webpack_require__(90);
+  var _create = __webpack_require__(110);
   
   var _create2 = _interopRequireDefault(_create);
   
-  var _typeof2 = __webpack_require__(98);
+  var _typeof2 = __webpack_require__(118);
   
   var _typeof3 = _interopRequireDefault(_typeof2);
   
-  var _iterator = __webpack_require__(94);
+  var _iterator = __webpack_require__(114);
   
   var _iterator2 = _interopRequireDefault(_iterator);
   
-  var _symbol = __webpack_require__(93);
+  var _symbol = __webpack_require__(113);
   
   var _symbol2 = _interopRequireDefault(_symbol);
   
@@ -4902,13 +5091,43 @@ module.exports =
   // object, this seems to be the most reliable technique that does not
   // use indirect eval (which violates Content Security Policy).
   (typeof global === "undefined" ? "undefined" : (0, _typeof3.default)(global)) === "object" ? global : (typeof window === "undefined" ? "undefined" : (0, _typeof3.default)(window)) === "object" ? window : (typeof self === "undefined" ? "undefined" : (0, _typeof3.default)(self)) === "object" ? self : undefined);
-  /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(85)(module)))
+  /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(105)(module)))
 
 /***/ },
-/* 64 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(16)();
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS and IE text size adjust after device orientation change,\n *    without disabling user zoom.\n */\nhtml {\n  font-family: sans-serif; /* 1 */\n  -ms-text-size-adjust: 100%; /* 2 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n/**\n * Remove default margin.\n */\nbody {\n  margin: 0;\n}\n/* HTML5 display definitions\n   ========================================================================== */\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11\n * and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\narticle, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {\n  display: block;\n}\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n */\naudio, canvas, progress, video {\n  display: inline-block; /* 1 */\n  vertical-align: baseline; /* 2 */\n}\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.\n */\n[hidden], template {\n  display: none;\n}\n/* Links\n   ========================================================================== */\n/**\n * Remove the gray background color from active links in IE 10.\n */\na {\n  background-color: transparent;\n}\n/**\n * Improve readability of focused elements when they are also in an\n * active/hover state.\n */\na:active, a:hover {\n  outline: 0;\n}\n/* Text-level semantics\n   ========================================================================== */\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\nabbr[title] {\n  border-bottom: 1px dotted;\n}\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\nb, strong {\n  font-weight: bold;\n}\n/**\n * Address styling not present in Safari and Chrome.\n */\ndfn {\n  font-style: italic;\n}\n/**\n * Address variable `h1` font-size and margin within `section` and `article`\n * contexts in Firefox 4+, Safari, and Chrome.\n */\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n/**\n * Address styling not present in IE 8/9.\n */\nmark {\n  background: #ff0;\n  color: #000;\n}\n/**\n * Address inconsistent and variable font size in all browsers.\n */\nsmall {\n  font-size: 80%;\n}\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\nsub, sup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\nsup {\n  top: -0.5em;\n}\nsub {\n  bottom: -0.25em;\n}\n/* Embedded content\n   ========================================================================== */\n/**\n * Remove border when inside `a` element in IE 8/9/10.\n */\nimg {\n  border: 0;\n}\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\nsvg:not(:root) {\n  overflow: hidden;\n}\n/* Grouping content\n   ========================================================================== */\n/**\n * Address margin not present in IE 8/9 and Safari.\n */\nfigure {\n  margin: 1em 40px;\n}\n/**\n * Address differences between Firefox and other browsers.\n */\nhr {\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box;\n  height: 0;\n}\n/**\n * Contain overflow in all browsers.\n */\npre {\n  overflow: auto;\n}\n/**\n * Address odd `em`-unit font size rendering in all browsers.\n */\ncode, kbd, pre, samp {\n  font-family: monospace, monospace;\n  font-size: 1em;\n}\n/* Forms\n   ========================================================================== */\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\nbutton, input, optgroup, select, textarea {\n  color: inherit; /* 1 */\n  font: inherit; /* 2 */\n  margin: 0; /* 3 */\n}\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\nbutton {\n  overflow: visible;\n}\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\nbutton, select {\n  text-transform: none;\n}\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n */\nbutton, html input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n  cursor: pointer; /* 3 */\n}\n/**\n * Re-set default cursor for disabled elements.\n */\nbutton[disabled], html input[disabled] {\n  cursor: default;\n}\n/**\n * Remove inner padding and border in Firefox 4+.\n */\nbutton::-moz-focus-inner, input::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n}\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\ninput {\n  line-height: normal;\n}\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n */\ninput[type=\"checkbox\"], input[type=\"radio\"] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\ninput[type=\"number\"]::-webkit-inner-spin-button, input[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.\n */\ninput[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box; /* 2 */\n}\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\ninput[type=\"search\"]::-webkit-search-cancel-button, input[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n/**\n * Define consistent border, margin, and padding.\n */\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n */\nlegend {\n  border: 0; /* 1 */\n  padding: 0; /* 2 */\n}\n/**\n * Remove default vertical scrollbar in IE 8/9/10/11.\n */\ntextarea {\n  overflow: auto;\n}\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\noptgroup {\n  font-weight: bold;\n}\n/* Tables\n   ========================================================================== */\n/**\n * Remove most spacing between table cells.\n */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\ntd, th {\n  padding: 0;\n}\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n/*\n * Base styles\n * ========================================================================== */\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em;\n  /* ~16px; */\n  font-family: \"Roboto\", \"Segoe UI\", \"HelveticaNeue-Light\", sans-serif;\n  line-height: 1.375;\n  /* ~22px */ }\nbody {\n  background-color: #F0F3F5; }\nh1, h2, h3, h4, h5, h6 {\n  margin: 0; }\na {\n  color: inherit;\n  text-decoration: none; }\np {\n  margin: 0; }\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none; }\n::selection {\n  background: #b3d4fc;\n  text-shadow: none; }\n/*\n * A better looking default horizontal rule\n */\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0; }\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\naudio, canvas, iframe, img, svg, video {\n  vertical-align: middle; }\n/*\n * Remove default fieldset styles.\n */\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0; }\n/*\n * Allow only vertical resizing of textareas.\n */\ntextarea {\n  resize: vertical; }\n/*\n * Browser upgrade prompt\n * ========================================================================== */\n.browserupgrade {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0; }\n/*\n * Print styles\n * Inlined to avoid the additional HTTP request:\n * http://www.phpied.com/delay-loading-your-print-css/\n * ========================================================================== */\n@media print {\n  *, *:before, *:after {\n    background: transparent !important;\n    color: #000 !important;\n    /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    -webkit-box-shadow: none !important;\n            box-shadow: none !important;\n    text-shadow: none !important; }\n  a, a:visited {\n    text-decoration: underline; }\n  a[href]:after {\n    content: \" (\" attr(href) \")\"; }\n  abbr[title]:after {\n    content: \" (\" attr(title) \")\"; }\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n  a[href^=\"#\"]:after, a[href^=\"javascript:\"]:after {\n    content: \"\"; }\n  pre, blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid; }\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n  thead {\n    display: table-header-group; }\n  tr, img {\n    page-break-inside: avoid; }\n  img {\n    max-width: 100% !important; }\n  p, h2, h3 {\n    orphans: 3;\n    widows: 3; }\n  h2, h3 {\n    page-break-after: avoid; } }\n", "", {"version":3,"sources":["/./src/components/App/App.scss","/./src/components/App/src/components/App/App.scss","/./node_modules/normalize.css/normalize.css","/./src/components/App/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH,4EAA4E;AAE5E;;;;GAIG;AAEH;EACE,wBAAwB,CAAC,OAAO;EAChC,2BAA2B,CAAC,OAAO;EACnC,+BAA+B,CAAC,OAAO;CACxC;AAED;;GAEG;AAEH;EACE,UAAU;CACX;AAED;gFACgF;AAEhF;;;;;GAKG;AAEH;EAaE,eAAe;CAChB;AAED;;;GAGG;AAEH;EAIE,sBAAsB,CAAC,OAAO;EAC9B,yBAAyB,CAAC,OAAO;CAClC;AAED;;;GAGG;AAEH;EACE,cAAc;EACd,UAAU;CACX;AAED;;;GAGG;AAEH;EAEE,cAAc;CACf;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,8BAA8B;CAC/B;AAED;;;GAGG;AAEH;EAEE,WAAW;CACZ;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,0BAA0B;CAC3B;AAED;;GAEG;AAEH;EAEE,kBAAkB;CACnB;AAED;;GAEG;AAEH;EACE,mBAAmB;CACpB;AAED;;;GAGG;AAEH;EACE,eAAe;EACf,iBAAiB;CAClB;AAED;;GAEG;AAEH;EACE,iBAAiB;EACjB,YAAY;CACb;AAED;;GAEG;AAEH;EACE,eAAe;CAChB;AAED;;GAEG;AAEH;EAEE,eAAe;EACf,eAAe;EACf,mBAAmB;EACnB,yBAAyB;CAC1B;AAED;EACE,YAAY;CACb;AAED;EACE,gBAAgB;CACjB;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,UAAU;CACX;AAED;;GAEG;AAEH;EACE,iBAAiB;CAClB;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,iBAAiB;CAClB;AAED;;GAEG;AAEH;EACE,gCAAwB;UAAxB,wBAAwB;EACxB,UAAU;CACX;AAED;;GAEG;AAEH;EACE,eAAe;CAChB;AAED;;GAEG;AAEH;EAIE,kCAAkC;EAClC,eAAe;CAChB;AAED;gFACgF;AAEhF;;;GAGG;AAEH;;;;;GAKG;AAEH;EAKE,eAAe,CAAC,OAAO;EACvB,cAAc,CAAC,OAAO;EACtB,UAAU,CAAC,OAAO;CACnB;AAED;;GAEG;AAEH;EACE,kBAAkB;CACnB;AAED;;;;;GAKG;AAEH;EAEE,qBAAqB;CACtB;AAED;;;;;;GAMG;AAEH;EAIE,2BAA2B,CAAC,OAAO;EACnC,gBAAgB,CAAC,OAAO;CACzB;AAED;;GAEG;AAEH;EAEE,gBAAgB;CACjB;AAED;;GAEG;AAEH;EAEE,UAAU;EACV,WAAW;CACZ;AAED;;;GAGG;AAEH;EACE,oBAAoB;CACrB;AAED;;;;;;GAMG;AAEH;EAEE,+BAAuB;UAAvB,uBAAuB,CAAC,OAAO;EAC/B,WAAW,CAAC,OAAO;CACpB;AAED;;;;GAIG;AAEH;EAEE,aAAa;CACd;AAED;;;GAGG;AAEH;EACE,8BAA8B,CAAC,OAAO;EACtC,gCAAwB;UAAxB,wBAAwB,CAAC,OAAO;CACjC;AAED;;;;GAIG;AAEH;EAEE,yBAAyB;CAC1B;AAED;;GAEG;AAEH;EACE,0BAA0B;EAC1B,cAAc;EACd,+BAA+B;CAChC;AAED;;;GAGG;AAEH;EACE,UAAU,CAAC,OAAO;EAClB,WAAW,CAAC,OAAO;CACpB;AAED;;GAEG;AAEH;EACE,eAAe;CAChB;AAED;;;GAGG;AAEH;EACE,kBAAkB;CACnB;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,0BAA0B;EAC1B,kBAAkB;CACnB;AAED;EAEE,WAAW;CACZ;AD5ZD,yEAAyE;AEXzE;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;AFnBhF;;gFAEgF;AAEhF;EACE,YAAY;EACZ,iBAAiB;EACjB,eAAe;EAAE,YAAY;EAC7B,qEER6E;EFS7E,mBAAmB;EAAE,WAAW,EACjC;AAED;EACE,0BAA0B,EAC3B;AAED;EACE,UAAU,EACX;AAED;EACE,eAAe;EACf,sBAAsB,EACvB;AAED;EACE,UAAU,EACX;AAED;;;;;;GAMG;AAEH;EACE,oBAAoB;EACpB,kBAAkB,EACnB;AAED;EACE,oBAAoB;EACpB,kBAAkB,EACnB;AAED;;GAEG;AAEH;EACE,eAAe;EACf,YAAY;EACZ,UAAU;EACV,2BAA2B;EAC3B,cAAc;EACd,WAAW,EACZ;AAED;;;;GAIG;AAEH;EAME,uBAAuB,EACxB;AAED;;GAEG;AAEH;EACE,UAAU;EACV,UAAU;EACV,WAAW,EACZ;AAED;;GAEG;AAEH;EACE,iBAAiB,EAClB;AAED;;gFAEgF;AAEhF;EACE,gBAAgB;EAChB,iBAAiB;EACjB,YAAY;EACZ,iBAAiB,EAClB;AAED;;;;gFAIgF;AAEhF;EACE;IAGE,mCAAmC;IACnC,uBAAuB;IAAE,+DAA+D;IACxF,oCAA4B;YAA5B,4BAA4B;IAC5B,6BAA6B,EAC9B;EAED;IAEE,2BAA2B,EAC5B;EAED;IACE,6BAA4B,EAC7B;EAED;IACE,8BAA6B,EAC9B;EAED;;;KAGG;EAEH;IAEE,YAAY,EACb;EAED;IAEE,uBAAuB;IACvB,yBAAyB,EAC1B;EAED;;;KAGG;EAEH;IACE,4BAA4B,EAC7B;EAED;IAEE,yBAAyB,EAC1B;EAED;IACE,2BAA2B,EAC5B;EAED;IAGE,WAAW;IACX,UAAU,EACX;EAED;IAEE,wBAAwB,EACzB,EAAA","file":"App.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n@import url(../../../node_modules/normalize.css/normalize.css);\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n/*\n * Base styles\n * ========================================================================== */\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em;\n  /* ~16px; */\n  font-family: \"Roboto\", \"Segoe UI\", \"HelveticaNeue-Light\", sans-serif;\n  line-height: 1.375;\n  /* ~22px */ }\n\nbody {\n  background-color: #F0F3F5; }\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0; }\n\na {\n  color: inherit;\n  text-decoration: none; }\n\np {\n  margin: 0; }\n\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none; }\n\n::selection {\n  background: #b3d4fc;\n  text-shadow: none; }\n\n/*\n * A better looking default horizontal rule\n */\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0; }\n\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle; }\n\n/*\n * Remove default fieldset styles.\n */\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0; }\n\n/*\n * Allow only vertical resizing of textareas.\n */\ntextarea {\n  resize: vertical; }\n\n/*\n * Browser upgrade prompt\n * ========================================================================== */\n:global(.browserupgrade) {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0; }\n\n/*\n * Print styles\n * Inlined to avoid the additional HTTP request:\n * http://www.phpied.com/delay-loading-your-print-css/\n * ========================================================================== */\n@media print {\n  *,\n  *:before,\n  *:after {\n    background: transparent !important;\n    color: #000 !important;\n    /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    box-shadow: none !important;\n    text-shadow: none !important; }\n  a,\n  a:visited {\n    text-decoration: underline; }\n  a[href]:after {\n    content: \" (\" attr(href) \")\"; }\n  abbr[title]:after {\n    content: \" (\" attr(title) \")\"; }\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n  a[href^=\"#\"]:after,\n  a[href^=\"javascript:\"]:after {\n    content: \"\"; }\n  pre,\n  blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid; }\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n  thead {\n    display: table-header-group; }\n  tr,\n  img {\n    page-break-inside: avoid; }\n  img {\n    max-width: 100% !important; }\n  p,\n  h2,\n  h3 {\n    orphans: 3;\n    widows: 3; }\n  h2,\n  h3 {\n    page-break-after: avoid; } }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../../node_modules/normalize.css/normalize.css';\n\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n\n@import '../variables.scss';\n\n/*\n * Base styles\n * ========================================================================== */\n\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em; /* ~16px; */\n  font-family: $font-family-base;\n  line-height: 1.375; /* ~22px */\n}\n\nbody {\n  background-color: #F0F3F5;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0;\n}\n\na {\n  color: inherit;\n  text-decoration: none;\n}\n\np {\n  margin: 0;\n}\n\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n\n::selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n\n/*\n * A better looking default horizontal rule\n */\n\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0;\n}\n\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\n\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle;\n}\n\n/*\n * Remove default fieldset styles.\n */\n\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0;\n}\n\n/*\n * Allow only vertical resizing of textareas.\n */\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n * Browser upgrade prompt\n * ========================================================================== */\n\n:global(.browserupgrade) {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0;\n}\n\n/*\n * Print styles\n * Inlined to avoid the additional HTTP request:\n * http://www.phpied.com/delay-loading-your-print-css/\n * ========================================================================== */\n\n@media print {\n  *,\n  *:before,\n  *:after {\n    background: transparent !important;\n    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    box-shadow: none !important;\n    text-shadow: none !important;\n  }\n\n  a,\n  a:visited {\n    text-decoration: underline;\n  }\n\n  a[href]:after {\n    content: \" (\" attr(href) \")\";\n  }\n\n  abbr[title]:after {\n    content: \" (\" attr(title) \")\";\n  }\n\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n\n  a[href^=\"#\"]:after,\n  a[href^=\"javascript:\"]:after {\n    content: \"\";\n  }\n\n  pre,\n  blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid;\n  }\n\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n\n  thead {\n    display: table-header-group;\n  }\n\n  tr,\n  img {\n    page-break-inside: avoid;\n  }\n\n  img {\n    max-width: 100% !important;\n  }\n\n  p,\n  h2,\n  h3 {\n    orphans: 3;\n    widows: 3;\n  }\n\n  h2,\n  h3 {\n    page-break-after: avoid;\n  }\n}\n","/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\n\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS and IE text size adjust after device orientation change,\n *    without disabling user zoom.\n */\n\nhtml {\n  font-family: sans-serif; /* 1 */\n  -ms-text-size-adjust: 100%; /* 2 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n\n/**\n * Remove default margin.\n */\n\nbody {\n  margin: 0;\n}\n\n/* HTML5 display definitions\n   ========================================================================== */\n\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11\n * and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\n\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  display: block;\n}\n\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n */\n\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block; /* 1 */\n  vertical-align: baseline; /* 2 */\n}\n\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\n\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.\n */\n\n[hidden],\ntemplate {\n  display: none;\n}\n\n/* Links\n   ========================================================================== */\n\n/**\n * Remove the gray background color from active links in IE 10.\n */\n\na {\n  background-color: transparent;\n}\n\n/**\n * Improve readability of focused elements when they are also in an\n * active/hover state.\n */\n\na:active,\na:hover {\n  outline: 0;\n}\n\n/* Text-level semantics\n   ========================================================================== */\n\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\n\nabbr[title] {\n  border-bottom: 1px dotted;\n}\n\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\n\nb,\nstrong {\n  font-weight: bold;\n}\n\n/**\n * Address styling not present in Safari and Chrome.\n */\n\ndfn {\n  font-style: italic;\n}\n\n/**\n * Address variable `h1` font-size and margin within `section` and `article`\n * contexts in Firefox 4+, Safari, and Chrome.\n */\n\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n\n/**\n * Address styling not present in IE 8/9.\n */\n\nmark {\n  background: #ff0;\n  color: #000;\n}\n\n/**\n * Address inconsistent and variable font size in all browsers.\n */\n\nsmall {\n  font-size: 80%;\n}\n\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsup {\n  top: -0.5em;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\n/* Embedded content\n   ========================================================================== */\n\n/**\n * Remove border when inside `a` element in IE 8/9/10.\n */\n\nimg {\n  border: 0;\n}\n\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\n\nsvg:not(:root) {\n  overflow: hidden;\n}\n\n/* Grouping content\n   ========================================================================== */\n\n/**\n * Address margin not present in IE 8/9 and Safari.\n */\n\nfigure {\n  margin: 1em 40px;\n}\n\n/**\n * Address differences between Firefox and other browsers.\n */\n\nhr {\n  box-sizing: content-box;\n  height: 0;\n}\n\n/**\n * Contain overflow in all browsers.\n */\n\npre {\n  overflow: auto;\n}\n\n/**\n * Address odd `em`-unit font size rendering in all browsers.\n */\n\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  font-size: 1em;\n}\n\n/* Forms\n   ========================================================================== */\n\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit; /* 1 */\n  font: inherit; /* 2 */\n  margin: 0; /* 3 */\n}\n\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\n\nbutton {\n  overflow: visible;\n}\n\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n */\n\nbutton,\nhtml input[type=\"button\"], /* 1 */\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n  cursor: pointer; /* 3 */\n}\n\n/**\n * Re-set default cursor for disabled elements.\n */\n\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default;\n}\n\n/**\n * Remove inner padding and border in Firefox 4+.\n */\n\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n}\n\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\n\ninput {\n  line-height: normal;\n}\n\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n */\n\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\n\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.\n */\n\ninput[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  box-sizing: content-box; /* 2 */\n}\n\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\n\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n * Define consistent border, margin, and padding.\n */\n\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n */\n\nlegend {\n  border: 0; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Remove default vertical scrollbar in IE 8/9/10/11.\n */\n\ntextarea {\n  overflow: auto;\n}\n\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\n\noptgroup {\n  font-weight: bold;\n}\n\n/* Tables\n   ========================================================================== */\n\n/**\n * Remove most spacing between table cells.\n */\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ntd,\nth {\n  padding: 0;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.ContentPage_container_1JT {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n", "", {"version":3,"sources":["/./src/components/ContentPage/ContentPage.scss","/./src/components/ContentPage/src/components/ContentPage/ContentPage.scss","/./src/components/ContentPage/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADnBhF;EACE,eAAe;EACf,kBAAkB;EAClB,kBCG4B,EDF7B","file":"ContentPage.scss","sourcesContent":["@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n","/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\r\n\r\n@import '../variables.scss';\r\n\r\n.root {\r\n\r\n}\r\n\r\n.container {\r\n  margin: 0 auto;\r\n  padding: 0 0 40px;\r\n  max-width: $max-content-width;\r\n}\r\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"container": "ContentPage_container_1JT"
+  };
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
   // imports
   
   
@@ -4919,10 +5138,151 @@ module.exports =
 
 
 /***/ },
-/* 65 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(16)();
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Feedback_root_LW7 {\n  background: #f5f5f5;\n  color: #333; }\n.Feedback_container_3dV {\n  margin: 0 auto;\n  padding: 20px 8px;\n  max-width: 1000px;\n  text-align: center;\n  font-size: 1.5em;\n  /* ~24px */ }\n.Feedback_link_17l, .Feedback_link_17l:active, .Feedback_link_17l:hover, .Feedback_link_17l:visited {\n  color: #333;\n  text-decoration: none; }\n.Feedback_link_17l:hover {\n  text-decoration: underline; }\n.Feedback_spacer_Iut {\n  padding-right: 15px;\n  padding-left: 15px; }\n", "", {"version":3,"sources":["/./src/components/Feedback/Feedback.scss","/./src/components/Feedback/src/components/Feedback/Feedback.scss","/./src/components/Feedback/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,oBAAoB;EACpB,YAAY,EACb;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B;EDD5B,mBAAmB;EACnB,iBAAiB;EAAE,WAAW,EAC/B;AAED;EAIE,YAAY;EACZ,sBAAsB,EACvB;AAED;EACE,2BAA2B,EAC5B;AAED;EACE,oBAAoB;EACpB,mBAAmB,EACpB","file":"Feedback.scss","sourcesContent":["@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  background: #f5f5f5;\n  color: #333; }\n\n.container {\n  margin: 0 auto;\n  padding: 20px 8px;\n  max-width: 1000px;\n  text-align: center;\n  font-size: 1.5em;\n  /* ~24px */ }\n\n.link,\n.link:active,\n.link:hover,\n.link:visited {\n  color: #333;\n  text-decoration: none; }\n\n.link:hover {\n  text-decoration: underline; }\n\n.spacer {\n  padding-right: 15px;\n  padding-left: 15px; }\n","/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\r\n\r\n@import '../variables.scss';\r\n\r\n.root {\r\n  background: #f5f5f5;\r\n  color: #333;\r\n}\r\n\r\n.container {\r\n  margin: 0 auto;\r\n  padding: 20px 8px;\r\n  max-width: $max-content-width;\r\n  text-align: center;\r\n  font-size: 1.5em; /* ~24px */\r\n}\r\n\r\n.link,\r\n.link:active,\r\n.link:hover,\r\n.link:visited {\r\n  color: #333;\r\n  text-decoration: none;\r\n}\r\n\r\n.link:hover {\r\n  text-decoration: underline;\r\n}\r\n\r\n.spacer {\r\n  padding-right: 15px;\r\n  padding-left: 15px;\r\n}\r\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Feedback_root_LW7",
+  	"container": "Feedback_container_3dV",
+  	"link": "Feedback_link_17l",
+  	"spacer": "Feedback_spacer_Iut"
+  };
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Footer_root_3dP {\n  background: #333;\n  color: #fff; }\n.Footer_container_26p {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: 1000px;\n  text-align: center; }\n.Footer_text_tTp {\n  color: rgba(255, 255, 255, 0.5); }\n.Footer_textMuted_1h3 {\n  color: rgba(255, 255, 255, 0.3); }\n.Footer_spacer_3n7 {\n  color: rgba(255, 255, 255, 0.3); }\n.Footer_text_tTp, .Footer_link_NoJ {\n  padding: 2px 5px;\n  font-size: 1em; }\n.Footer_link_NoJ, .Footer_link_NoJ:active, .Footer_link_NoJ:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none; }\n.Footer_link_NoJ:hover {\n  color: white; }\n", "", {"version":3,"sources":["/./src/components/Footer/Footer.scss","/./src/components/Footer/src/components/Footer/Footer.scss","/./src/components/Footer/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,iBAAiB;EACjB,YAAY,EACb;AAED;EACE,eAAe;EACf,mBAAmB;EACnB,kBCE4B;EDD5B,mBAAmB,EACpB;AAED;EACE,gCAAW,EACZ;AAED;EAEE,gCAAW,EACZ;AAED;EACE,gCAAW,EACZ;AAED;EAEE,iBAAiB;EACjB,eAAe,EAChB;AAED;EAGE,gCAAW;EACX,sBAAsB,EACvB;AAED;EACE,aAAW,EACZ","file":"Footer.scss","sourcesContent":["@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  background: #333;\n  color: #fff; }\n\n.container {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: 1000px;\n  text-align: center; }\n\n.text {\n  color: rgba(255, 255, 255, 0.5); }\n\n.textMuted {\n  composes: text;\n  color: rgba(255, 255, 255, 0.3); }\n\n.spacer {\n  color: rgba(255, 255, 255, 0.3); }\n\n.text,\n.link {\n  padding: 2px 5px;\n  font-size: 1em; }\n\n.link,\n.link:active,\n.link:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none; }\n\n.link:hover {\n  color: white; }\n","/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\r\n\r\n@import '../variables.scss';\r\n\r\n.root {\r\n  background: #333;\r\n  color: #fff;\r\n}\r\n\r\n.container {\r\n  margin: 0 auto;\r\n  padding: 20px 15px;\r\n  max-width: $max-content-width;\r\n  text-align: center;\r\n}\r\n\r\n.text {\r\n  color: rgba(255, 255, 255, .5);\r\n}\r\n\r\n.textMuted {\r\n  composes: text;\r\n  color: rgba(255, 255, 255, .3);\r\n}\r\n\r\n.spacer {\r\n  color: rgba(255, 255, 255, .3);\r\n}\r\n\r\n.text,\r\n.link {\r\n  padding: 2px 5px;\r\n  font-size: 1em;\r\n}\r\n\r\n.link,\r\n.link:active,\r\n.link:visited {\r\n  color: rgba(255, 255, 255, .6);\r\n  text-decoration: none;\r\n}\r\n\r\n.link:hover {\r\n  color: rgba(255, 255, 255, 1);\r\n}\r\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Footer_root_3dP",
+  	"container": "Footer_container_26p",
+  	"text": "Footer_text_tTp",
+  	"textMuted": "Footer_textMuted_1h3 Footer_text_tTp",
+  	"spacer": "Footer_spacer_3n7",
+  	"link": "Footer_link_NoJ"
+  };
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n.Header_root_14I {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  padding: 20px 0 18px 0;\n  z-index: 100; }\n.Header_root_14I::before {\n    -webkit-box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    -ms-box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    -o-box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ffffff; }\n.Header_nav_3wx {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 14px;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  text-align: center;\n  position: relative; }\n.Header_nav_3wx a {\n    color: #A1AEB6;\n    display: inline-block;\n    font-style: italic;\n    font-weight: 500;\n    margin: 0 7px;\n    text-decoration: none;\n    text-transform: uppercase; }\n.Header_nav_3wx a:hover {\n      color: #ea1556; }\n.Header_nav_3wx a.Header_active_1Z5 {\n      color: #000000; }\n.Header_navGrouping_2Vv:last-of-type .Header_divider_1lO {\n  display: none; }\n.Header_navGrouping_2Vv .Header_divider_1lO {\n  color: #A1AEB6;\n  margin: 0 8px; }\n", "", {"version":3,"sources":["/./src/components/Header/Header.scss","/./src/components/Header/src/components/Header/Header.scss","/./src/components/Header/src/components/variables.scss","/./src/components/Header/src/components/mixins.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ACqBhF;;;;;;;;;;;;gEAYgE;AFvDhE;EAGE,gBAAgB;EAChB,OAAO;EACP,QAAQ;EACR,SAAS;EACT,uBAAuB;EACvB,aAAa,EAad;AArBD;IEqEE,qDAA8B;IAG9B,iDAAsB;IACtB,gDAAoB;IACpB,6CAAc;IF9DZ,YAAY;IACZ,mBAAmB;IACnB,OAAO;IACP,QAAQ;IACR,SAAS;IACT,UAAU;IACV,0BAA0B,EAC3B;AAIH;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,gBAAgB;EAChB,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,mBAAmB;EACnB,mBAAmB,EAqBpB;AA1BD;IAQI,eAAe;IACf,sBAAsB;IACtB,mBAAmB;IACnB,iBAAiB;IACjB,cAAc;IACd,sBAAsB;IACtB,0BAA0B,EAU3B;AAxBH;MAiBM,eAAe,EAChB;AAlBL;MAqBM,eAAe,EAChB;AAML;EAKM,cAAc,EACf;AANL;EAWI,eAAe;EACf,cAAc,EACf","file":"Header.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n.root {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  padding: 20px 0 18px 0;\n  z-index: 100; }\n  .root::before {\n    -webkit-box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    -khtml-box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    -moz-box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    -ms-box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    -o-box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    box-shadow: 0 1px 2px rgba(17, 42, 62, 0.07);\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ffffff; }\n\n.nav {\n  display: flex;\n  font-size: 14px;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .nav a {\n    color: #A1AEB6;\n    display: inline-block;\n    font-style: italic;\n    font-weight: 500;\n    margin: 0 7px;\n    text-decoration: none;\n    text-transform: uppercase; }\n    .nav a:hover {\n      color: #ea1556; }\n    .nav a.active {\n      color: #000000; }\n\n.navGrouping:last-of-type .divider {\n  display: none; }\n\n.navGrouping .divider {\n  color: #A1AEB6;\n  margin: 0 8px; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.scss';\n@import '../mixins.scss';\n\n.root {\n  //background-color: lighten(#F0F3F5, 4);\n  //@include gradient(#FFFFFF, lighten(#F0F3F5, 4));\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  padding: 20px 0 18px 0;\n  z-index: 100;\n\n  &::before {\n    @include box-shadow(0, 1px, 2px, rgba(17, 42, 62, 0.07));\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ffffff;\n  }\n\n}\n\n.nav {\n  display: flex;\n  font-size: 14px;\n  justify-content: center;\n  text-align: center;\n  position: relative;\n\n  a {\n    color: #A1AEB6;\n    display: inline-block;\n    font-style: italic;\n    font-weight: 500;\n    margin: 0 7px;\n    text-decoration: none;\n    text-transform: uppercase;\n\n    &:hover {\n      color: #ea1556;\n    }\n\n    &.active {\n      color: #000000;\n    }\n\n  }\n\n}\n\n.navGrouping {\n\n  &:last-of-type {\n\n    .divider {\n      display: none;\n    }\n\n  }\n\n  .divider {\n    color: #A1AEB6;\n    margin: 0 8px;\n  }\n\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n","\n@mixin lines-truncate($lineheight, $linecount) {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  line-height: $lineheight;                  /* fallback */\n  max-height: $lineheight * $linecount;      /* fallback */\n  -webkit-line-clamp: $linecount;            /* number of lines to show */\n  -webkit-box-orient: vertical;\n}\n\n@mixin placeholder {\n  &::-webkit-input-placeholder {@content}\n  &:-moz-placeholder           {@content}\n  &::-moz-placeholder          {@content}\n  &:-ms-input-placeholder      {@content}\n}\n\n%text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin animation2() {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n@mixin effect2($effect) {\n  -webkit-animation-name: $effect;\n  animation-name: $effect;\n}\n\n@mixin image-2x($image, $width, $height) {\n  @media (min--moz-device-pixel-ratio: 1.3),\n  (-o-min-device-pixel-ratio: 2.6/2),\n  (-webkit-min-device-pixel-ratio: 1.3),\n  (min-device-pixel-ratio: 1.3),\n  (min-resolution: 1.3dppx) {\n    /* on retina, use image that's scaled by 2 */\n    background-image: url($image);\n    background-size: $width $height;\n  }\n}\n\n\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n\n\n////\n/// @author Matthieu Aussaguel\n/// @group sass-css3-mixins\n////\n\n\n/// Adds a browser prefix to the property\n/// @param {*} $property Property\n/// @param {*} $value Value\n\n@mixin css3-prefix($property, $value) {\n  -webkit-#{$property}: #{$value};\n  -khtml-#{$property}: #{$value};\n  -moz-#{$property}: #{$value};\n  -ms-#{$property}: #{$value};\n  -o-#{$property}: #{$value};\n  #{$property}: #{$value};\n}\n\n\n/// Background Gradient\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(top, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(top, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(top, $startColor, $endColor);\n  background-image:      -o-linear-gradient(top, $startColor, $endColor);\n  background-image:         linear-gradient(top, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');\n}\n\n@mixin gradient($colour1, $colour2) {\n  background-image: -webkit-gradient(\n      linear,\n      left top,\n      left bottom,\n      color-stop(0, $colour1),\n      color-stop(1, $colour2)\n  );\n  background-image: -o-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -moz-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -webkit-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -ms-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: linear-gradient(to bottom, $colour1 0%, $colour2 100%);\n}\n\n\n/// Background Horizontal\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-horizontal($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(left, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(left, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(left, $startColor, $endColor);\n  background-image:      -o-linear-gradient(left, $startColor, $endColor);\n  background-image:         linear-gradient(left, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1');\n}\n\n\n/// Background Radial\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Percentage} $startPos [0%] - Start position\n/// @param {Color} $endColor [#999999] - End Color\n/// @param {Percentage} $endPos [100%] - End position\n\n@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) {\n  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);\n  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor));\n  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos);\n}\n\n\n/// Background Size\n/// @param {Size} $width [100%] - Width\n/// @param {Size} $width [$width] - Height\n/// @require {mixin} css3-prefix\n\n@mixin background-size($width: 100%, $height: $width) {\n  @if type-of($width) == 'number' and $height != null {\n    @include css3-prefix('background-size', $width $height);\n  } @else {\n    @include css3-prefix('background-size', $width);\n  }\n}\n\n\n/// Background Color Opacity\n/// @param {Color} $color [100%] - Color\n/// @param {Double} $opacity [0.85] - Opacity\n\n@mixin background-opacity($color: #000, $opacity: 0.85) {\n  background: $color;\n  background: rgba($color, $opacity);\n}\n\n\n/// Border Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin border-radius($radius: 5px) {\n  @include css3-prefix('border-radius', $radius);\n}\n\n\n/// Border Radius Separate\n/// @param {Size} $topLeftRadius [5px] - Top Left\n/// @param {Size} $topRightRadius [5px] - Top Right\n/// @param {Size} $bottomLeftRadius [5px] - Bottom Left\n/// @param {Size} $bottomRightRadius [5px] - Bottom Right\n\n@mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px) {\n  -webkit-border-top-left-radius:     $topLeftRadius;\n  -webkit-border-top-right-radius:    $topRightRadius;\n  -webkit-border-bottom-right-radius: $bottomRightRadius;\n  -webkit-border-bottom-left-radius:  $bottomLeftRadius;\n\n  -moz-border-radius-topleft:     $topLeftRadius;\n  -moz-border-radius-topright:    $topRightRadius;\n  -moz-border-radius-bottomright: $bottomRightRadius;\n  -moz-border-radius-bottomleft:  $bottomLeftRadius;\n\n  border-top-left-radius:     $topLeftRadius;\n  border-top-right-radius:    $topRightRadius;\n  border-bottom-right-radius: $bottomRightRadius;\n  border-bottom-left-radius:  $bottomLeftRadius;\n}\n\n\n/// Box\n/// @param {*} $orient [horizontal] - Orientation\n/// @param {*} $pack [center] - Pack\n/// @param {*} $align [center] - Align\n/// @require {mixin} css3-prefix\n\n@mixin box($orient: horizontal, $pack: center, $align: center) {\n  display: -webkit-box;\n  display: -moz-box;\n  display: box;\n\n  @include css3-prefix('box-orient', $orient);\n  @include css3-prefix('box-pack', $pack);\n  @include css3-prefix('box-align', $align);\n}\n\n\n/// Box RGBA\n/// @param {Integer} $r [60] - Red\n/// @param {Integer} $g [3] - Green\n/// @param {Integer} $b [12] - Blue\n/// @param {Double} $opacity [0.23] - Opacity\n/// @param {Color} $color [#3C3C3C] - Color\n\n@mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {\n  background-color: transparent;\n  background-color: rgba($r, $g, $b, $opacity);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}');\n  zoom:   1;\n}\n\n\n/// Box Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [5px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n/// @param {Boolean} $inset - Inset\n\n@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: \"\") {\n  @if ($inset != \"\") {\n    @include css3-prefix('box-shadow', $inset $x $y $blur $color);\n  } @else {\n    @include css3-prefix('box-shadow', $x $y $blur $color);\n  }\n}\n\n\n/// Box Sizing\n/// @param {*} $type [border-box] - Type\n/// @require {mixin} css3-prefix\n\n@mixin box-sizing($type: border-box) {\n  @include css3-prefix('box-sizing', $type);\n}\n\n\n/// Columns\n/// @param {Integer} $count [3] - Count\n/// @param {Integer} $gap [10] - Gap\n/// @require {mixin} css3-prefix\n\n@mixin columns($count: 3, $gap: 10) {\n  @include css3-prefix('column-count', $count);\n  @include css3-prefix('column-gap', $gap);\n}\n\n\n/// Double Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} css3-prefix\n/// @require {mixin} border-radius\n\n@mixin double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo);\n\n  @include border-radius( $radius );\n}\n\n\n/// Flex\n/// @param {Integer} $value [1] - Value\n/// @require {mixin} css3-prefix\n\n@mixin flex($value: 1) {\n  @include css3-prefix('box-flex', $value);\n}\n\n\n/// Flip\n/// @param {Double} $scaleX [-1] - ScaleX\n/// @require {mixin} css3-prefix\n\n@mixin flip($scaleX: -1) {\n  @include css3-prefix('transform', scaleX($scaleX));\n  filter:            FlipH;\n  -ms-filter:        \"FlipH\";\n}\n\n\n/// Font Face\n/// @param {Font} $fontFamily [myFont] - Font Family\n/// @param {String} $eotFileSrc ['myFont.eot'] - Eot File Source\n/// @param {String} $woffFileSrc ['myFont.woff'] - Woff File Source\n/// @param {String} $ttfFileSrc ['myFont.ttf'] - Ttf File Source\n/// @param {String} $svgFileSrc ['myFont.svg'] - Svg File Source\n\n@mixin font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont') {\n  font-family: $fontFamily;\n  src: url($eotFileSrc)  format('eot'),\n  url($woffFileSrc) format('woff'),\n  url($ttfFileSrc)  format('truetype'),\n  url($svgFileSrc + $svgFontID) format('svg');\n}\n\n\n/// Opacity\n/// @param {Double} $opacity [0.5] - Opacity\n/// @require {mixin} css3-prefix\n\n@mixin opacity($opacity: 0.5) {\n  $opacityMultiplied: ($opacity * 100);\n\n  filter:         alpha(opacity=$opacityMultiplied);\n  -ms-filter:     \"progid:DXImageTransform.Microsoft.Alpha(Opacity=\" + $opacityMultiplied + \")\";\n  @include css3-prefix('opacity', $opacity);\n}\n\n\n/// Outline Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin outline-radius($radius: 5px) {\n  @include css3-prefix('outline-radius', $radius);\n}\n\n\n/// Resize\n/// @param {*} $directoin [both] - Direction\n/// @require {mixin} css3-prefix\n\n@mixin resize($direction: both) {\n  @include css3-prefix('resize', $direction);\n}\n\n\n/// Rotate\n///\n/// CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html\n/// @param {Double} $deg [0] - Degree\n/// @param {Double} $m11 [0] - M11\n/// @param {Double} $m12 [0] - M12\n/// @param {Double} $m21 [0] - M21\n/// @param {Double} $m22 [0] - M22\n/// @require {mixin} css3-prefix\n\n@mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {\n  @include css3-prefix('transform', rotate($deg + deg));\n  filter: progid:DXImageTransform.Microsoft.Matrix(\n      M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');\n  zoom: 1;\n}\n\n\n/// Text Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [2px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n\n@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {\n  text-shadow: $x $y $blur $color;\n}\n\n\n/// Transform\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform($params) {\n  @include css3-prefix('transform', $params);\n}\n\n\n/// Transform-Origin\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-origin($params) {\n  @include css3-prefix('transform-origin', $params);\n}\n\n\n// Transform-Style\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-style($style: preserve-3d) {\n  @include css3-prefix('transform-style', $style);\n}\n\n/// Transition\n/// @param {List} $properties - Properties\n/// @require {mixin} css3-prefix\n\n@mixin transition($properties...) {\n\n  @if length($properties) >= 1 {\n    @include css3-prefix('transition', $properties);\n  }\n\n  @else {\n    @include css3-prefix('transition',  \"all 0.2s ease-in-out 0s\");\n  }\n}\n\n\n/// Triple Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Color} $colorThree [#000000] - Color Three\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} border-radius\n/// @require {mixin} css3-prefix\n\n@mixin triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include border-radius($radius);\n\n  @include css3-prefix('box-shadow', \"0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}\");\n}\n\n\n/// Keyframes\n/// @param {*} $animation-name - Animation name\n/// @content [Animation css]\n\n@mixin keyframes($animation-name) {\n  @-webkit-keyframes #{$animation-name} {\n    @content;\n  }\n  @-moz-keyframes #{$animation-name} {\n    @content;\n  }\n  @-ms-keyframes #{$animation-name} {\n    @content;\n  }\n  @-o-keyframes #{$animation-name} {\n    @content;\n  }\n  @keyframes #{$animation-name} {\n    @content;\n  }\n}\n\n\n/// Animation\n/// @param {*} $str - name duration timing-function delay iteration-count direction fill-mode play-state ([http://www.w3schools.com/cssref/css3_pr_animation.asp](http://www.w3schools.com/cssref/css3_pr_animation.asp))\n/// @require {mixin} css3-prefix\n\n@mixin animation($str) {\n  @include css3-prefix('animation', $str);\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Header_root_14I",
+  	"nav": "Header_nav_3wx",
+  	"active": "Header_active_1Z5",
+  	"navGrouping": "Header_navGrouping_2Vv",
+  	"divider": "Header_divider_1lO"
+  };
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, ".HighlightedProjectsHeader_root_3Rd {\n  background-color: #ffffff;\n  padding: 120px 0 110px 0; }\n\n.HighlightedProjectsHeader_content_BBR {\n  max-width: 680px;\n  margin: 0 auto; }\n\n.HighlightedProjectsHeader_title_2S0 {\n  color: #424242;\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 20px;\n  text-align: center;\n  text-transform: uppercase; }\n\n.HighlightedProjectsHeader_subtitle_GU- {\n  color: #A1AEB6;\n  font-size: 27px;\n  font-weight: 300;\n  line-height: 44px; }\n", "", {"version":3,"sources":["/./src/components/HighlightedProjects/Header/src/components/HighlightedProjects/Header/HighlightedProjectsHeader.scss"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,yBAAyB,EAC1B;;AAED;EACE,iBAAiB;EACjB,eAAe,EAChB;;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,oBAAoB;EACpB,mBAAmB;EACnB,0BAA0B,EAC3B;;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,kBAAkB,EACnB","file":"HighlightedProjectsHeader.scss","sourcesContent":[".root {\n  background-color: #ffffff;\n  padding: 120px 0 110px 0;\n}\n\n.content {\n  max-width: 680px;\n  margin: 0 auto;\n}\n\n.title {\n  color: #424242;\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 20px;\n  text-align: center;\n  text-transform: uppercase;\n}\n\n.subtitle {\n  color: #A1AEB6;\n  font-size: 27px;\n  font-weight: 300;\n  line-height: 44px;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "HighlightedProjectsHeader_root_3Rd",
+  	"content": "HighlightedProjectsHeader_content_BBR",
+  	"title": "HighlightedProjectsHeader_title_2S0",
+  	"subtitle": "HighlightedProjectsHeader_subtitle_GU-"
+  };
+
+/***/ },
+/* 74 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, ".HighlightedProjects_root_2PK {\n  margin: 280px 0; }\n", "", {"version":3,"sources":["/./src/components/HighlightedProjects/src/components/HighlightedProjects/HighlightedProjects.scss"],"names":[],"mappings":"AAAA;EACE,gBAAgB,EACjB","file":"HighlightedProjects.scss","sourcesContent":[".root {\n  margin: 280px 0;\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "HighlightedProjects_root_2PK"
+  };
+
+/***/ },
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\n\n.HighlightedProjectsProject_clearfix_1KI:after, .HighlightedProjectsProject_content_3lw:after {\n  display: block;\n  visibility: hidden;\n  clear: both;\n  height: 0;\n  content: \" \";\n  font-size: 0; }\n\n* html .HighlightedProjectsProject_clearfix_1KI, * html .HighlightedProjectsProject_content_3lw {\n  -ms-zoom: 1;\n  zoom: 1; }\n\n*:first-child + html .HighlightedProjectsProject_clearfix_1KI, *:first-child + html .HighlightedProjectsProject_content_3lw {\n  -ms-zoom: 1;\n  zoom: 1; }\n\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n\n.HighlightedProjectsProject_root_1Fg {\n  margin: 280px 0; }\n\n.HighlightedProjectsProject_content_3lw {\n  max-width: 1106px;\n  margin: 0 auto; }\n\n.HighlightedProjectsProject_image_14e {\n  float: left;\n  width: 596px;\n  text-align: center; }\n\n.HighlightedProjectsProject_info_G-0 {\n  overflow: hidden;\n  padding-bottom: 2px; }\n\n.HighlightedProjectsProject_title_xSB {\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 12px; }\n\n.HighlightedProjectsProject_position_2JR {\n  color: #556165;\n  font-size: 13px;\n  font-weight: 700;\n  text-transform: uppercase; }\n\n.HighlightedProjectsProject_desc_1vb {\n  color: #A1AEB6;\n  font-size: 22px;\n  line-height: 36px;\n  margin-top: 10px; }\n\n.HighlightedProjectsProject_desc_1vb strong {\n    font-weight: 500; }\n\n.HighlightedProjectsProject_links_YdW {\n  margin-top: 15px; }\n\n.HighlightedProjectsProject_link_1Zw {\n  -webkit-transition: transform 200ms ease;\n  -o-transition: transform 200ms ease;\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  -o-transition: transform 200ms ease, -o-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease, -o-transform 200ms ease;\n  border: 1px solid #DCE4E8;\n  color: #424242;\n  display: inline-block;\n  font-size: 16px;\n  margin-right: 8px;\n  padding: 8px 12px;\n  text-transform: uppercase; }\n\n.HighlightedProjectsProject_link_1Zw:hover {\n    background-color: #DCE4E8; }\n\n.HighlightedProjectsProject_link_1Zw:active {\n    -webkit-transform: translateY(2px);\n        -ms-transform: translateY(2px);\n         -o-transform: translateY(2px);\n            transform: translateY(2px); }\n", "", {"version":3,"sources":["/./src/components/HighlightedProjects/Project/src/components/common.scss","/./src/components/HighlightedProjects/Project/src/components/mixins.scss","/./src/components/HighlightedProjects/Project/src/components/HighlightedProjects/Project/HighlightedProjectsProject.scss"],"names":[],"mappings":"AAAA;EACE,+BAAuB;UAAvB,uBAAuB,EACxB;;AAED;EACE,eAAc;EAAC,mBAAkB;EAAC,YAAW;EAAC,UAAS;EAAC,aAAY;EAAC,aACtE,EAAC;;AAEF;EACE,YAAW;EAAC,QACb,EAAC;;AAEF;EACE,YAAW;EAAC,QACb,EAAC;;ACyCF;;;;;;;;;;;;gEAYgE;;AC/DhE;EACE,gBAAgB,EACjB;;AAED;EAGE,kBAAkB;EAClB,eAAe,EAChB;;AAED;EACE,YAAY;EACZ,aAAa;EACb,mBAAmB,EACpB;;AAED;EACE,iBAAiB;EACjB,oBAAoB,EACrB;;AAED;EACE,gBAAgB;EAChB,iBAAiB;EACjB,oBAAoB,EACrB;;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,0BAA0B,EAC3B;;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,kBAAkB;EAClB,iBAAiB,EAMlB;;AAVD;IAOI,iBAAiB,EAClB;;AAIH;EACE,iBAAiB,EAClB;;AAEC;ED0BA,yCAA8B;EAI9B,oCAAoB;EACpB,iDAAc;EAAd,yCAAc;EAAd,6DAAc;EAAd,iCAAc;EAAd,wFAAc;EC7BZ,0BAA0B;EAC1B,eAAe;EACf,sBAAsB;EACtB,gBAAgB;EAChB,kBAAkB;EAClB,kBAAkB;EAClB,0BAA0B,EAU3B;;AAlBD;IAWI,0BAA0B,EAC3B;;AAZH;IAeI,mCAAqB;QAArB,+BAAqB;SAArB,8BAAqB;YAArB,2BAAqB,EACtB","file":"HighlightedProjectsProject.scss","sourcesContent":["* {\n  box-sizing: border-box;\n}\n\n.clearfix:after{\n  display:block;visibility:hidden;clear:both;height:0;content:\" \";font-size:0\n}\n\n* html .clearfix{\n  -ms-zoom:1;zoom:1\n}\n\n*:first-child+html .clearfix{\n  -ms-zoom:1;zoom:1\n}\n","\n@mixin lines-truncate($lineheight, $linecount) {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  line-height: $lineheight;                  /* fallback */\n  max-height: $lineheight * $linecount;      /* fallback */\n  -webkit-line-clamp: $linecount;            /* number of lines to show */\n  -webkit-box-orient: vertical;\n}\n\n@mixin placeholder {\n  &::-webkit-input-placeholder {@content}\n  &:-moz-placeholder           {@content}\n  &::-moz-placeholder          {@content}\n  &:-ms-input-placeholder      {@content}\n}\n\n%text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin animation2() {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n@mixin effect2($effect) {\n  -webkit-animation-name: $effect;\n  animation-name: $effect;\n}\n\n@mixin image-2x($image, $width, $height) {\n  @media (min--moz-device-pixel-ratio: 1.3),\n  (-o-min-device-pixel-ratio: 2.6/2),\n  (-webkit-min-device-pixel-ratio: 1.3),\n  (min-device-pixel-ratio: 1.3),\n  (min-resolution: 1.3dppx) {\n    /* on retina, use image that's scaled by 2 */\n    background-image: url($image);\n    background-size: $width $height;\n  }\n}\n\n\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n\n\n////\n/// @author Matthieu Aussaguel\n/// @group sass-css3-mixins\n////\n\n\n/// Adds a browser prefix to the property\n/// @param {*} $property Property\n/// @param {*} $value Value\n\n@mixin css3-prefix($property, $value) {\n  -webkit-#{$property}: #{$value};\n  -khtml-#{$property}: #{$value};\n  -moz-#{$property}: #{$value};\n  -ms-#{$property}: #{$value};\n  -o-#{$property}: #{$value};\n  #{$property}: #{$value};\n}\n\n\n/// Background Gradient\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(top, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(top, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(top, $startColor, $endColor);\n  background-image:      -o-linear-gradient(top, $startColor, $endColor);\n  background-image:         linear-gradient(top, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');\n}\n\n@mixin gradient($colour1, $colour2) {\n  background-image: -webkit-gradient(\n      linear,\n      left top,\n      left bottom,\n      color-stop(0, $colour1),\n      color-stop(1, $colour2)\n  );\n  background-image: -o-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -moz-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -webkit-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -ms-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: linear-gradient(to bottom, $colour1 0%, $colour2 100%);\n}\n\n\n/// Background Horizontal\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-horizontal($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(left, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(left, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(left, $startColor, $endColor);\n  background-image:      -o-linear-gradient(left, $startColor, $endColor);\n  background-image:         linear-gradient(left, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1');\n}\n\n\n/// Background Radial\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Percentage} $startPos [0%] - Start position\n/// @param {Color} $endColor [#999999] - End Color\n/// @param {Percentage} $endPos [100%] - End position\n\n@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) {\n  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);\n  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor));\n  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos);\n}\n\n\n/// Background Size\n/// @param {Size} $width [100%] - Width\n/// @param {Size} $width [$width] - Height\n/// @require {mixin} css3-prefix\n\n@mixin background-size($width: 100%, $height: $width) {\n  @if type-of($width) == 'number' and $height != null {\n    @include css3-prefix('background-size', $width $height);\n  } @else {\n    @include css3-prefix('background-size', $width);\n  }\n}\n\n\n/// Background Color Opacity\n/// @param {Color} $color [100%] - Color\n/// @param {Double} $opacity [0.85] - Opacity\n\n@mixin background-opacity($color: #000, $opacity: 0.85) {\n  background: $color;\n  background: rgba($color, $opacity);\n}\n\n\n/// Border Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin border-radius($radius: 5px) {\n  @include css3-prefix('border-radius', $radius);\n}\n\n\n/// Border Radius Separate\n/// @param {Size} $topLeftRadius [5px] - Top Left\n/// @param {Size} $topRightRadius [5px] - Top Right\n/// @param {Size} $bottomLeftRadius [5px] - Bottom Left\n/// @param {Size} $bottomRightRadius [5px] - Bottom Right\n\n@mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px) {\n  -webkit-border-top-left-radius:     $topLeftRadius;\n  -webkit-border-top-right-radius:    $topRightRadius;\n  -webkit-border-bottom-right-radius: $bottomRightRadius;\n  -webkit-border-bottom-left-radius:  $bottomLeftRadius;\n\n  -moz-border-radius-topleft:     $topLeftRadius;\n  -moz-border-radius-topright:    $topRightRadius;\n  -moz-border-radius-bottomright: $bottomRightRadius;\n  -moz-border-radius-bottomleft:  $bottomLeftRadius;\n\n  border-top-left-radius:     $topLeftRadius;\n  border-top-right-radius:    $topRightRadius;\n  border-bottom-right-radius: $bottomRightRadius;\n  border-bottom-left-radius:  $bottomLeftRadius;\n}\n\n\n/// Box\n/// @param {*} $orient [horizontal] - Orientation\n/// @param {*} $pack [center] - Pack\n/// @param {*} $align [center] - Align\n/// @require {mixin} css3-prefix\n\n@mixin box($orient: horizontal, $pack: center, $align: center) {\n  display: -webkit-box;\n  display: -moz-box;\n  display: box;\n\n  @include css3-prefix('box-orient', $orient);\n  @include css3-prefix('box-pack', $pack);\n  @include css3-prefix('box-align', $align);\n}\n\n\n/// Box RGBA\n/// @param {Integer} $r [60] - Red\n/// @param {Integer} $g [3] - Green\n/// @param {Integer} $b [12] - Blue\n/// @param {Double} $opacity [0.23] - Opacity\n/// @param {Color} $color [#3C3C3C] - Color\n\n@mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {\n  background-color: transparent;\n  background-color: rgba($r, $g, $b, $opacity);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}');\n  zoom:   1;\n}\n\n\n/// Box Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [5px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n/// @param {Boolean} $inset - Inset\n\n@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: \"\") {\n  @if ($inset != \"\") {\n    @include css3-prefix('box-shadow', $inset $x $y $blur $color);\n  } @else {\n    @include css3-prefix('box-shadow', $x $y $blur $color);\n  }\n}\n\n\n/// Box Sizing\n/// @param {*} $type [border-box] - Type\n/// @require {mixin} css3-prefix\n\n@mixin box-sizing($type: border-box) {\n  @include css3-prefix('box-sizing', $type);\n}\n\n\n/// Columns\n/// @param {Integer} $count [3] - Count\n/// @param {Integer} $gap [10] - Gap\n/// @require {mixin} css3-prefix\n\n@mixin columns($count: 3, $gap: 10) {\n  @include css3-prefix('column-count', $count);\n  @include css3-prefix('column-gap', $gap);\n}\n\n\n/// Double Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} css3-prefix\n/// @require {mixin} border-radius\n\n@mixin double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo);\n\n  @include border-radius( $radius );\n}\n\n\n/// Flex\n/// @param {Integer} $value [1] - Value\n/// @require {mixin} css3-prefix\n\n@mixin flex($value: 1) {\n  @include css3-prefix('box-flex', $value);\n}\n\n\n/// Flip\n/// @param {Double} $scaleX [-1] - ScaleX\n/// @require {mixin} css3-prefix\n\n@mixin flip($scaleX: -1) {\n  @include css3-prefix('transform', scaleX($scaleX));\n  filter:            FlipH;\n  -ms-filter:        \"FlipH\";\n}\n\n\n/// Font Face\n/// @param {Font} $fontFamily [myFont] - Font Family\n/// @param {String} $eotFileSrc ['myFont.eot'] - Eot File Source\n/// @param {String} $woffFileSrc ['myFont.woff'] - Woff File Source\n/// @param {String} $ttfFileSrc ['myFont.ttf'] - Ttf File Source\n/// @param {String} $svgFileSrc ['myFont.svg'] - Svg File Source\n\n@mixin font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont') {\n  font-family: $fontFamily;\n  src: url($eotFileSrc)  format('eot'),\n  url($woffFileSrc) format('woff'),\n  url($ttfFileSrc)  format('truetype'),\n  url($svgFileSrc + $svgFontID) format('svg');\n}\n\n\n/// Opacity\n/// @param {Double} $opacity [0.5] - Opacity\n/// @require {mixin} css3-prefix\n\n@mixin opacity($opacity: 0.5) {\n  $opacityMultiplied: ($opacity * 100);\n\n  filter:         alpha(opacity=$opacityMultiplied);\n  -ms-filter:     \"progid:DXImageTransform.Microsoft.Alpha(Opacity=\" + $opacityMultiplied + \")\";\n  @include css3-prefix('opacity', $opacity);\n}\n\n\n/// Outline Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin outline-radius($radius: 5px) {\n  @include css3-prefix('outline-radius', $radius);\n}\n\n\n/// Resize\n/// @param {*} $directoin [both] - Direction\n/// @require {mixin} css3-prefix\n\n@mixin resize($direction: both) {\n  @include css3-prefix('resize', $direction);\n}\n\n\n/// Rotate\n///\n/// CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html\n/// @param {Double} $deg [0] - Degree\n/// @param {Double} $m11 [0] - M11\n/// @param {Double} $m12 [0] - M12\n/// @param {Double} $m21 [0] - M21\n/// @param {Double} $m22 [0] - M22\n/// @require {mixin} css3-prefix\n\n@mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {\n  @include css3-prefix('transform', rotate($deg + deg));\n  filter: progid:DXImageTransform.Microsoft.Matrix(\n      M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');\n  zoom: 1;\n}\n\n\n/// Text Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [2px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n\n@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {\n  text-shadow: $x $y $blur $color;\n}\n\n\n/// Transform\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform($params) {\n  @include css3-prefix('transform', $params);\n}\n\n\n/// Transform-Origin\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-origin($params) {\n  @include css3-prefix('transform-origin', $params);\n}\n\n\n// Transform-Style\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-style($style: preserve-3d) {\n  @include css3-prefix('transform-style', $style);\n}\n\n/// Transition\n/// @param {List} $properties - Properties\n/// @require {mixin} css3-prefix\n\n@mixin transition($properties...) {\n\n  @if length($properties) >= 1 {\n    @include css3-prefix('transition', $properties);\n  }\n\n  @else {\n    @include css3-prefix('transition',  \"all 0.2s ease-in-out 0s\");\n  }\n}\n\n\n/// Triple Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Color} $colorThree [#000000] - Color Three\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} border-radius\n/// @require {mixin} css3-prefix\n\n@mixin triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include border-radius($radius);\n\n  @include css3-prefix('box-shadow', \"0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}\");\n}\n\n\n/// Keyframes\n/// @param {*} $animation-name - Animation name\n/// @content [Animation css]\n\n@mixin keyframes($animation-name) {\n  @-webkit-keyframes #{$animation-name} {\n    @content;\n  }\n  @-moz-keyframes #{$animation-name} {\n    @content;\n  }\n  @-ms-keyframes #{$animation-name} {\n    @content;\n  }\n  @-o-keyframes #{$animation-name} {\n    @content;\n  }\n  @keyframes #{$animation-name} {\n    @content;\n  }\n}\n\n\n/// Animation\n/// @param {*} $str - name duration timing-function delay iteration-count direction fill-mode play-state ([http://www.w3schools.com/cssref/css3_pr_animation.asp](http://www.w3schools.com/cssref/css3_pr_animation.asp))\n/// @require {mixin} css3-prefix\n\n@mixin animation($str) {\n  @include css3-prefix('animation', $str);\n}\n","\n@import '../../common.scss';\n@import '../../mixins.scss';\n\n.root {\n  margin: 280px 0;\n}\n\n.content {\n  @extend .clearfix;\n\n  max-width: 1106px;\n  margin: 0 auto;\n}\n\n.image {\n  float: left;\n  width: 1106px - 510px;\n  text-align: center;\n}\n\n.info {\n  overflow: hidden;\n  padding-bottom: 2px;\n}\n\n.title {\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 12px;\n}\n\n.position {\n  color: #556165;\n  font-size: 13px;\n  font-weight: 700;\n  text-transform: uppercase;\n}\n\n.desc {\n  color: #A1AEB6;\n  font-size: 22px;\n  line-height: 36px;\n  margin-top: 10px;\n\n  strong {\n    font-weight: 500;\n  }\n\n}\n\n.links {\n  margin-top: 15px;\n}\n\n  .link {\n    @include transition(transform 200ms ease);\n    border: 1px solid #DCE4E8;\n    color: #424242;\n    display: inline-block;\n    font-size: 16px;\n    margin-right: 8px;\n    padding: 8px 12px;\n    text-transform: uppercase;\n\n    &:hover {\n      background-color: #DCE4E8;\n    }\n\n    &:active {\n      transform: translateY(2px);\n    }\n\n  }\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"clearfix": "HighlightedProjectsProject_clearfix_1KI",
+  	"content": "HighlightedProjectsProject_content_3lw",
+  	"root": "HighlightedProjectsProject_root_1Fg",
+  	"image": "HighlightedProjectsProject_image_14e",
+  	"info": "HighlightedProjectsProject_info_G-0",
+  	"title": "HighlightedProjectsProject_title_xSB",
+  	"position": "HighlightedProjectsProject_position_2JR",
+  	"desc": "HighlightedProjectsProject_desc_1vb",
+  	"links": "HighlightedProjectsProject_links_YdW",
+  	"link": "HighlightedProjectsProject_link_1Zw"
+  };
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Intro_root_1YK {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 280px 0;\n  text-align: center; }\n.Intro_authorTitle_3KQ {\n  font-size: 26px;\n  font-weight: 400; }\n.Intro_contactLinks_1qw {\n  color: #424242;\n  font-size: 17px;\n  font-weight: 400;\n  margin-top: 24px; }\n.Intro_contactLinks_1qw a {\n    display: inline-block;\n    margin: 0 6px; }\n.Intro_contactLinks_1qw a:hover {\n      color: #ea1556; }\n.Intro_contactLinks_1qw .Intro_social_2gD {\n    margin: 0 8px; }\n.Intro_mainTitle_2AB {\n  font-size: 60px;\n  font-weight: 500;\n  margin: 10px 0 12px 0;\n  text-transform: uppercase; }\n.Intro_subTitle_30p {\n  color: #A1AEB6;\n  font-size: 26px;\n  font-weight: 300;\n  font-style: italic; }\n.Intro_subTitle_30p strong {\n    font-weight: 500; }\n", "", {"version":3,"sources":["/./src/components/Intro/Intro.scss","/./src/components/Intro/src/components/Intro/Intro.scss","/./src/components/Intro/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,gBAAgB;EAChB,mBAAmB,EACpB;AAED;EACE,gBAAgB;EAChB,iBAAiB,EAClB;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB,EAmBlB;AAvBD;IAOI,sBAAsB;IACtB,cAAc,EAMf;AAdH;MAWM,eAAe,EAChB;AAZL;IAiBI,cAAc,EACf;AAOH;EACE,gBAAgB;EAChB,iBAAiB;EACjB,sBAAsB;EACtB,0BAA0B,EAC3B;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB,EAMpB;AAVD;IAOI,iBAAiB,EAClB","file":"Intro.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  display: flex;\n  justify-content: center;\n  margin: 280px 0;\n  text-align: center; }\n\n.authorTitle {\n  font-size: 26px;\n  font-weight: 400; }\n\n.contactLinks {\n  color: #424242;\n  font-size: 17px;\n  font-weight: 400;\n  margin-top: 24px; }\n  .contactLinks a {\n    display: inline-block;\n    margin: 0 6px; }\n    .contactLinks a:hover {\n      color: #ea1556; }\n  .contactLinks .social {\n    margin: 0 8px; }\n\n.mainTitle {\n  font-size: 60px;\n  font-weight: 500;\n  margin: 10px 0 12px 0;\n  text-transform: uppercase; }\n\n.subTitle {\n  color: #A1AEB6;\n  font-size: 26px;\n  font-weight: 300;\n  font-style: italic; }\n  .subTitle strong {\n    font-weight: 500; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.scss';\n\n.root {\n  display: flex;\n  justify-content: center;\n  margin: 280px 0;\n  text-align: center;\n}\n\n.authorTitle {\n  font-size: 26px;\n  font-weight: 400;\n}\n\n.contactLinks {\n  color: #424242;\n  font-size: 17px;\n  font-weight: 400;\n  margin-top: 24px;\n\n  a {\n    display: inline-block;\n    margin: 0 6px;\n\n    &:hover {\n      color: #ea1556;\n    }\n\n  }\n\n  .social {\n    margin: 0 8px;\n  }\n\n  .email {\n  }\n\n}\n\n.mainTitle {\n  font-size: 60px;\n  font-weight: 500;\n  margin: 10px 0 12px 0;\n  text-transform: uppercase;\n}\n\n.subTitle {\n  color: #A1AEB6;\n  font-size: 26px;\n  font-weight: 300;\n  font-style: italic;\n\n  strong {\n    font-weight: 500;\n  }\n\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Intro_root_1YK",
+  	"authorTitle": "Intro_authorTitle_3KQ",
+  	"contactLinks": "Intro_contactLinks_1qw",
+  	"social": "Intro_social_2gD",
+  	"mainTitle": "Intro_mainTitle_2AB",
+  	"subTitle": "Intro_subTitle_30p"
+  };
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
   // imports
   
   
@@ -4937,10 +5297,10 @@ module.exports =
   };
 
 /***/ },
-/* 66 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(16)();
+  exports = module.exports = __webpack_require__(2)();
   // imports
   
   
@@ -4951,7 +5311,98 @@ module.exports =
 
 
 /***/ },
-/* 67 */
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n.Skills_root_3sr {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  max-width: 672px;\n  margin: 280px auto;\n  width: 100%; }\n.Skills_skillColumn_37r {\n  width: 50%; }\n.Skills_skillColumn_37r:first-of-type {\n    padding-right: 20px; }\n.Skills_skillColumn_37r:last-of-type {\n    padding-left: 20px; }\n.Skills_skillsList_2hW {\n  list-style-type: none;\n  padding: 0;\n  margin: 0; }\n.Skills_skillsList_2hW > li {\n    border-radius: 3px;\n    background-color: #ffffff;\n    color: #000000;\n    font-size: 23px;\n    font-weight: 300;\n    margin-top: 10px;\n    padding: 15px; }\n.Skills_title_1FQ {\n  color: #7E8B90;\n  font-size: 13px;\n  font-weight: 500;\n  text-transform: uppercase; }\n", "", {"version":3,"sources":["/./src/components/Skills/Skills.scss","/./src/components/Skills/src/components/Skills/Skills.scss","/./src/components/Skills/src/components/mixins.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACgDH;;;;;;;;;;;;gEAYgE;ADxDhE;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,iBAAiB;EACjB,mBAAmB;EACnB,YAAY,EACb;AAED;EACE,WAAW,EAUZ;AAXD;IAII,oBAAoB,EACrB;AALH;IAQI,mBAAmB,EACpB;AAIH;EACE,sBAAsB;EACtB,WAAW;EACX,UAAU,EAYX;AAfD;ICuDE,mBAAc;IDhDZ,0BAA0B;IAC1B,eAAe;IACf,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;IACjB,cAAc,EACf;AAIH;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,0BAA0B,EAC3B","file":"Skills.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n.root {\n  display: flex;\n  max-width: 672px;\n  margin: 280px auto;\n  width: 100%; }\n\n.skillColumn {\n  width: 50%; }\n  .skillColumn:first-of-type {\n    padding-right: 20px; }\n  .skillColumn:last-of-type {\n    padding-left: 20px; }\n\n.skillsList {\n  list-style-type: none;\n  padding: 0;\n  margin: 0; }\n  .skillsList > li {\n    -webkit-border-radius: 3px;\n    -khtml-border-radius: 3px;\n    -moz-border-radius: 3px;\n    -ms-border-radius: 3px;\n    -o-border-radius: 3px;\n    border-radius: 3px;\n    background-color: #ffffff;\n    color: #000000;\n    font-size: 23px;\n    font-weight: 300;\n    margin-top: 10px;\n    padding: 15px; }\n\n.title {\n  color: #7E8B90;\n  font-size: 13px;\n  font-weight: 500;\n  text-transform: uppercase; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../mixins.scss';\n\n.root {\n  display: flex;\n  max-width: 672px;\n  margin: 280px auto;\n  width: 100%;\n}\n\n.skillColumn {\n  width: 50%;\n\n  &:first-of-type {\n    padding-right: 20px;\n  }\n\n  &:last-of-type {\n    padding-left: 20px;\n  }\n\n}\n\n.skillsList {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n\n  > li {\n    @include border-radius(3px);\n    background-color: #ffffff;\n    color: #000000;\n    font-size: 23px;\n    font-weight: 300;\n    margin-top: 10px;\n    padding: 15px;\n  }\n\n}\n\n.title {\n  color: #7E8B90;\n  font-size: 13px;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n","\n@mixin lines-truncate($lineheight, $linecount) {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  line-height: $lineheight;                  /* fallback */\n  max-height: $lineheight * $linecount;      /* fallback */\n  -webkit-line-clamp: $linecount;            /* number of lines to show */\n  -webkit-box-orient: vertical;\n}\n\n@mixin placeholder {\n  &::-webkit-input-placeholder {@content}\n  &:-moz-placeholder           {@content}\n  &::-moz-placeholder          {@content}\n  &:-ms-input-placeholder      {@content}\n}\n\n%text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin animation2() {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n@mixin effect2($effect) {\n  -webkit-animation-name: $effect;\n  animation-name: $effect;\n}\n\n@mixin image-2x($image, $width, $height) {\n  @media (min--moz-device-pixel-ratio: 1.3),\n  (-o-min-device-pixel-ratio: 2.6/2),\n  (-webkit-min-device-pixel-ratio: 1.3),\n  (min-device-pixel-ratio: 1.3),\n  (min-resolution: 1.3dppx) {\n    /* on retina, use image that's scaled by 2 */\n    background-image: url($image);\n    background-size: $width $height;\n  }\n}\n\n\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n\n\n////\n/// @author Matthieu Aussaguel\n/// @group sass-css3-mixins\n////\n\n\n/// Adds a browser prefix to the property\n/// @param {*} $property Property\n/// @param {*} $value Value\n\n@mixin css3-prefix($property, $value) {\n  -webkit-#{$property}: #{$value};\n  -khtml-#{$property}: #{$value};\n  -moz-#{$property}: #{$value};\n  -ms-#{$property}: #{$value};\n  -o-#{$property}: #{$value};\n  #{$property}: #{$value};\n}\n\n\n/// Background Gradient\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(top, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(top, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(top, $startColor, $endColor);\n  background-image:      -o-linear-gradient(top, $startColor, $endColor);\n  background-image:         linear-gradient(top, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');\n}\n\n@mixin gradient($colour1, $colour2) {\n  background-image: -webkit-gradient(\n      linear,\n      left top,\n      left bottom,\n      color-stop(0, $colour1),\n      color-stop(1, $colour2)\n  );\n  background-image: -o-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -moz-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -webkit-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -ms-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: linear-gradient(to bottom, $colour1 0%, $colour2 100%);\n}\n\n\n/// Background Horizontal\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-horizontal($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(left, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(left, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(left, $startColor, $endColor);\n  background-image:      -o-linear-gradient(left, $startColor, $endColor);\n  background-image:         linear-gradient(left, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1');\n}\n\n\n/// Background Radial\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Percentage} $startPos [0%] - Start position\n/// @param {Color} $endColor [#999999] - End Color\n/// @param {Percentage} $endPos [100%] - End position\n\n@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) {\n  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);\n  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor));\n  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos);\n}\n\n\n/// Background Size\n/// @param {Size} $width [100%] - Width\n/// @param {Size} $width [$width] - Height\n/// @require {mixin} css3-prefix\n\n@mixin background-size($width: 100%, $height: $width) {\n  @if type-of($width) == 'number' and $height != null {\n    @include css3-prefix('background-size', $width $height);\n  } @else {\n    @include css3-prefix('background-size', $width);\n  }\n}\n\n\n/// Background Color Opacity\n/// @param {Color} $color [100%] - Color\n/// @param {Double} $opacity [0.85] - Opacity\n\n@mixin background-opacity($color: #000, $opacity: 0.85) {\n  background: $color;\n  background: rgba($color, $opacity);\n}\n\n\n/// Border Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin border-radius($radius: 5px) {\n  @include css3-prefix('border-radius', $radius);\n}\n\n\n/// Border Radius Separate\n/// @param {Size} $topLeftRadius [5px] - Top Left\n/// @param {Size} $topRightRadius [5px] - Top Right\n/// @param {Size} $bottomLeftRadius [5px] - Bottom Left\n/// @param {Size} $bottomRightRadius [5px] - Bottom Right\n\n@mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px) {\n  -webkit-border-top-left-radius:     $topLeftRadius;\n  -webkit-border-top-right-radius:    $topRightRadius;\n  -webkit-border-bottom-right-radius: $bottomRightRadius;\n  -webkit-border-bottom-left-radius:  $bottomLeftRadius;\n\n  -moz-border-radius-topleft:     $topLeftRadius;\n  -moz-border-radius-topright:    $topRightRadius;\n  -moz-border-radius-bottomright: $bottomRightRadius;\n  -moz-border-radius-bottomleft:  $bottomLeftRadius;\n\n  border-top-left-radius:     $topLeftRadius;\n  border-top-right-radius:    $topRightRadius;\n  border-bottom-right-radius: $bottomRightRadius;\n  border-bottom-left-radius:  $bottomLeftRadius;\n}\n\n\n/// Box\n/// @param {*} $orient [horizontal] - Orientation\n/// @param {*} $pack [center] - Pack\n/// @param {*} $align [center] - Align\n/// @require {mixin} css3-prefix\n\n@mixin box($orient: horizontal, $pack: center, $align: center) {\n  display: -webkit-box;\n  display: -moz-box;\n  display: box;\n\n  @include css3-prefix('box-orient', $orient);\n  @include css3-prefix('box-pack', $pack);\n  @include css3-prefix('box-align', $align);\n}\n\n\n/// Box RGBA\n/// @param {Integer} $r [60] - Red\n/// @param {Integer} $g [3] - Green\n/// @param {Integer} $b [12] - Blue\n/// @param {Double} $opacity [0.23] - Opacity\n/// @param {Color} $color [#3C3C3C] - Color\n\n@mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {\n  background-color: transparent;\n  background-color: rgba($r, $g, $b, $opacity);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}');\n  zoom:   1;\n}\n\n\n/// Box Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [5px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n/// @param {Boolean} $inset - Inset\n\n@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: \"\") {\n  @if ($inset != \"\") {\n    @include css3-prefix('box-shadow', $inset $x $y $blur $color);\n  } @else {\n    @include css3-prefix('box-shadow', $x $y $blur $color);\n  }\n}\n\n\n/// Box Sizing\n/// @param {*} $type [border-box] - Type\n/// @require {mixin} css3-prefix\n\n@mixin box-sizing($type: border-box) {\n  @include css3-prefix('box-sizing', $type);\n}\n\n\n/// Columns\n/// @param {Integer} $count [3] - Count\n/// @param {Integer} $gap [10] - Gap\n/// @require {mixin} css3-prefix\n\n@mixin columns($count: 3, $gap: 10) {\n  @include css3-prefix('column-count', $count);\n  @include css3-prefix('column-gap', $gap);\n}\n\n\n/// Double Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} css3-prefix\n/// @require {mixin} border-radius\n\n@mixin double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo);\n\n  @include border-radius( $radius );\n}\n\n\n/// Flex\n/// @param {Integer} $value [1] - Value\n/// @require {mixin} css3-prefix\n\n@mixin flex($value: 1) {\n  @include css3-prefix('box-flex', $value);\n}\n\n\n/// Flip\n/// @param {Double} $scaleX [-1] - ScaleX\n/// @require {mixin} css3-prefix\n\n@mixin flip($scaleX: -1) {\n  @include css3-prefix('transform', scaleX($scaleX));\n  filter:            FlipH;\n  -ms-filter:        \"FlipH\";\n}\n\n\n/// Font Face\n/// @param {Font} $fontFamily [myFont] - Font Family\n/// @param {String} $eotFileSrc ['myFont.eot'] - Eot File Source\n/// @param {String} $woffFileSrc ['myFont.woff'] - Woff File Source\n/// @param {String} $ttfFileSrc ['myFont.ttf'] - Ttf File Source\n/// @param {String} $svgFileSrc ['myFont.svg'] - Svg File Source\n\n@mixin font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont') {\n  font-family: $fontFamily;\n  src: url($eotFileSrc)  format('eot'),\n  url($woffFileSrc) format('woff'),\n  url($ttfFileSrc)  format('truetype'),\n  url($svgFileSrc + $svgFontID) format('svg');\n}\n\n\n/// Opacity\n/// @param {Double} $opacity [0.5] - Opacity\n/// @require {mixin} css3-prefix\n\n@mixin opacity($opacity: 0.5) {\n  $opacityMultiplied: ($opacity * 100);\n\n  filter:         alpha(opacity=$opacityMultiplied);\n  -ms-filter:     \"progid:DXImageTransform.Microsoft.Alpha(Opacity=\" + $opacityMultiplied + \")\";\n  @include css3-prefix('opacity', $opacity);\n}\n\n\n/// Outline Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin outline-radius($radius: 5px) {\n  @include css3-prefix('outline-radius', $radius);\n}\n\n\n/// Resize\n/// @param {*} $directoin [both] - Direction\n/// @require {mixin} css3-prefix\n\n@mixin resize($direction: both) {\n  @include css3-prefix('resize', $direction);\n}\n\n\n/// Rotate\n///\n/// CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html\n/// @param {Double} $deg [0] - Degree\n/// @param {Double} $m11 [0] - M11\n/// @param {Double} $m12 [0] - M12\n/// @param {Double} $m21 [0] - M21\n/// @param {Double} $m22 [0] - M22\n/// @require {mixin} css3-prefix\n\n@mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {\n  @include css3-prefix('transform', rotate($deg + deg));\n  filter: progid:DXImageTransform.Microsoft.Matrix(\n      M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');\n  zoom: 1;\n}\n\n\n/// Text Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [2px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n\n@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {\n  text-shadow: $x $y $blur $color;\n}\n\n\n/// Transform\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform($params) {\n  @include css3-prefix('transform', $params);\n}\n\n\n/// Transform-Origin\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-origin($params) {\n  @include css3-prefix('transform-origin', $params);\n}\n\n\n// Transform-Style\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-style($style: preserve-3d) {\n  @include css3-prefix('transform-style', $style);\n}\n\n/// Transition\n/// @param {List} $properties - Properties\n/// @require {mixin} css3-prefix\n\n@mixin transition($properties...) {\n\n  @if length($properties) >= 1 {\n    @include css3-prefix('transition', $properties);\n  }\n\n  @else {\n    @include css3-prefix('transition',  \"all 0.2s ease-in-out 0s\");\n  }\n}\n\n\n/// Triple Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Color} $colorThree [#000000] - Color Three\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} border-radius\n/// @require {mixin} css3-prefix\n\n@mixin triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include border-radius($radius);\n\n  @include css3-prefix('box-shadow', \"0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}\");\n}\n\n\n/// Keyframes\n/// @param {*} $animation-name - Animation name\n/// @content [Animation css]\n\n@mixin keyframes($animation-name) {\n  @-webkit-keyframes #{$animation-name} {\n    @content;\n  }\n  @-moz-keyframes #{$animation-name} {\n    @content;\n  }\n  @-ms-keyframes #{$animation-name} {\n    @content;\n  }\n  @-o-keyframes #{$animation-name} {\n    @content;\n  }\n  @keyframes #{$animation-name} {\n    @content;\n  }\n}\n\n\n/// Animation\n/// @param {*} $str - name duration timing-function delay iteration-count direction fill-mode play-state ([http://www.w3schools.com/cssref/css3_pr_animation.asp](http://www.w3schools.com/cssref/css3_pr_animation.asp))\n/// @require {mixin} css3-prefix\n\n@mixin animation($str) {\n  @include css3-prefix('animation', $str);\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Skills_root_3sr",
+  	"skillColumn": "Skills_skillColumn_37r",
+  	"skillsList": "Skills_skillsList_2hW",
+  	"title": "Skills_title_1FQ"
+  };
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Contact_root_dJi {\n  padding-left: 20px;\n  padding-right: 20px; }\n.Contact_container_D8L {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n", "", {"version":3,"sources":["/./src/routes/contact/Contact.scss","/./src/routes/contact/src/routes/contact/Contact.scss","/./src/routes/contact/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,mBAAmB;EACnB,oBAAoB,EACrB;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B,EDD7B","file":"Contact.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  padding-left: 20px;\n  padding-right: 20px; }\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.scss';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: $max-content-width;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Contact_root_dJi",
+  	"container": "Contact_container_D8L"
+  };
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Home_root_qf4 {\n  padding-left: 20px;\n  padding-right: 20px; }\n.Home_container_2AB {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n.Home_news_3cv {\n  padding: 0; }\n.Home_newsItem_2e0 {\n  list-style-type: none;\n  padding-bottom: 6px; }\n.Home_newsTitle_1EI {\n  font-size: 1.125em; }\n.Home_newsTitle_1EI, .Home_newsDesc_58O {\n  display: block; }\n", "", {"version":3,"sources":["/./src/routes/home/Home.scss","/./src/routes/home/src/routes/home/Home.scss","/./src/routes/home/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,mBAAmB;EACnB,oBAAoB,EACrB;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B,EDD7B;AAED;EACE,WAAW,EACZ;AAED;EACE,sBAAsB;EACtB,oBAAoB,EACrB;AAED;EACE,mBAAmB,EACpB;AAED;EACE,eAAe,EAChB","file":"Home.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  padding-left: 20px;\n  padding-right: 20px; }\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n\n.news {\n  padding: 0; }\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px; }\n\n.newsTitle {\n  font-size: 1.125em; }\n\n.newsTitle, .newsDesc {\n  display: block; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.scss';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: $max-content-width;\n}\n\n.news {\n  padding: 0;\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.newsTitle {\n  font-size: 1.125em;\n}\n\n.newsTitle, .newsDesc {\n  display: block;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Home_root_qf4",
+  	"container": "Home_container_2AB",
+  	"news": "Home_news_3cv",
+  	"newsItem": "Home_newsItem_2e0",
+  	"newsTitle": "Home_newsTitle_1EI",
+  	"newsDesc": "Home_newsDesc_58O"
+  };
+
+/***/ },
+/* 82 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Login_root_1Yv {\n  padding-left: 20px;\n  padding-right: 20px; }\n.Login_container_dzJ {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n", "", {"version":3,"sources":["/./src/routes/login/Login.scss","/./src/routes/login/src/routes/login/Login.scss","/./src/routes/login/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,mBAAmB;EACnB,oBAAoB,EACrB;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B,EDD7B","file":"Login.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  padding-left: 20px;\n  padding-right: 20px; }\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.scss';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: $max-content-width;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Login_root_1Yv",
+  	"container": "Login_container_dzJ"
+  };
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(2)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Register_root_154 {\n  padding-left: 20px;\n  padding-right: 20px; }\n.Register_container_3Ea {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n", "", {"version":3,"sources":["/./src/routes/register/Register.scss","/./src/routes/register/src/routes/register/Register.scss","/./src/routes/register/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,mBAAmB;EACnB,oBAAoB,EACrB;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B,EDD7B","file":"Register.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  padding-left: 20px;\n  padding-right: 20px; }\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.scss';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: $max-content-width;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Register_root_154",
+  	"container": "Register_container_3Ea"
+  };
+
+/***/ },
+/* 84 */
 /***/ function(module, exports) {
 
   module.exports = Array.isArray || function (arr) {
@@ -4960,12 +5411,12 @@ module.exports =
 
 
 /***/ },
-/* 68 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(121);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(67);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -4993,12 +5444,12 @@ module.exports =
     
 
 /***/ },
-/* 69 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(122);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(68);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5026,12 +5477,12 @@ module.exports =
     
 
 /***/ },
-/* 70 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(64);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(69);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5059,12 +5510,12 @@ module.exports =
     
 
 /***/ },
-/* 71 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(123);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(70);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5092,12 +5543,12 @@ module.exports =
     
 
 /***/ },
-/* 72 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(124);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(71);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5125,12 +5576,12 @@ module.exports =
     
 
 /***/ },
-/* 73 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(125);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(72);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5158,12 +5609,111 @@ module.exports =
     
 
 /***/ },
-/* 74 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(126);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(73);
+      var insertCss = __webpack_require__(3);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = insertCss.bind(null, content);
+    
+      var removeCss = function() {};
+  
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjectsHeader.scss", function() {
+          var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjectsHeader.scss");
+          if (typeof newContent === 'string') {
+            newContent = [[module.id, content, '']];
+          }
+          removeCss = insertCss(newContent, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(74);
+      var insertCss = __webpack_require__(3);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = insertCss.bind(null, content);
+    
+      var removeCss = function() {};
+  
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjects.scss", function() {
+          var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjects.scss");
+          if (typeof newContent === 'string') {
+            newContent = [[module.id, content, '']];
+          }
+          removeCss = insertCss(newContent, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 93 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(75);
+      var insertCss = __webpack_require__(3);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = insertCss.bind(null, content);
+    
+      var removeCss = function() {};
+  
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjectsProject.scss", function() {
+          var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjectsProject.scss");
+          if (typeof newContent === 'string') {
+            newContent = [[module.id, content, '']];
+          }
+          removeCss = insertCss(newContent, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 94 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(76);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5191,12 +5741,12 @@ module.exports =
     
 
 /***/ },
-/* 75 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(65);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(77);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5224,12 +5774,12 @@ module.exports =
     
 
 /***/ },
-/* 76 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(66);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(78);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5257,12 +5807,12 @@ module.exports =
     
 
 /***/ },
-/* 77 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(127);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(79);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5290,12 +5840,12 @@ module.exports =
     
 
 /***/ },
-/* 78 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(128);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(80);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5323,12 +5873,12 @@ module.exports =
     
 
 /***/ },
-/* 79 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(129);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(81);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5356,12 +5906,12 @@ module.exports =
     
 
 /***/ },
-/* 80 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(130);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(82);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5389,12 +5939,12 @@ module.exports =
     
 
 /***/ },
-/* 81 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(131);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(83);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -5422,10 +5972,10 @@ module.exports =
     
 
 /***/ },
-/* 82 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(21);
+  var jade = __webpack_require__(22);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/surfacepro/WebstormProjects/simonhales-react/src/views/error.jade" ) ];
@@ -5710,10 +6260,10 @@ module.exports =
   }
 
 /***/ },
-/* 83 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(21);
+  var jade = __webpack_require__(22);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/surfacepro/WebstormProjects/simonhales-react/src/views/index.jade" ) ];
@@ -5825,10 +6375,10 @@ module.exports =
   }
 
 /***/ },
-/* 84 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var isarray = __webpack_require__(67)
+  var isarray = __webpack_require__(84)
   
   /**
    * Expose `pathToRegexp`.
@@ -6257,7 +6807,7 @@ module.exports =
 
 
 /***/ },
-/* 85 */
+/* 105 */
 /***/ function(module, exports) {
 
   module.exports = function(module) {
@@ -6273,419 +6823,217 @@ module.exports =
 
 
 /***/ },
-/* 86 */
+/* 106 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 87 */
+/* 107 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-polyfill");
 
 /***/ },
-/* 88 */
+/* 108 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/is-iterable");
 
 /***/ },
-/* 89 */
+/* 109 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/json/stringify");
 
 /***/ },
-/* 90 */
+/* 110 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/object/create");
 
 /***/ },
-/* 91 */
+/* 111 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/object/define-property");
 
 /***/ },
-/* 92 */
+/* 112 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/object/set-prototype-of");
 
 /***/ },
-/* 93 */
+/* 113 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/symbol");
 
 /***/ },
-/* 94 */
+/* 114 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/core-js/symbol/iterator");
 
 /***/ },
-/* 95 */
+/* 115 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/extends");
 
 /***/ },
-/* 96 */
+/* 116 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/objectWithoutProperties");
 
 /***/ },
-/* 97 */
+/* 117 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/slicedToArray");
 
 /***/ },
-/* 98 */
+/* 118 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/typeof");
 
 /***/ },
-/* 99 */
+/* 119 */
 /***/ function(module, exports) {
 
   module.exports = require("body-parser");
 
 /***/ },
-/* 100 */
+/* 120 */
 /***/ function(module, exports) {
 
   module.exports = require("classnames");
 
 /***/ },
-/* 101 */
+/* 121 */
 /***/ function(module, exports) {
 
   module.exports = require("cookie-parser");
 
 /***/ },
-/* 102 */
+/* 122 */
 /***/ function(module, exports) {
 
   module.exports = require("core-js/library/fn/get-iterator");
 
 /***/ },
-/* 103 */
+/* 123 */
 /***/ function(module, exports) {
 
   module.exports = require("core-js/library/fn/object/create");
 
 /***/ },
-/* 104 */
+/* 124 */
 /***/ function(module, exports) {
 
   module.exports = require("express");
 
 /***/ },
-/* 105 */
+/* 125 */
 /***/ function(module, exports) {
 
   module.exports = require("express-graphql");
 
 /***/ },
-/* 106 */
+/* 126 */
 /***/ function(module, exports) {
 
   module.exports = require("express-jwt");
 
 /***/ },
-/* 107 */
+/* 127 */
 /***/ function(module, exports) {
 
   module.exports = require("fbjs/lib/emptyFunction");
 
 /***/ },
-/* 108 */
+/* 128 */
 /***/ function(module, exports) {
 
   module.exports = require("front-matter");
 
 /***/ },
-/* 109 */
+/* 129 */
 /***/ function(module, exports) {
 
   module.exports = require("history/lib/createBrowserHistory");
 
 /***/ },
-/* 110 */
+/* 130 */
 /***/ function(module, exports) {
 
   module.exports = require("history/lib/createMemoryHistory");
 
 /***/ },
-/* 111 */
+/* 131 */
 /***/ function(module, exports) {
 
   module.exports = require("history/lib/useQueries");
 
 /***/ },
-/* 112 */
+/* 132 */
 /***/ function(module, exports) {
 
   module.exports = require("jade");
 
 /***/ },
-/* 113 */
+/* 133 */
 /***/ function(module, exports) {
 
   module.exports = require("jsonwebtoken");
 
 /***/ },
-/* 114 */
+/* 134 */
 /***/ function(module, exports) {
 
   module.exports = require("markdown-it");
 
 /***/ },
-/* 115 */
+/* 135 */
 /***/ function(module, exports) {
 
   module.exports = require("node-fetch");
 
 /***/ },
-/* 116 */
+/* 136 */
 /***/ function(module, exports) {
 
   module.exports = require("passport");
 
 /***/ },
-/* 117 */
+/* 137 */
 /***/ function(module, exports) {
 
   module.exports = require("passport-facebook");
 
 /***/ },
-/* 118 */
+/* 138 */
 /***/ function(module, exports) {
 
   module.exports = require("pg");
 
 /***/ },
-/* 119 */
+/* 139 */
 /***/ function(module, exports) {
 
   module.exports = require("pretty-error");
 
 /***/ },
-/* 120 */
+/* 140 */
 /***/ function(module, exports) {
 
   module.exports = require("react-dom/server");
 
 /***/ },
-/* 121 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS and IE text size adjust after device orientation change,\n *    without disabling user zoom.\n */\nhtml {\n  font-family: sans-serif; /* 1 */\n  -ms-text-size-adjust: 100%; /* 2 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n/**\n * Remove default margin.\n */\nbody {\n  margin: 0;\n}\n/* HTML5 display definitions\n   ========================================================================== */\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11\n * and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\narticle, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {\n  display: block;\n}\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n */\naudio, canvas, progress, video {\n  display: inline-block; /* 1 */\n  vertical-align: baseline; /* 2 */\n}\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.\n */\n[hidden], template {\n  display: none;\n}\n/* Links\n   ========================================================================== */\n/**\n * Remove the gray background color from active links in IE 10.\n */\na {\n  background-color: transparent;\n}\n/**\n * Improve readability of focused elements when they are also in an\n * active/hover state.\n */\na:active, a:hover {\n  outline: 0;\n}\n/* Text-level semantics\n   ========================================================================== */\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\nabbr[title] {\n  border-bottom: 1px dotted;\n}\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\nb, strong {\n  font-weight: bold;\n}\n/**\n * Address styling not present in Safari and Chrome.\n */\ndfn {\n  font-style: italic;\n}\n/**\n * Address variable `h1` font-size and margin within `section` and `article`\n * contexts in Firefox 4+, Safari, and Chrome.\n */\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n/**\n * Address styling not present in IE 8/9.\n */\nmark {\n  background: #ff0;\n  color: #000;\n}\n/**\n * Address inconsistent and variable font size in all browsers.\n */\nsmall {\n  font-size: 80%;\n}\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\nsub, sup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\nsup {\n  top: -0.5em;\n}\nsub {\n  bottom: -0.25em;\n}\n/* Embedded content\n   ========================================================================== */\n/**\n * Remove border when inside `a` element in IE 8/9/10.\n */\nimg {\n  border: 0;\n}\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\nsvg:not(:root) {\n  overflow: hidden;\n}\n/* Grouping content\n   ========================================================================== */\n/**\n * Address margin not present in IE 8/9 and Safari.\n */\nfigure {\n  margin: 1em 40px;\n}\n/**\n * Address differences between Firefox and other browsers.\n */\nhr {\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box;\n  height: 0;\n}\n/**\n * Contain overflow in all browsers.\n */\npre {\n  overflow: auto;\n}\n/**\n * Address odd `em`-unit font size rendering in all browsers.\n */\ncode, kbd, pre, samp {\n  font-family: monospace, monospace;\n  font-size: 1em;\n}\n/* Forms\n   ========================================================================== */\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\nbutton, input, optgroup, select, textarea {\n  color: inherit; /* 1 */\n  font: inherit; /* 2 */\n  margin: 0; /* 3 */\n}\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\nbutton {\n  overflow: visible;\n}\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\nbutton, select {\n  text-transform: none;\n}\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n */\nbutton, html input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n  cursor: pointer; /* 3 */\n}\n/**\n * Re-set default cursor for disabled elements.\n */\nbutton[disabled], html input[disabled] {\n  cursor: default;\n}\n/**\n * Remove inner padding and border in Firefox 4+.\n */\nbutton::-moz-focus-inner, input::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n}\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\ninput {\n  line-height: normal;\n}\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n */\ninput[type=\"checkbox\"], input[type=\"radio\"] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\ninput[type=\"number\"]::-webkit-inner-spin-button, input[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.\n */\ninput[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box; /* 2 */\n}\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\ninput[type=\"search\"]::-webkit-search-cancel-button, input[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n/**\n * Define consistent border, margin, and padding.\n */\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n */\nlegend {\n  border: 0; /* 1 */\n  padding: 0; /* 2 */\n}\n/**\n * Remove default vertical scrollbar in IE 8/9/10/11.\n */\ntextarea {\n  overflow: auto;\n}\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\noptgroup {\n  font-weight: bold;\n}\n/* Tables\n   ========================================================================== */\n/**\n * Remove most spacing between table cells.\n */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\ntd, th {\n  padding: 0;\n}\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n/*\n * Base styles\n * ========================================================================== */\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em;\n  /* ~16px; */\n  font-family: \"Roboto\", \"Segoe UI\", \"HelveticaNeue-Light\", sans-serif;\n  line-height: 1.375;\n  /* ~22px */ }\nbody {\n  background-color: #F0F3F5; }\nh1, h2, h3, h4, h5, h6 {\n  margin: 0; }\na {\n  color: inherit;\n  text-decoration: none; }\np {\n  margin: 0; }\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none; }\n::selection {\n  background: #b3d4fc;\n  text-shadow: none; }\n/*\n * A better looking default horizontal rule\n */\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0; }\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\naudio, canvas, iframe, img, svg, video {\n  vertical-align: middle; }\n/*\n * Remove default fieldset styles.\n */\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0; }\n/*\n * Allow only vertical resizing of textareas.\n */\ntextarea {\n  resize: vertical; }\n/*\n * Browser upgrade prompt\n * ========================================================================== */\n.browserupgrade {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0; }\n/*\n * Print styles\n * Inlined to avoid the additional HTTP request:\n * http://www.phpied.com/delay-loading-your-print-css/\n * ========================================================================== */\n@media print {\n  *, *:before, *:after {\n    background: transparent !important;\n    color: #000 !important;\n    /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    -webkit-box-shadow: none !important;\n            box-shadow: none !important;\n    text-shadow: none !important; }\n  a, a:visited {\n    text-decoration: underline; }\n  a[href]:after {\n    content: \" (\" attr(href) \")\"; }\n  abbr[title]:after {\n    content: \" (\" attr(title) \")\"; }\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n  a[href^=\"#\"]:after, a[href^=\"javascript:\"]:after {\n    content: \"\"; }\n  pre, blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid; }\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n  thead {\n    display: table-header-group; }\n  tr, img {\n    page-break-inside: avoid; }\n  img {\n    max-width: 100% !important; }\n  p, h2, h3 {\n    orphans: 3;\n    widows: 3; }\n  h2, h3 {\n    page-break-after: avoid; } }\n", "", {"version":3,"sources":["/./src/components/App/App.scss","/./src/components/App/src/components/App/App.scss","/./node_modules/normalize.css/normalize.css","/./src/components/App/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH,4EAA4E;AAE5E;;;;GAIG;AAEH;EACE,wBAAwB,CAAC,OAAO;EAChC,2BAA2B,CAAC,OAAO;EACnC,+BAA+B,CAAC,OAAO;CACxC;AAED;;GAEG;AAEH;EACE,UAAU;CACX;AAED;gFACgF;AAEhF;;;;;GAKG;AAEH;EAaE,eAAe;CAChB;AAED;;;GAGG;AAEH;EAIE,sBAAsB,CAAC,OAAO;EAC9B,yBAAyB,CAAC,OAAO;CAClC;AAED;;;GAGG;AAEH;EACE,cAAc;EACd,UAAU;CACX;AAED;;;GAGG;AAEH;EAEE,cAAc;CACf;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,8BAA8B;CAC/B;AAED;;;GAGG;AAEH;EAEE,WAAW;CACZ;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,0BAA0B;CAC3B;AAED;;GAEG;AAEH;EAEE,kBAAkB;CACnB;AAED;;GAEG;AAEH;EACE,mBAAmB;CACpB;AAED;;;GAGG;AAEH;EACE,eAAe;EACf,iBAAiB;CAClB;AAED;;GAEG;AAEH;EACE,iBAAiB;EACjB,YAAY;CACb;AAED;;GAEG;AAEH;EACE,eAAe;CAChB;AAED;;GAEG;AAEH;EAEE,eAAe;EACf,eAAe;EACf,mBAAmB;EACnB,yBAAyB;CAC1B;AAED;EACE,YAAY;CACb;AAED;EACE,gBAAgB;CACjB;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,UAAU;CACX;AAED;;GAEG;AAEH;EACE,iBAAiB;CAClB;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,iBAAiB;CAClB;AAED;;GAEG;AAEH;EACE,gCAAwB;UAAxB,wBAAwB;EACxB,UAAU;CACX;AAED;;GAEG;AAEH;EACE,eAAe;CAChB;AAED;;GAEG;AAEH;EAIE,kCAAkC;EAClC,eAAe;CAChB;AAED;gFACgF;AAEhF;;;GAGG;AAEH;;;;;GAKG;AAEH;EAKE,eAAe,CAAC,OAAO;EACvB,cAAc,CAAC,OAAO;EACtB,UAAU,CAAC,OAAO;CACnB;AAED;;GAEG;AAEH;EACE,kBAAkB;CACnB;AAED;;;;;GAKG;AAEH;EAEE,qBAAqB;CACtB;AAED;;;;;;GAMG;AAEH;EAIE,2BAA2B,CAAC,OAAO;EACnC,gBAAgB,CAAC,OAAO;CACzB;AAED;;GAEG;AAEH;EAEE,gBAAgB;CACjB;AAED;;GAEG;AAEH;EAEE,UAAU;EACV,WAAW;CACZ;AAED;;;GAGG;AAEH;EACE,oBAAoB;CACrB;AAED;;;;;;GAMG;AAEH;EAEE,+BAAuB;UAAvB,uBAAuB,CAAC,OAAO;EAC/B,WAAW,CAAC,OAAO;CACpB;AAED;;;;GAIG;AAEH;EAEE,aAAa;CACd;AAED;;;GAGG;AAEH;EACE,8BAA8B,CAAC,OAAO;EACtC,gCAAwB;UAAxB,wBAAwB,CAAC,OAAO;CACjC;AAED;;;;GAIG;AAEH;EAEE,yBAAyB;CAC1B;AAED;;GAEG;AAEH;EACE,0BAA0B;EAC1B,cAAc;EACd,+BAA+B;CAChC;AAED;;;GAGG;AAEH;EACE,UAAU,CAAC,OAAO;EAClB,WAAW,CAAC,OAAO;CACpB;AAED;;GAEG;AAEH;EACE,eAAe;CAChB;AAED;;;GAGG;AAEH;EACE,kBAAkB;CACnB;AAED;gFACgF;AAEhF;;GAEG;AAEH;EACE,0BAA0B;EAC1B,kBAAkB;CACnB;AAED;EAEE,WAAW;CACZ;AD5ZD,yEAAyE;AEXzE;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;AFnBhF;;gFAEgF;AAEhF;EACE,YAAY;EACZ,iBAAiB;EACjB,eAAe;EAAE,YAAY;EAC7B,qEER6E;EFS7E,mBAAmB;EAAE,WAAW,EACjC;AAED;EACE,0BAA0B,EAC3B;AAED;EACE,UAAU,EACX;AAED;EACE,eAAe;EACf,sBAAsB,EACvB;AAED;EACE,UAAU,EACX;AAED;;;;;;GAMG;AAEH;EACE,oBAAoB;EACpB,kBAAkB,EACnB;AAED;EACE,oBAAoB;EACpB,kBAAkB,EACnB;AAED;;GAEG;AAEH;EACE,eAAe;EACf,YAAY;EACZ,UAAU;EACV,2BAA2B;EAC3B,cAAc;EACd,WAAW,EACZ;AAED;;;;GAIG;AAEH;EAME,uBAAuB,EACxB;AAED;;GAEG;AAEH;EACE,UAAU;EACV,UAAU;EACV,WAAW,EACZ;AAED;;GAEG;AAEH;EACE,iBAAiB,EAClB;AAED;;gFAEgF;AAEhF;EACE,gBAAgB;EAChB,iBAAiB;EACjB,YAAY;EACZ,iBAAiB,EAClB;AAED;;;;gFAIgF;AAEhF;EACE;IAGE,mCAAmC;IACnC,uBAAuB;IAAE,+DAA+D;IACxF,oCAA4B;YAA5B,4BAA4B;IAC5B,6BAA6B,EAC9B;EAED;IAEE,2BAA2B,EAC5B;EAED;IACE,6BAA4B,EAC7B;EAED;IACE,8BAA6B,EAC9B;EAED;;;KAGG;EAEH;IAEE,YAAY,EACb;EAED;IAEE,uBAAuB;IACvB,yBAAyB,EAC1B;EAED;;;KAGG;EAEH;IACE,4BAA4B,EAC7B;EAED;IAEE,yBAAyB,EAC1B;EAED;IACE,2BAA2B,EAC5B;EAED;IAGE,WAAW;IACX,UAAU,EACX;EAED;IAEE,wBAAwB,EACzB,EAAA","file":"App.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n@import url(../../../node_modules/normalize.css/normalize.css);\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n/*\n * Base styles\n * ========================================================================== */\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em;\n  /* ~16px; */\n  font-family: \"Roboto\", \"Segoe UI\", \"HelveticaNeue-Light\", sans-serif;\n  line-height: 1.375;\n  /* ~22px */ }\n\nbody {\n  background-color: #F0F3F5; }\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0; }\n\na {\n  color: inherit;\n  text-decoration: none; }\n\np {\n  margin: 0; }\n\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none; }\n\n::selection {\n  background: #b3d4fc;\n  text-shadow: none; }\n\n/*\n * A better looking default horizontal rule\n */\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0; }\n\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle; }\n\n/*\n * Remove default fieldset styles.\n */\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0; }\n\n/*\n * Allow only vertical resizing of textareas.\n */\ntextarea {\n  resize: vertical; }\n\n/*\n * Browser upgrade prompt\n * ========================================================================== */\n:global(.browserupgrade) {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0; }\n\n/*\n * Print styles\n * Inlined to avoid the additional HTTP request:\n * http://www.phpied.com/delay-loading-your-print-css/\n * ========================================================================== */\n@media print {\n  *,\n  *:before,\n  *:after {\n    background: transparent !important;\n    color: #000 !important;\n    /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    box-shadow: none !important;\n    text-shadow: none !important; }\n  a,\n  a:visited {\n    text-decoration: underline; }\n  a[href]:after {\n    content: \" (\" attr(href) \")\"; }\n  abbr[title]:after {\n    content: \" (\" attr(title) \")\"; }\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n  a[href^=\"#\"]:after,\n  a[href^=\"javascript:\"]:after {\n    content: \"\"; }\n  pre,\n  blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid; }\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n  thead {\n    display: table-header-group; }\n  tr,\n  img {\n    page-break-inside: avoid; }\n  img {\n    max-width: 100% !important; }\n  p,\n  h2,\n  h3 {\n    orphans: 3;\n    widows: 3; }\n  h2,\n  h3 {\n    page-break-after: avoid; } }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../../node_modules/normalize.css/normalize.css';\n\n/*! React Starter Kit | MIT License | https://www.reactstarterkit.com/ */\n\n@import '../variables.scss';\n\n/*\n * Base styles\n * ========================================================================== */\n\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em; /* ~16px; */\n  font-family: $font-family-base;\n  line-height: 1.375; /* ~22px */\n}\n\nbody {\n  background-color: #F0F3F5;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0;\n}\n\na {\n  color: inherit;\n  text-decoration: none;\n}\n\np {\n  margin: 0;\n}\n\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n\n::selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n\n/*\n * A better looking default horizontal rule\n */\n\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0;\n}\n\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\n\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle;\n}\n\n/*\n * Remove default fieldset styles.\n */\n\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0;\n}\n\n/*\n * Allow only vertical resizing of textareas.\n */\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n * Browser upgrade prompt\n * ========================================================================== */\n\n:global(.browserupgrade) {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0;\n}\n\n/*\n * Print styles\n * Inlined to avoid the additional HTTP request:\n * http://www.phpied.com/delay-loading-your-print-css/\n * ========================================================================== */\n\n@media print {\n  *,\n  *:before,\n  *:after {\n    background: transparent !important;\n    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    box-shadow: none !important;\n    text-shadow: none !important;\n  }\n\n  a,\n  a:visited {\n    text-decoration: underline;\n  }\n\n  a[href]:after {\n    content: \" (\" attr(href) \")\";\n  }\n\n  abbr[title]:after {\n    content: \" (\" attr(title) \")\";\n  }\n\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n\n  a[href^=\"#\"]:after,\n  a[href^=\"javascript:\"]:after {\n    content: \"\";\n  }\n\n  pre,\n  blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid;\n  }\n\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n\n  thead {\n    display: table-header-group;\n  }\n\n  tr,\n  img {\n    page-break-inside: avoid;\n  }\n\n  img {\n    max-width: 100% !important;\n  }\n\n  p,\n  h2,\n  h3 {\n    orphans: 3;\n    widows: 3;\n  }\n\n  h2,\n  h3 {\n    page-break-after: avoid;\n  }\n}\n","/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\n\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS and IE text size adjust after device orientation change,\n *    without disabling user zoom.\n */\n\nhtml {\n  font-family: sans-serif; /* 1 */\n  -ms-text-size-adjust: 100%; /* 2 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n\n/**\n * Remove default margin.\n */\n\nbody {\n  margin: 0;\n}\n\n/* HTML5 display definitions\n   ========================================================================== */\n\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11\n * and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\n\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  display: block;\n}\n\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n */\n\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block; /* 1 */\n  vertical-align: baseline; /* 2 */\n}\n\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\n\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.\n */\n\n[hidden],\ntemplate {\n  display: none;\n}\n\n/* Links\n   ========================================================================== */\n\n/**\n * Remove the gray background color from active links in IE 10.\n */\n\na {\n  background-color: transparent;\n}\n\n/**\n * Improve readability of focused elements when they are also in an\n * active/hover state.\n */\n\na:active,\na:hover {\n  outline: 0;\n}\n\n/* Text-level semantics\n   ========================================================================== */\n\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\n\nabbr[title] {\n  border-bottom: 1px dotted;\n}\n\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\n\nb,\nstrong {\n  font-weight: bold;\n}\n\n/**\n * Address styling not present in Safari and Chrome.\n */\n\ndfn {\n  font-style: italic;\n}\n\n/**\n * Address variable `h1` font-size and margin within `section` and `article`\n * contexts in Firefox 4+, Safari, and Chrome.\n */\n\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n\n/**\n * Address styling not present in IE 8/9.\n */\n\nmark {\n  background: #ff0;\n  color: #000;\n}\n\n/**\n * Address inconsistent and variable font size in all browsers.\n */\n\nsmall {\n  font-size: 80%;\n}\n\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsup {\n  top: -0.5em;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\n/* Embedded content\n   ========================================================================== */\n\n/**\n * Remove border when inside `a` element in IE 8/9/10.\n */\n\nimg {\n  border: 0;\n}\n\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\n\nsvg:not(:root) {\n  overflow: hidden;\n}\n\n/* Grouping content\n   ========================================================================== */\n\n/**\n * Address margin not present in IE 8/9 and Safari.\n */\n\nfigure {\n  margin: 1em 40px;\n}\n\n/**\n * Address differences between Firefox and other browsers.\n */\n\nhr {\n  box-sizing: content-box;\n  height: 0;\n}\n\n/**\n * Contain overflow in all browsers.\n */\n\npre {\n  overflow: auto;\n}\n\n/**\n * Address odd `em`-unit font size rendering in all browsers.\n */\n\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  font-size: 1em;\n}\n\n/* Forms\n   ========================================================================== */\n\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit; /* 1 */\n  font: inherit; /* 2 */\n  margin: 0; /* 3 */\n}\n\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\n\nbutton {\n  overflow: visible;\n}\n\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n */\n\nbutton,\nhtml input[type=\"button\"], /* 1 */\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n  cursor: pointer; /* 3 */\n}\n\n/**\n * Re-set default cursor for disabled elements.\n */\n\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default;\n}\n\n/**\n * Remove inner padding and border in Firefox 4+.\n */\n\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n}\n\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\n\ninput {\n  line-height: normal;\n}\n\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n */\n\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\n\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.\n */\n\ninput[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  box-sizing: content-box; /* 2 */\n}\n\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\n\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n * Define consistent border, margin, and padding.\n */\n\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n */\n\nlegend {\n  border: 0; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Remove default vertical scrollbar in IE 8/9/10/11.\n */\n\ntextarea {\n  overflow: auto;\n}\n\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\n\noptgroup {\n  font-weight: bold;\n}\n\n/* Tables\n   ========================================================================== */\n\n/**\n * Remove most spacing between table cells.\n */\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ntd,\nth {\n  padding: 0;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-
-
-/***/ },
-/* 122 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.ContentPage_container_1JT {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n", "", {"version":3,"sources":["/./src/components/ContentPage/ContentPage.scss","/./src/components/ContentPage/src/components/ContentPage/ContentPage.scss","/./src/components/ContentPage/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADnBhF;EACE,eAAe;EACf,kBAAkB;EAClB,kBCG4B,EDF7B","file":"ContentPage.scss","sourcesContent":["@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n","/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\r\n\r\n@import '../variables.scss';\r\n\r\n.root {\r\n\r\n}\r\n\r\n.container {\r\n  margin: 0 auto;\r\n  padding: 0 0 40px;\r\n  max-width: $max-content-width;\r\n}\r\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"container": "ContentPage_container_1JT"
-  };
-
-/***/ },
-/* 123 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Feedback_root_LW7 {\n  background: #f5f5f5;\n  color: #333; }\n.Feedback_container_3dV {\n  margin: 0 auto;\n  padding: 20px 8px;\n  max-width: 1000px;\n  text-align: center;\n  font-size: 1.5em;\n  /* ~24px */ }\n.Feedback_link_17l, .Feedback_link_17l:active, .Feedback_link_17l:hover, .Feedback_link_17l:visited {\n  color: #333;\n  text-decoration: none; }\n.Feedback_link_17l:hover {\n  text-decoration: underline; }\n.Feedback_spacer_Iut {\n  padding-right: 15px;\n  padding-left: 15px; }\n", "", {"version":3,"sources":["/./src/components/Feedback/Feedback.scss","/./src/components/Feedback/src/components/Feedback/Feedback.scss","/./src/components/Feedback/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,oBAAoB;EACpB,YAAY,EACb;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B;EDD5B,mBAAmB;EACnB,iBAAiB;EAAE,WAAW,EAC/B;AAED;EAIE,YAAY;EACZ,sBAAsB,EACvB;AAED;EACE,2BAA2B,EAC5B;AAED;EACE,oBAAoB;EACpB,mBAAmB,EACpB","file":"Feedback.scss","sourcesContent":["@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  background: #f5f5f5;\n  color: #333; }\n\n.container {\n  margin: 0 auto;\n  padding: 20px 8px;\n  max-width: 1000px;\n  text-align: center;\n  font-size: 1.5em;\n  /* ~24px */ }\n\n.link,\n.link:active,\n.link:hover,\n.link:visited {\n  color: #333;\n  text-decoration: none; }\n\n.link:hover {\n  text-decoration: underline; }\n\n.spacer {\n  padding-right: 15px;\n  padding-left: 15px; }\n","/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\r\n\r\n@import '../variables.scss';\r\n\r\n.root {\r\n  background: #f5f5f5;\r\n  color: #333;\r\n}\r\n\r\n.container {\r\n  margin: 0 auto;\r\n  padding: 20px 8px;\r\n  max-width: $max-content-width;\r\n  text-align: center;\r\n  font-size: 1.5em; /* ~24px */\r\n}\r\n\r\n.link,\r\n.link:active,\r\n.link:hover,\r\n.link:visited {\r\n  color: #333;\r\n  text-decoration: none;\r\n}\r\n\r\n.link:hover {\r\n  text-decoration: underline;\r\n}\r\n\r\n.spacer {\r\n  padding-right: 15px;\r\n  padding-left: 15px;\r\n}\r\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Feedback_root_LW7",
-  	"container": "Feedback_container_3dV",
-  	"link": "Feedback_link_17l",
-  	"spacer": "Feedback_spacer_Iut"
-  };
-
-/***/ },
-/* 124 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Footer_root_3dP {\n  background: #333;\n  color: #fff; }\n.Footer_container_26p {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: 1000px;\n  text-align: center; }\n.Footer_text_tTp {\n  color: rgba(255, 255, 255, 0.5); }\n.Footer_textMuted_1h3 {\n  color: rgba(255, 255, 255, 0.3); }\n.Footer_spacer_3n7 {\n  color: rgba(255, 255, 255, 0.3); }\n.Footer_text_tTp, .Footer_link_NoJ {\n  padding: 2px 5px;\n  font-size: 1em; }\n.Footer_link_NoJ, .Footer_link_NoJ:active, .Footer_link_NoJ:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none; }\n.Footer_link_NoJ:hover {\n  color: white; }\n", "", {"version":3,"sources":["/./src/components/Footer/Footer.scss","/./src/components/Footer/src/components/Footer/Footer.scss","/./src/components/Footer/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,iBAAiB;EACjB,YAAY,EACb;AAED;EACE,eAAe;EACf,mBAAmB;EACnB,kBCE4B;EDD5B,mBAAmB,EACpB;AAED;EACE,gCAAW,EACZ;AAED;EAEE,gCAAW,EACZ;AAED;EACE,gCAAW,EACZ;AAED;EAEE,iBAAiB;EACjB,eAAe,EAChB;AAED;EAGE,gCAAW;EACX,sBAAsB,EACvB;AAED;EACE,aAAW,EACZ","file":"Footer.scss","sourcesContent":["@charset \"UTF-8\";\n/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  background: #333;\n  color: #fff; }\n\n.container {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: 1000px;\n  text-align: center; }\n\n.text {\n  color: rgba(255, 255, 255, 0.5); }\n\n.textMuted {\n  composes: text;\n  color: rgba(255, 255, 255, 0.3); }\n\n.spacer {\n  color: rgba(255, 255, 255, 0.3); }\n\n.text,\n.link {\n  padding: 2px 5px;\n  font-size: 1em; }\n\n.link,\n.link:active,\n.link:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none; }\n\n.link:hover {\n  color: white; }\n","/**\r\n * React Starter Kit (https://www.reactstarterkit.com/)\r\n *\r\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\r\n *\r\n * This source code is licensed under the MIT license found in the\r\n * LICENSE.txt file in the root directory of this source tree.\r\n */\r\n\r\n@import '../variables.scss';\r\n\r\n.root {\r\n  background: #333;\r\n  color: #fff;\r\n}\r\n\r\n.container {\r\n  margin: 0 auto;\r\n  padding: 20px 15px;\r\n  max-width: $max-content-width;\r\n  text-align: center;\r\n}\r\n\r\n.text {\r\n  color: rgba(255, 255, 255, .5);\r\n}\r\n\r\n.textMuted {\r\n  composes: text;\r\n  color: rgba(255, 255, 255, .3);\r\n}\r\n\r\n.spacer {\r\n  color: rgba(255, 255, 255, .3);\r\n}\r\n\r\n.text,\r\n.link {\r\n  padding: 2px 5px;\r\n  font-size: 1em;\r\n}\r\n\r\n.link,\r\n.link:active,\r\n.link:visited {\r\n  color: rgba(255, 255, 255, .6);\r\n  text-decoration: none;\r\n}\r\n\r\n.link:hover {\r\n  color: rgba(255, 255, 255, 1);\r\n}\r\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Footer_root_3dP",
-  	"container": "Footer_container_26p",
-  	"text": "Footer_text_tTp",
-  	"textMuted": "Footer_textMuted_1h3 Footer_text_tTp",
-  	"spacer": "Footer_spacer_3n7",
-  	"link": "Footer_link_NoJ"
-  };
-
-/***/ },
-/* 125 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n.Header_root_14I {\n  background-color: #fcfdfd;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  padding: 20px 0 18px 0; }\n.Header_nav_3wx {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 14px;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  text-align: center; }\n.Header_nav_3wx a {\n    color: #A1AEB6;\n    display: inline-block;\n    font-style: italic;\n    font-weight: 500;\n    margin: 0 7px;\n    text-decoration: none;\n    text-transform: uppercase; }\n.Header_nav_3wx a:hover {\n      color: #ea1556; }\n.Header_nav_3wx a.Header_active_1Z5 {\n      color: #000000; }\n.Header_navGrouping_2Vv:last-of-type .Header_divider_1lO {\n  display: none; }\n.Header_navGrouping_2Vv .Header_divider_1lO {\n  color: #A1AEB6;\n  margin: 0 8px; }\n", "", {"version":3,"sources":["/./src/components/Header/Header.scss","/./src/components/Header/src/components/Header/Header.scss","/./src/components/Header/src/components/variables.scss","/./src/components/Header/src/components/mixins.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ACqBhF;;;;;;;;;;;;gEAYgE;AFvDhE;EAEE,0BAAyB;EACzB,gBAAgB;EAChB,OAAO;EACP,QAAQ;EACR,SAAS;EACT,uBAAuB,EACxB;AAED;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,gBAAgB;EAChB,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,mBAAmB,EAqBpB;AAzBD;IAOI,eAAe;IACf,sBAAsB;IACtB,mBAAmB;IACnB,iBAAiB;IACjB,cAAc;IACd,sBAAsB;IACtB,0BAA0B,EAU3B;AAvBH;MAgBM,eAAe,EAChB;AAjBL;MAoBM,eAAe,EAChB;AAML;EAKM,cAAc,EACf;AANL;EAWI,eAAe;EACf,cAAc,EACf","file":"Header.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n.root {\n  background-color: #fcfdfd;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  padding: 20px 0 18px 0; }\n\n.nav {\n  display: flex;\n  font-size: 14px;\n  justify-content: center;\n  text-align: center; }\n  .nav a {\n    color: #A1AEB6;\n    display: inline-block;\n    font-style: italic;\n    font-weight: 500;\n    margin: 0 7px;\n    text-decoration: none;\n    text-transform: uppercase; }\n    .nav a:hover {\n      color: #ea1556; }\n    .nav a.active {\n      color: #000000; }\n\n.navGrouping:last-of-type .divider {\n  display: none; }\n\n.navGrouping .divider {\n  color: #A1AEB6;\n  margin: 0 8px; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.scss';\n@import '../mixins.scss';\n\n.root {\n  //@include gradient(#F0F3F5, transparentize(#F0F3F5, 0.03));\n  background-color: lighten(#F0F3F5, 4);\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  padding: 20px 0 18px 0;\n}\n\n.nav {\n  display: flex;\n  font-size: 14px;\n  justify-content: center;\n  text-align: center;\n\n  a {\n    color: #A1AEB6;\n    display: inline-block;\n    font-style: italic;\n    font-weight: 500;\n    margin: 0 7px;\n    text-decoration: none;\n    text-transform: uppercase;\n\n    &:hover {\n      color: #ea1556;\n    }\n\n    &.active {\n      color: #000000;\n    }\n\n  }\n\n}\n\n.navGrouping {\n\n  &:last-of-type {\n\n    .divider {\n      display: none;\n    }\n\n  }\n\n  .divider {\n    color: #A1AEB6;\n    margin: 0 8px;\n  }\n\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n","\n@mixin lines-truncate($lineheight, $linecount) {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  line-height: $lineheight;                  /* fallback */\n  max-height: $lineheight * $linecount;      /* fallback */\n  -webkit-line-clamp: $linecount;            /* number of lines to show */\n  -webkit-box-orient: vertical;\n}\n\n@mixin placeholder {\n  &::-webkit-input-placeholder {@content}\n  &:-moz-placeholder           {@content}\n  &::-moz-placeholder          {@content}\n  &:-ms-input-placeholder      {@content}\n}\n\n%text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin animation2() {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n@mixin effect2($effect) {\n  -webkit-animation-name: $effect;\n  animation-name: $effect;\n}\n\n@mixin image-2x($image, $width, $height) {\n  @media (min--moz-device-pixel-ratio: 1.3),\n  (-o-min-device-pixel-ratio: 2.6/2),\n  (-webkit-min-device-pixel-ratio: 1.3),\n  (min-device-pixel-ratio: 1.3),\n  (min-resolution: 1.3dppx) {\n    /* on retina, use image that's scaled by 2 */\n    background-image: url($image);\n    background-size: $width $height;\n  }\n}\n\n\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n\n\n////\n/// @author Matthieu Aussaguel\n/// @group sass-css3-mixins\n////\n\n\n/// Adds a browser prefix to the property\n/// @param {*} $property Property\n/// @param {*} $value Value\n\n@mixin css3-prefix($property, $value) {\n  -webkit-#{$property}: #{$value};\n  -khtml-#{$property}: #{$value};\n  -moz-#{$property}: #{$value};\n  -ms-#{$property}: #{$value};\n  -o-#{$property}: #{$value};\n  #{$property}: #{$value};\n}\n\n\n/// Background Gradient\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(top, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(top, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(top, $startColor, $endColor);\n  background-image:      -o-linear-gradient(top, $startColor, $endColor);\n  background-image:         linear-gradient(top, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');\n}\n\n@mixin gradient($colour1, $colour2) {\n  background-image: -webkit-gradient(\n      linear,\n      left top,\n      left bottom,\n      color-stop(0, $colour1),\n      color-stop(1, $colour2)\n  );\n  background-image: -o-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -moz-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -webkit-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -ms-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: linear-gradient(to bottom, $colour1 0%, $colour2 100%);\n}\n\n\n/// Background Horizontal\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-horizontal($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(left, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(left, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(left, $startColor, $endColor);\n  background-image:      -o-linear-gradient(left, $startColor, $endColor);\n  background-image:         linear-gradient(left, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1');\n}\n\n\n/// Background Radial\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Percentage} $startPos [0%] - Start position\n/// @param {Color} $endColor [#999999] - End Color\n/// @param {Percentage} $endPos [100%] - End position\n\n@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) {\n  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);\n  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor));\n  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos);\n}\n\n\n/// Background Size\n/// @param {Size} $width [100%] - Width\n/// @param {Size} $width [$width] - Height\n/// @require {mixin} css3-prefix\n\n@mixin background-size($width: 100%, $height: $width) {\n  @if type-of($width) == 'number' and $height != null {\n    @include css3-prefix('background-size', $width $height);\n  } @else {\n    @include css3-prefix('background-size', $width);\n  }\n}\n\n\n/// Background Color Opacity\n/// @param {Color} $color [100%] - Color\n/// @param {Double} $opacity [0.85] - Opacity\n\n@mixin background-opacity($color: #000, $opacity: 0.85) {\n  background: $color;\n  background: rgba($color, $opacity);\n}\n\n\n/// Border Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin border-radius($radius: 5px) {\n  @include css3-prefix('border-radius', $radius);\n}\n\n\n/// Border Radius Separate\n/// @param {Size} $topLeftRadius [5px] - Top Left\n/// @param {Size} $topRightRadius [5px] - Top Right\n/// @param {Size} $bottomLeftRadius [5px] - Bottom Left\n/// @param {Size} $bottomRightRadius [5px] - Bottom Right\n\n@mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px) {\n  -webkit-border-top-left-radius:     $topLeftRadius;\n  -webkit-border-top-right-radius:    $topRightRadius;\n  -webkit-border-bottom-right-radius: $bottomRightRadius;\n  -webkit-border-bottom-left-radius:  $bottomLeftRadius;\n\n  -moz-border-radius-topleft:     $topLeftRadius;\n  -moz-border-radius-topright:    $topRightRadius;\n  -moz-border-radius-bottomright: $bottomRightRadius;\n  -moz-border-radius-bottomleft:  $bottomLeftRadius;\n\n  border-top-left-radius:     $topLeftRadius;\n  border-top-right-radius:    $topRightRadius;\n  border-bottom-right-radius: $bottomRightRadius;\n  border-bottom-left-radius:  $bottomLeftRadius;\n}\n\n\n/// Box\n/// @param {*} $orient [horizontal] - Orientation\n/// @param {*} $pack [center] - Pack\n/// @param {*} $align [center] - Align\n/// @require {mixin} css3-prefix\n\n@mixin box($orient: horizontal, $pack: center, $align: center) {\n  display: -webkit-box;\n  display: -moz-box;\n  display: box;\n\n  @include css3-prefix('box-orient', $orient);\n  @include css3-prefix('box-pack', $pack);\n  @include css3-prefix('box-align', $align);\n}\n\n\n/// Box RGBA\n/// @param {Integer} $r [60] - Red\n/// @param {Integer} $g [3] - Green\n/// @param {Integer} $b [12] - Blue\n/// @param {Double} $opacity [0.23] - Opacity\n/// @param {Color} $color [#3C3C3C] - Color\n\n@mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {\n  background-color: transparent;\n  background-color: rgba($r, $g, $b, $opacity);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}');\n  zoom:   1;\n}\n\n\n/// Box Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [5px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n/// @param {Boolean} $inset - Inset\n\n@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: \"\") {\n  @if ($inset != \"\") {\n    @include css3-prefix('box-shadow', $inset $x $y $blur $color);\n  } @else {\n    @include css3-prefix('box-shadow', $x $y $blur $color);\n  }\n}\n\n\n/// Box Sizing\n/// @param {*} $type [border-box] - Type\n/// @require {mixin} css3-prefix\n\n@mixin box-sizing($type: border-box) {\n  @include css3-prefix('box-sizing', $type);\n}\n\n\n/// Columns\n/// @param {Integer} $count [3] - Count\n/// @param {Integer} $gap [10] - Gap\n/// @require {mixin} css3-prefix\n\n@mixin columns($count: 3, $gap: 10) {\n  @include css3-prefix('column-count', $count);\n  @include css3-prefix('column-gap', $gap);\n}\n\n\n/// Double Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} css3-prefix\n/// @require {mixin} border-radius\n\n@mixin double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo);\n\n  @include border-radius( $radius );\n}\n\n\n/// Flex\n/// @param {Integer} $value [1] - Value\n/// @require {mixin} css3-prefix\n\n@mixin flex($value: 1) {\n  @include css3-prefix('box-flex', $value);\n}\n\n\n/// Flip\n/// @param {Double} $scaleX [-1] - ScaleX\n/// @require {mixin} css3-prefix\n\n@mixin flip($scaleX: -1) {\n  @include css3-prefix('transform', scaleX($scaleX));\n  filter:            FlipH;\n  -ms-filter:        \"FlipH\";\n}\n\n\n/// Font Face\n/// @param {Font} $fontFamily [myFont] - Font Family\n/// @param {String} $eotFileSrc ['myFont.eot'] - Eot File Source\n/// @param {String} $woffFileSrc ['myFont.woff'] - Woff File Source\n/// @param {String} $ttfFileSrc ['myFont.ttf'] - Ttf File Source\n/// @param {String} $svgFileSrc ['myFont.svg'] - Svg File Source\n\n@mixin font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont') {\n  font-family: $fontFamily;\n  src: url($eotFileSrc)  format('eot'),\n  url($woffFileSrc) format('woff'),\n  url($ttfFileSrc)  format('truetype'),\n  url($svgFileSrc + $svgFontID) format('svg');\n}\n\n\n/// Opacity\n/// @param {Double} $opacity [0.5] - Opacity\n/// @require {mixin} css3-prefix\n\n@mixin opacity($opacity: 0.5) {\n  $opacityMultiplied: ($opacity * 100);\n\n  filter:         alpha(opacity=$opacityMultiplied);\n  -ms-filter:     \"progid:DXImageTransform.Microsoft.Alpha(Opacity=\" + $opacityMultiplied + \")\";\n  @include css3-prefix('opacity', $opacity);\n}\n\n\n/// Outline Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin outline-radius($radius: 5px) {\n  @include css3-prefix('outline-radius', $radius);\n}\n\n\n/// Resize\n/// @param {*} $directoin [both] - Direction\n/// @require {mixin} css3-prefix\n\n@mixin resize($direction: both) {\n  @include css3-prefix('resize', $direction);\n}\n\n\n/// Rotate\n///\n/// CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html\n/// @param {Double} $deg [0] - Degree\n/// @param {Double} $m11 [0] - M11\n/// @param {Double} $m12 [0] - M12\n/// @param {Double} $m21 [0] - M21\n/// @param {Double} $m22 [0] - M22\n/// @require {mixin} css3-prefix\n\n@mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {\n  @include css3-prefix('transform', rotate($deg + deg));\n  filter: progid:DXImageTransform.Microsoft.Matrix(\n      M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');\n  zoom: 1;\n}\n\n\n/// Text Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [2px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n\n@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {\n  text-shadow: $x $y $blur $color;\n}\n\n\n/// Transform\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform($params) {\n  @include css3-prefix('transform', $params);\n}\n\n\n/// Transform-Origin\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-origin($params) {\n  @include css3-prefix('transform-origin', $params);\n}\n\n\n// Transform-Style\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-style($style: preserve-3d) {\n  @include css3-prefix('transform-style', $style);\n}\n\n/// Transition\n/// @param {List} $properties - Properties\n/// @require {mixin} css3-prefix\n\n@mixin transition($properties...) {\n\n  @if length($properties) >= 1 {\n    @include css3-prefix('transition', $properties);\n  }\n\n  @else {\n    @include css3-prefix('transition',  \"all 0.2s ease-in-out 0s\");\n  }\n}\n\n\n/// Triple Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Color} $colorThree [#000000] - Color Three\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} border-radius\n/// @require {mixin} css3-prefix\n\n@mixin triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include border-radius($radius);\n\n  @include css3-prefix('box-shadow', \"0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}\");\n}\n\n\n/// Keyframes\n/// @param {*} $animation-name - Animation name\n/// @content [Animation css]\n\n@mixin keyframes($animation-name) {\n  @-webkit-keyframes #{$animation-name} {\n    @content;\n  }\n  @-moz-keyframes #{$animation-name} {\n    @content;\n  }\n  @-ms-keyframes #{$animation-name} {\n    @content;\n  }\n  @-o-keyframes #{$animation-name} {\n    @content;\n  }\n  @keyframes #{$animation-name} {\n    @content;\n  }\n}\n\n\n/// Animation\n/// @param {*} $str - name duration timing-function delay iteration-count direction fill-mode play-state ([http://www.w3schools.com/cssref/css3_pr_animation.asp](http://www.w3schools.com/cssref/css3_pr_animation.asp))\n/// @require {mixin} css3-prefix\n\n@mixin animation($str) {\n  @include css3-prefix('animation', $str);\n}\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Header_root_14I",
-  	"nav": "Header_nav_3wx",
-  	"active": "Header_active_1Z5",
-  	"navGrouping": "Header_navGrouping_2Vv",
-  	"divider": "Header_divider_1lO"
-  };
-
-/***/ },
-/* 126 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Intro_root_1YK {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 280px 0;\n  text-align: center; }\n.Intro_authorTitle_3KQ {\n  font-size: 26px;\n  font-weight: 400; }\n.Intro_contactLinks_1qw {\n  color: #424242;\n  font-size: 17px;\n  font-weight: 400;\n  margin-top: 24px; }\n.Intro_contactLinks_1qw a {\n    display: inline-block;\n    margin: 0 6px; }\n.Intro_contactLinks_1qw a:hover {\n      color: #ea1556; }\n.Intro_contactLinks_1qw .Intro_social_2gD {\n    margin: 0 8px; }\n.Intro_mainTitle_2AB {\n  font-size: 60px;\n  font-weight: 500;\n  margin: 10px 0 12px 0;\n  text-transform: uppercase; }\n.Intro_subTitle_30p {\n  color: #A1AEB6;\n  font-size: 26px;\n  font-weight: 300;\n  font-style: italic; }\n.Intro_subTitle_30p strong {\n    font-weight: 500; }\n", "", {"version":3,"sources":["/./src/components/Intro/Intro.scss","/./src/components/Intro/src/components/Intro/Intro.scss","/./src/components/Intro/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,yBAAwB;EAAxB,gCAAwB;MAAxB,sBAAwB;UAAxB,wBAAwB;EACxB,gBAAgB;EAChB,mBAAmB,EACpB;AAED;EACE,gBAAgB;EAChB,iBAAiB,EAClB;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,iBAAiB,EAmBlB;AAvBD;IAOI,sBAAsB;IACtB,cAAc,EAMf;AAdH;MAWM,eAAe,EAChB;AAZL;IAiBI,cAAc,EACf;AAOH;EACE,gBAAgB;EAChB,iBAAiB;EACjB,sBAAsB;EACtB,0BAA0B,EAC3B;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB,EAMpB;AAVD;IAOI,iBAAiB,EAClB","file":"Intro.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  display: flex;\n  justify-content: center;\n  margin: 280px 0;\n  text-align: center; }\n\n.authorTitle {\n  font-size: 26px;\n  font-weight: 400; }\n\n.contactLinks {\n  color: #424242;\n  font-size: 17px;\n  font-weight: 400;\n  margin-top: 24px; }\n  .contactLinks a {\n    display: inline-block;\n    margin: 0 6px; }\n    .contactLinks a:hover {\n      color: #ea1556; }\n  .contactLinks .social {\n    margin: 0 8px; }\n\n.mainTitle {\n  font-size: 60px;\n  font-weight: 500;\n  margin: 10px 0 12px 0;\n  text-transform: uppercase; }\n\n.subTitle {\n  color: #A1AEB6;\n  font-size: 26px;\n  font-weight: 300;\n  font-style: italic; }\n  .subTitle strong {\n    font-weight: 500; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.scss';\n\n.root {\n  display: flex;\n  justify-content: center;\n  margin: 280px 0;\n  text-align: center;\n}\n\n.authorTitle {\n  font-size: 26px;\n  font-weight: 400;\n}\n\n.contactLinks {\n  color: #424242;\n  font-size: 17px;\n  font-weight: 400;\n  margin-top: 24px;\n\n  a {\n    display: inline-block;\n    margin: 0 6px;\n\n    &:hover {\n      color: #ea1556;\n    }\n\n  }\n\n  .social {\n    margin: 0 8px;\n  }\n\n  .email {\n  }\n\n}\n\n.mainTitle {\n  font-size: 60px;\n  font-weight: 500;\n  margin: 10px 0 12px 0;\n  text-transform: uppercase;\n}\n\n.subTitle {\n  color: #A1AEB6;\n  font-size: 26px;\n  font-weight: 300;\n  font-style: italic;\n\n  strong {\n    font-weight: 500;\n  }\n\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Intro_root_1YK",
-  	"authorTitle": "Intro_authorTitle_3KQ",
-  	"contactLinks": "Intro_contactLinks_1qw",
-  	"social": "Intro_social_2gD",
-  	"mainTitle": "Intro_mainTitle_2AB",
-  	"subTitle": "Intro_subTitle_30p"
-  };
-
-/***/ },
-/* 127 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n.Skills_root_3sr {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  max-width: 672px;\n  margin: 280px auto;\n  width: 100%; }\n.Skills_skillColumn_37r {\n  width: 50%; }\n.Skills_skillColumn_37r:first-of-type {\n    padding-right: 20px; }\n.Skills_skillColumn_37r:last-of-type {\n    padding-left: 20px; }\n.Skills_skillsList_2hW {\n  list-style-type: none;\n  padding: 0;\n  margin: 0; }\n.Skills_skillsList_2hW > li {\n    border-radius: 3px;\n    background-color: #ffffff;\n    color: #000000;\n    font-size: 23px;\n    font-weight: 300;\n    margin-top: 10px;\n    padding: 15px; }\n.Skills_title_1FQ {\n  color: #7E8B90;\n  font-size: 13px;\n  font-weight: 500;\n  text-transform: uppercase; }\n", "", {"version":3,"sources":["/./src/components/Skills/Skills.scss","/./src/components/Skills/src/components/Skills/Skills.scss","/./src/components/Skills/src/components/mixins.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACgDH;;;;;;;;;;;;gEAYgE;ADxDhE;EACE,qBAAc;EAAd,sBAAc;EAAd,qBAAc;EAAd,cAAc;EACd,iBAAiB;EACjB,mBAAmB;EACnB,YAAY,EACb;AAED;EACE,WAAW,EAUZ;AAXD;IAII,oBAAoB,EACrB;AALH;IAQI,mBAAmB,EACpB;AAIH;EACE,sBAAsB;EACtB,WAAW;EACX,UAAU,EAYX;AAfD;ICuDE,mBAAc;IDhDZ,0BAA0B;IAC1B,eAAe;IACf,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;IACjB,cAAc,EACf;AAIH;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,0BAA0B,EAC3B","file":"Skills.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n.root {\n  display: flex;\n  max-width: 672px;\n  margin: 280px auto;\n  width: 100%; }\n\n.skillColumn {\n  width: 50%; }\n  .skillColumn:first-of-type {\n    padding-right: 20px; }\n  .skillColumn:last-of-type {\n    padding-left: 20px; }\n\n.skillsList {\n  list-style-type: none;\n  padding: 0;\n  margin: 0; }\n  .skillsList > li {\n    -webkit-border-radius: 3px;\n    -khtml-border-radius: 3px;\n    -moz-border-radius: 3px;\n    -ms-border-radius: 3px;\n    -o-border-radius: 3px;\n    border-radius: 3px;\n    background-color: #ffffff;\n    color: #000000;\n    font-size: 23px;\n    font-weight: 300;\n    margin-top: 10px;\n    padding: 15px; }\n\n.title {\n  color: #7E8B90;\n  font-size: 13px;\n  font-weight: 500;\n  text-transform: uppercase; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../mixins.scss';\n\n.root {\n  display: flex;\n  max-width: 672px;\n  margin: 280px auto;\n  width: 100%;\n}\n\n.skillColumn {\n  width: 50%;\n\n  &:first-of-type {\n    padding-right: 20px;\n  }\n\n  &:last-of-type {\n    padding-left: 20px;\n  }\n\n}\n\n.skillsList {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n\n  > li {\n    @include border-radius(3px);\n    background-color: #ffffff;\n    color: #000000;\n    font-size: 23px;\n    font-weight: 300;\n    margin-top: 10px;\n    padding: 15px;\n  }\n\n}\n\n.title {\n  color: #7E8B90;\n  font-size: 13px;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n","\n@mixin lines-truncate($lineheight, $linecount) {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  line-height: $lineheight;                  /* fallback */\n  max-height: $lineheight * $linecount;      /* fallback */\n  -webkit-line-clamp: $linecount;            /* number of lines to show */\n  -webkit-box-orient: vertical;\n}\n\n@mixin placeholder {\n  &::-webkit-input-placeholder {@content}\n  &:-moz-placeholder           {@content}\n  &::-moz-placeholder          {@content}\n  &:-ms-input-placeholder      {@content}\n}\n\n%text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin text-truncate {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@mixin animation2() {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n@mixin effect2($effect) {\n  -webkit-animation-name: $effect;\n  animation-name: $effect;\n}\n\n@mixin image-2x($image, $width, $height) {\n  @media (min--moz-device-pixel-ratio: 1.3),\n  (-o-min-device-pixel-ratio: 2.6/2),\n  (-webkit-min-device-pixel-ratio: 1.3),\n  (min-device-pixel-ratio: 1.3),\n  (min-resolution: 1.3dppx) {\n    /* on retina, use image that's scaled by 2 */\n    background-image: url($image);\n    background-size: $width $height;\n  }\n}\n\n\n/* -------------------------------------------------------------\n  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library\n  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets\n\n  List of CSS3 Sass Mixins File to be @imported and @included as you need\n\n  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER\n  ENDING css files\n\n  note: All CSS3 Properties are being supported by Safari 5\n  more info: http://www.findmebyip.com/litmus/#css3-properties\n\n------------------------------------------------------------- */\n\n\n////\n/// @author Matthieu Aussaguel\n/// @group sass-css3-mixins\n////\n\n\n/// Adds a browser prefix to the property\n/// @param {*} $property Property\n/// @param {*} $value Value\n\n@mixin css3-prefix($property, $value) {\n  -webkit-#{$property}: #{$value};\n  -khtml-#{$property}: #{$value};\n  -moz-#{$property}: #{$value};\n  -ms-#{$property}: #{$value};\n  -o-#{$property}: #{$value};\n  #{$property}: #{$value};\n}\n\n\n/// Background Gradient\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(top, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(top, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(top, $startColor, $endColor);\n  background-image:      -o-linear-gradient(top, $startColor, $endColor);\n  background-image:         linear-gradient(top, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');\n}\n\n@mixin gradient($colour1, $colour2) {\n  background-image: -webkit-gradient(\n      linear,\n      left top,\n      left bottom,\n      color-stop(0, $colour1),\n      color-stop(1, $colour2)\n  );\n  background-image: -o-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -moz-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -webkit-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: -ms-linear-gradient(bottom, $colour1 0%, $colour2 100%);\n  background-image: linear-gradient(to bottom, $colour1 0%, $colour2 100%);\n}\n\n\n/// Background Horizontal\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Color} $endColor [#999999] - End Color\n\n@mixin background-horizontal($startColor: #3C3C3C, $endColor: #999999) {\n  background-color: $startColor;\n  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));\n  background-image: -webkit-linear-gradient(left, $startColor, $endColor);\n  background-image:    -moz-linear-gradient(left, $startColor, $endColor);\n  background-image:     -ms-linear-gradient(left, $startColor, $endColor);\n  background-image:      -o-linear-gradient(left, $startColor, $endColor);\n  background-image:         linear-gradient(left, $startColor, $endColor);\n  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1');\n}\n\n\n/// Background Radial\n/// @param {Color} $startColor [#3C3C3C] - Start Color\n/// @param {Percentage} $startPos [0%] - Start position\n/// @param {Color} $endColor [#999999] - End Color\n/// @param {Percentage} $endPos [100%] - End position\n\n@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) {\n  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);\n  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor));\n  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);\n  background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos);\n}\n\n\n/// Background Size\n/// @param {Size} $width [100%] - Width\n/// @param {Size} $width [$width] - Height\n/// @require {mixin} css3-prefix\n\n@mixin background-size($width: 100%, $height: $width) {\n  @if type-of($width) == 'number' and $height != null {\n    @include css3-prefix('background-size', $width $height);\n  } @else {\n    @include css3-prefix('background-size', $width);\n  }\n}\n\n\n/// Background Color Opacity\n/// @param {Color} $color [100%] - Color\n/// @param {Double} $opacity [0.85] - Opacity\n\n@mixin background-opacity($color: #000, $opacity: 0.85) {\n  background: $color;\n  background: rgba($color, $opacity);\n}\n\n\n/// Border Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin border-radius($radius: 5px) {\n  @include css3-prefix('border-radius', $radius);\n}\n\n\n/// Border Radius Separate\n/// @param {Size} $topLeftRadius [5px] - Top Left\n/// @param {Size} $topRightRadius [5px] - Top Right\n/// @param {Size} $bottomLeftRadius [5px] - Bottom Left\n/// @param {Size} $bottomRightRadius [5px] - Bottom Right\n\n@mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px) {\n  -webkit-border-top-left-radius:     $topLeftRadius;\n  -webkit-border-top-right-radius:    $topRightRadius;\n  -webkit-border-bottom-right-radius: $bottomRightRadius;\n  -webkit-border-bottom-left-radius:  $bottomLeftRadius;\n\n  -moz-border-radius-topleft:     $topLeftRadius;\n  -moz-border-radius-topright:    $topRightRadius;\n  -moz-border-radius-bottomright: $bottomRightRadius;\n  -moz-border-radius-bottomleft:  $bottomLeftRadius;\n\n  border-top-left-radius:     $topLeftRadius;\n  border-top-right-radius:    $topRightRadius;\n  border-bottom-right-radius: $bottomRightRadius;\n  border-bottom-left-radius:  $bottomLeftRadius;\n}\n\n\n/// Box\n/// @param {*} $orient [horizontal] - Orientation\n/// @param {*} $pack [center] - Pack\n/// @param {*} $align [center] - Align\n/// @require {mixin} css3-prefix\n\n@mixin box($orient: horizontal, $pack: center, $align: center) {\n  display: -webkit-box;\n  display: -moz-box;\n  display: box;\n\n  @include css3-prefix('box-orient', $orient);\n  @include css3-prefix('box-pack', $pack);\n  @include css3-prefix('box-align', $align);\n}\n\n\n/// Box RGBA\n/// @param {Integer} $r [60] - Red\n/// @param {Integer} $g [3] - Green\n/// @param {Integer} $b [12] - Blue\n/// @param {Double} $opacity [0.23] - Opacity\n/// @param {Color} $color [#3C3C3C] - Color\n\n@mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {\n  background-color: transparent;\n  background-color: rgba($r, $g, $b, $opacity);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}');\n  zoom:   1;\n}\n\n\n/// Box Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [5px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n/// @param {Boolean} $inset - Inset\n\n@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: \"\") {\n  @if ($inset != \"\") {\n    @include css3-prefix('box-shadow', $inset $x $y $blur $color);\n  } @else {\n    @include css3-prefix('box-shadow', $x $y $blur $color);\n  }\n}\n\n\n/// Box Sizing\n/// @param {*} $type [border-box] - Type\n/// @require {mixin} css3-prefix\n\n@mixin box-sizing($type: border-box) {\n  @include css3-prefix('box-sizing', $type);\n}\n\n\n/// Columns\n/// @param {Integer} $count [3] - Count\n/// @param {Integer} $gap [10] - Gap\n/// @require {mixin} css3-prefix\n\n@mixin columns($count: 3, $gap: 10) {\n  @include css3-prefix('column-count', $count);\n  @include css3-prefix('column-gap', $gap);\n}\n\n\n/// Double Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} css3-prefix\n/// @require {mixin} border-radius\n\n@mixin double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo);\n\n  @include border-radius( $radius );\n}\n\n\n/// Flex\n/// @param {Integer} $value [1] - Value\n/// @require {mixin} css3-prefix\n\n@mixin flex($value: 1) {\n  @include css3-prefix('box-flex', $value);\n}\n\n\n/// Flip\n/// @param {Double} $scaleX [-1] - ScaleX\n/// @require {mixin} css3-prefix\n\n@mixin flip($scaleX: -1) {\n  @include css3-prefix('transform', scaleX($scaleX));\n  filter:            FlipH;\n  -ms-filter:        \"FlipH\";\n}\n\n\n/// Font Face\n/// @param {Font} $fontFamily [myFont] - Font Family\n/// @param {String} $eotFileSrc ['myFont.eot'] - Eot File Source\n/// @param {String} $woffFileSrc ['myFont.woff'] - Woff File Source\n/// @param {String} $ttfFileSrc ['myFont.ttf'] - Ttf File Source\n/// @param {String} $svgFileSrc ['myFont.svg'] - Svg File Source\n\n@mixin font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont') {\n  font-family: $fontFamily;\n  src: url($eotFileSrc)  format('eot'),\n  url($woffFileSrc) format('woff'),\n  url($ttfFileSrc)  format('truetype'),\n  url($svgFileSrc + $svgFontID) format('svg');\n}\n\n\n/// Opacity\n/// @param {Double} $opacity [0.5] - Opacity\n/// @require {mixin} css3-prefix\n\n@mixin opacity($opacity: 0.5) {\n  $opacityMultiplied: ($opacity * 100);\n\n  filter:         alpha(opacity=$opacityMultiplied);\n  -ms-filter:     \"progid:DXImageTransform.Microsoft.Alpha(Opacity=\" + $opacityMultiplied + \")\";\n  @include css3-prefix('opacity', $opacity);\n}\n\n\n/// Outline Radius\n/// @param {Size} $radius [5px] - Radius\n/// @require {mixin} css3-prefix\n\n@mixin outline-radius($radius: 5px) {\n  @include css3-prefix('outline-radius', $radius);\n}\n\n\n/// Resize\n/// @param {*} $directoin [both] - Direction\n/// @require {mixin} css3-prefix\n\n@mixin resize($direction: both) {\n  @include css3-prefix('resize', $direction);\n}\n\n\n/// Rotate\n///\n/// CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html\n/// @param {Double} $deg [0] - Degree\n/// @param {Double} $m11 [0] - M11\n/// @param {Double} $m12 [0] - M12\n/// @param {Double} $m21 [0] - M21\n/// @param {Double} $m22 [0] - M22\n/// @require {mixin} css3-prefix\n\n@mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {\n  @include css3-prefix('transform', rotate($deg + deg));\n  filter: progid:DXImageTransform.Microsoft.Matrix(\n      M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');\n  zoom: 1;\n}\n\n\n/// Text Shadow\n/// @param {Size} $x [2px] - X\n/// @param {Size} $y [2px] - Y\n/// @param {Size} $blur [2px] - Blur\n/// @param {Color} $color [rgba(0,0,0,.4)] - Color\n\n@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {\n  text-shadow: $x $y $blur $color;\n}\n\n\n/// Transform\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform($params) {\n  @include css3-prefix('transform', $params);\n}\n\n\n/// Transform-Origin\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-origin($params) {\n  @include css3-prefix('transform-origin', $params);\n}\n\n\n// Transform-Style\n/// @param {List} $params - Params\n/// @require {mixin} css3-prefix\n\n@mixin transform-style($style: preserve-3d) {\n  @include css3-prefix('transform-style', $style);\n}\n\n/// Transition\n/// @param {List} $properties - Properties\n/// @require {mixin} css3-prefix\n\n@mixin transition($properties...) {\n\n  @if length($properties) >= 1 {\n    @include css3-prefix('transition', $properties);\n  }\n\n  @else {\n    @include css3-prefix('transition',  \"all 0.2s ease-in-out 0s\");\n  }\n}\n\n\n/// Triple Borders\n/// @param {Color} $colorOne [#3C3C3C] - Color One\n/// @param {Color} $colorTwo [#999999] - Color Two\n/// @param {Color} $colorThree [#000000] - Color Three\n/// @param {Size} $radius [0] - Radius\n/// @require {mixin} border-radius\n/// @require {mixin} css3-prefix\n\n@mixin triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0) {\n  border: 1px solid $colorOne;\n\n  @include border-radius($radius);\n\n  @include css3-prefix('box-shadow', \"0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}\");\n}\n\n\n/// Keyframes\n/// @param {*} $animation-name - Animation name\n/// @content [Animation css]\n\n@mixin keyframes($animation-name) {\n  @-webkit-keyframes #{$animation-name} {\n    @content;\n  }\n  @-moz-keyframes #{$animation-name} {\n    @content;\n  }\n  @-ms-keyframes #{$animation-name} {\n    @content;\n  }\n  @-o-keyframes #{$animation-name} {\n    @content;\n  }\n  @keyframes #{$animation-name} {\n    @content;\n  }\n}\n\n\n/// Animation\n/// @param {*} $str - name duration timing-function delay iteration-count direction fill-mode play-state ([http://www.w3schools.com/cssref/css3_pr_animation.asp](http://www.w3schools.com/cssref/css3_pr_animation.asp))\n/// @require {mixin} css3-prefix\n\n@mixin animation($str) {\n  @include css3-prefix('animation', $str);\n}\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Skills_root_3sr",
-  	"skillColumn": "Skills_skillColumn_37r",
-  	"skillsList": "Skills_skillsList_2hW",
-  	"title": "Skills_title_1FQ"
-  };
-
-/***/ },
-/* 128 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Contact_root_dJi {\n  padding-left: 20px;\n  padding-right: 20px; }\n.Contact_container_D8L {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n", "", {"version":3,"sources":["/./src/routes/contact/Contact.scss","/./src/routes/contact/src/routes/contact/Contact.scss","/./src/routes/contact/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,mBAAmB;EACnB,oBAAoB,EACrB;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B,EDD7B","file":"Contact.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  padding-left: 20px;\n  padding-right: 20px; }\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.scss';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: $max-content-width;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Contact_root_dJi",
-  	"container": "Contact_container_D8L"
-  };
-
-/***/ },
-/* 129 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Home_root_qf4 {\n  padding-left: 20px;\n  padding-right: 20px; }\n.Home_container_2AB {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n.Home_news_3cv {\n  padding: 0; }\n.Home_newsItem_2e0 {\n  list-style-type: none;\n  padding-bottom: 6px; }\n.Home_newsTitle_1EI {\n  font-size: 1.125em; }\n.Home_newsTitle_1EI, .Home_newsDesc_58O {\n  display: block; }\n", "", {"version":3,"sources":["/./src/routes/home/Home.scss","/./src/routes/home/src/routes/home/Home.scss","/./src/routes/home/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,mBAAmB;EACnB,oBAAoB,EACrB;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B,EDD7B;AAED;EACE,WAAW,EACZ;AAED;EACE,sBAAsB;EACtB,oBAAoB,EACrB;AAED;EACE,mBAAmB,EACpB;AAED;EACE,eAAe,EAChB","file":"Home.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  padding-left: 20px;\n  padding-right: 20px; }\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n\n.news {\n  padding: 0; }\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px; }\n\n.newsTitle {\n  font-size: 1.125em; }\n\n.newsTitle, .newsDesc {\n  display: block; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.scss';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: $max-content-width;\n}\n\n.news {\n  padding: 0;\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.newsTitle {\n  font-size: 1.125em;\n}\n\n.newsTitle, .newsDesc {\n  display: block;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Home_root_qf4",
-  	"container": "Home_container_2AB",
-  	"news": "Home_news_3cv",
-  	"newsItem": "Home_newsItem_2e0",
-  	"newsTitle": "Home_newsTitle_1EI",
-  	"newsDesc": "Home_newsDesc_58O"
-  };
-
-/***/ },
-/* 130 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Login_root_1Yv {\n  padding-left: 20px;\n  padding-right: 20px; }\n.Login_container_dzJ {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n", "", {"version":3,"sources":["/./src/routes/login/Login.scss","/./src/routes/login/src/routes/login/Login.scss","/./src/routes/login/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,mBAAmB;EACnB,oBAAoB,EACrB;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B,EDD7B","file":"Login.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  padding-left: 20px;\n  padding-right: 20px; }\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.scss';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: $max-content-width;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Login_root_1Yv",
-  	"container": "Login_container_dzJ"
-  };
-
-/***/ },
-/* 131 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.Register_root_154 {\n  padding-left: 20px;\n  padding-right: 20px; }\n.Register_container_3Ea {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n", "", {"version":3,"sources":["/./src/routes/register/Register.scss","/./src/routes/register/src/routes/register/Register.scss","/./src/routes/register/src/components/variables.scss"],"names":[],"mappings":"AAAA,iBAAiB;ACAjB;;;;;;;GAOG;ACPH;;gFAEgF;AAShF;;gFAEgF;AAIhF;;gFAEgF;AAIhF;;gFAEgF;AAEhD,gCAAgC;AAChC,2BAA2B;AAC3B,6BAA6B;AAC7B,iCAAiC;AAEjE;;gFAEgF;ADvBhF;EACE,mBAAmB;EACnB,oBAAoB,EACrB;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBCE4B,EDD7B","file":"Register.scss","sourcesContent":["@charset \"UTF-8\";\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n/*\n * Colors\n * ========================================================================== */\n/*\n * Typography\n * ========================================================================== */\n/*\n * Layout\n * ========================================================================== */\n/*\n * Media queries breakpoints\n * ========================================================================== */\n/* Extra small screen / phone */\n/* Small screen / tablet */\n/* Medium screen / desktop */\n/* Large screen / wide desktop */\n/*\n * Animations\n * ========================================================================== */\n.root {\n  padding-left: 20px;\n  padding-right: 20px; }\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px; }\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.scss';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: $max-content-width;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base:            #000;\n$gray-darker:           #000;\n$gray-dark:             #000;\n$gray:                  #000;\n$gray-light:            #000;\n$gray-lighter:          #000;\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base:      'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width:     1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min:         480px;  /* Extra small screen / phone */\n$screen-sm-min:         768px;  /* Small screen / tablet */\n$screen-md-min:         992px;  /* Medium screen / desktop */\n$screen-lg-min:         1200px; /* Large screen / wide desktop */\n\n/*\n * Animations\n * ========================================================================== */\n\n$animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Register_root_154",
-  	"container": "Register_container_3Ea"
-  };
-
-/***/ },
-/* 132 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6698,270 +7046,183 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _withStyles = __webpack_require__(3);
+  var _withStyles = __webpack_require__(4);
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _HighlightedProjectsHeader = __webpack_require__(135);
+  var _Info = __webpack_require__(143);
   
-  var _HighlightedProjectsHeader2 = _interopRequireDefault(_HighlightedProjectsHeader);
-  
-  var _HighlightedProjectsProject = __webpack_require__(138);
-  
-  var _HighlightedProjectsProject2 = _interopRequireDefault(_HighlightedProjectsProject);
-  
-  var _HighlightedProjects = __webpack_require__(134);
-  
-  var _HighlightedProjects2 = _interopRequireDefault(_HighlightedProjects);
+  var _Info2 = _interopRequireDefault(_Info);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var FontAwesome = __webpack_require__(26);
+  var FontAwesome = __webpack_require__(13);
   
   
-  function HighlightedProjects() {
+  function Info() {
     return _react2.default.createElement(
       'section',
-      { className: _HighlightedProjects2.default.root },
-      _react2.default.createElement(_HighlightedProjectsHeader2.default, null),
+      { className: _Info2.default.root },
       _react2.default.createElement(
         'section',
-        null,
-        _react2.default.createElement(_HighlightedProjectsProject2.default, null),
-        _react2.default.createElement(_HighlightedProjectsProject2.default, null),
-        _react2.default.createElement(_HighlightedProjectsProject2.default, null)
-      )
-    );
-  }
-  
-  exports.default = (0, _withStyles2.default)(HighlightedProjects, _HighlightedProjects2.default);
-
-/***/ },
-/* 133 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, ".HighlightedProjects_root_2PK {\n  margin: 280px 0; }\n", "", {"version":3,"sources":["/./src/components/HighlightedProjects/src/components/HighlightedProjects/HighlightedProjects.scss"],"names":[],"mappings":"AAAA;EACE,gBAAgB,EACjB","file":"HighlightedProjects.scss","sourcesContent":[".root {\n  margin: 280px 0;\n}\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "HighlightedProjects_root_2PK"
-  };
-
-/***/ },
-/* 134 */
-/***/ function(module, exports, __webpack_require__) {
-
-  
-      var content = __webpack_require__(133);
-      var insertCss = __webpack_require__(2);
-  
-      if (typeof content === 'string') {
-        content = [[module.id, content, '']];
-      }
-  
-      module.exports = content.locals || {};
-      module.exports._getCss = function() { return content.toString(); };
-      module.exports._insertCss = insertCss.bind(null, content);
-    
-      var removeCss = function() {};
-  
-      // Hot Module Replacement
-      // https://webpack.github.io/docs/hot-module-replacement
-      // Only activated in browser context
-      if (false) {
-        module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjects.scss", function() {
-          var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjects.scss");
-          if (typeof newContent === 'string') {
-            newContent = [[module.id, content, '']];
-          }
-          removeCss = insertCss(newContent, { replace: true });
-        });
-        module.hot.dispose(function() { removeCss(); });
-      }
-    
-
-/***/ },
-/* 135 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _react = __webpack_require__(1);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _withStyles = __webpack_require__(3);
-  
-  var _withStyles2 = _interopRequireDefault(_withStyles);
-  
-  var _HighlightedProjectsHeader = __webpack_require__(137);
-  
-  var _HighlightedProjectsHeader2 = _interopRequireDefault(_HighlightedProjectsHeader);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  var FontAwesome = __webpack_require__(26);
-  
-  
-  function HighlightedProjectsHeader() {
-    return _react2.default.createElement(
-      'header',
-      { className: _HighlightedProjectsHeader2.default.root },
-      _react2.default.createElement(
-        'div',
-        { className: _HighlightedProjectsHeader2.default.content },
-        _react2.default.createElement(
-          'h2',
-          { className: _HighlightedProjectsHeader2.default.title },
-          'Highlighted Projects'
-        ),
+        { className: _Info2.default.infoSection },
         _react2.default.createElement(
           'h3',
-          { className: _HighlightedProjectsHeader2.default.subtitle },
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam assumenda, blanditiis.'
-        )
-      )
-    );
-  }
-  
-  exports.default = (0, _withStyles2.default)(HighlightedProjectsHeader, _HighlightedProjectsHeader2.default);
-
-/***/ },
-/* 136 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, ".HighlightedProjectsHeader_root_3Rd {\n  background-color: #ffffff;\n  padding: 120px 0 110px 0; }\n\n.HighlightedProjectsHeader_content_BBR {\n  max-width: 680px;\n  margin: 0 auto; }\n\n.HighlightedProjectsHeader_title_2S0 {\n  color: #424242;\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 20px;\n  text-align: center;\n  text-transform: uppercase; }\n\n.HighlightedProjectsHeader_subtitle_GU- {\n  color: #A1AEB6;\n  font-size: 27px;\n  font-weight: 300;\n  line-height: 44px; }\n", "", {"version":3,"sources":["/./src/components/HighlightedProjects/Header/src/components/HighlightedProjects/Header/HighlightedProjectsHeader.scss"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,yBAAyB,EAC1B;;AAED;EACE,iBAAiB;EACjB,eAAe,EAChB;;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,oBAAoB;EACpB,mBAAmB;EACnB,0BAA0B,EAC3B;;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,kBAAkB,EACnB","file":"HighlightedProjectsHeader.scss","sourcesContent":[".root {\n  background-color: #ffffff;\n  padding: 120px 0 110px 0;\n}\n\n.content {\n  max-width: 680px;\n  margin: 0 auto;\n}\n\n.title {\n  color: #424242;\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 20px;\n  text-align: center;\n  text-transform: uppercase;\n}\n\n.subtitle {\n  color: #A1AEB6;\n  font-size: 27px;\n  font-weight: 300;\n  line-height: 44px;\n}\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "HighlightedProjectsHeader_root_3Rd",
-  	"content": "HighlightedProjectsHeader_content_BBR",
-  	"title": "HighlightedProjectsHeader_title_2S0",
-  	"subtitle": "HighlightedProjectsHeader_subtitle_GU-"
-  };
-
-/***/ },
-/* 137 */
-/***/ function(module, exports, __webpack_require__) {
-
-  
-      var content = __webpack_require__(136);
-      var insertCss = __webpack_require__(2);
-  
-      if (typeof content === 'string') {
-        content = [[module.id, content, '']];
-      }
-  
-      module.exports = content.locals || {};
-      module.exports._getCss = function() { return content.toString(); };
-      module.exports._insertCss = insertCss.bind(null, content);
-    
-      var removeCss = function() {};
-  
-      // Hot Module Replacement
-      // https://webpack.github.io/docs/hot-module-replacement
-      // Only activated in browser context
-      if (false) {
-        module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjectsHeader.scss", function() {
-          var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjectsHeader.scss");
-          if (typeof newContent === 'string') {
-            newContent = [[module.id, content, '']];
-          }
-          removeCss = insertCss(newContent, { replace: true });
-        });
-        module.hot.dispose(function() { removeCss(); });
-      }
-    
-
-/***/ },
-/* 138 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _react = __webpack_require__(1);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _withStyles = __webpack_require__(3);
-  
-  var _withStyles2 = _interopRequireDefault(_withStyles);
-  
-  var _HighlightedProjectsProject = __webpack_require__(140);
-  
-  var _HighlightedProjectsProject2 = _interopRequireDefault(_HighlightedProjectsProject);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  var FontAwesome = __webpack_require__(26);
-  
-  
-  function HighlightedProjectsProject() {
-    return _react2.default.createElement(
-      'div',
-      { className: _HighlightedProjectsProject2.default.root },
-      _react2.default.createElement(
-        'div',
-        { className: _HighlightedProjectsProject2.default.content },
-        _react2.default.createElement(
-          'div',
-          { className: _HighlightedProjectsProject2.default.image },
-          'image'
+          { className: _Info2.default.title },
+          'Work Experience'
         ),
         _react2.default.createElement(
-          'div',
-          { className: _HighlightedProjectsProject2.default.info },
+          'ul',
+          { className: _Info2.default.details },
           _react2.default.createElement(
-            'h3',
-            { className: _HighlightedProjectsProject2.default.title },
-            'soon.is'
-          ),
-          _react2.default.createElement(
-            'h4',
-            { className: _HighlightedProjectsProject2.default.position },
-            '// Front End Developer & Designer'
-          ),
-          _react2.default.createElement(
-            'p',
-            { className: _HighlightedProjectsProject2.default.desc },
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam illum ',
+            'li',
+            null,
             _react2.default.createElement(
-              'strong',
-              null,
-              'AngularJS'
-            ),
-            ' nam pariatur porro quibusdam quos tempore! Ab accusantium magnam non numquam quam rerum sint ut. Atque laudantium porro sed voluptatibus.'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: _HighlightedProjectsProject2.default.links },
-            _react2.default.createElement(
-              'a',
-              { href: '', className: _HighlightedProjectsProject2.default.link },
-              'View Website'
+              'div',
+              { className: _Info2.default.when },
+              '2015 - Present'
             ),
             _react2.default.createElement(
-              'a',
-              { href: '', className: _HighlightedProjectsProject2.default.link },
-              'Read More'
+              'div',
+              { className: _Info2.default.info },
+              _react2.default.createElement(
+                'h4',
+                { className: _Info2.default.infoTitle },
+                'Hydric Media'
+              ),
+              _react2.default.createElement(
+                'h5',
+                { className: _Info2.default.infoSubtitle },
+                'Front End Developer'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.when },
+              '2013 - 2014'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.info },
+              _react2.default.createElement(
+                'h4',
+                { className: _Info2.default.infoTitle },
+                'Happen'
+              ),
+              _react2.default.createElement(
+                'h5',
+                { className: _Info2.default.infoSubtitle },
+                'Lead Designer & Front End Developer'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.when },
+              '2013 - 2015'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.info },
+              _react2.default.createElement(
+                'h4',
+                { className: _Info2.default.infoTitle },
+                'University of Queensland'
+              ),
+              _react2.default.createElement(
+                'h5',
+                { className: _Info2.default.infoSubtitle },
+                'Head Web Design Tutor'
+              )
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        'section',
+        { className: _Info2.default.infoSection },
+        _react2.default.createElement(
+          'h3',
+          { className: _Info2.default.title },
+          'Education & Awards'
+        ),
+        _react2.default.createElement(
+          'ul',
+          { className: _Info2.default.details },
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.when },
+              '2011 - 2014'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.info },
+              _react2.default.createElement(
+                'h4',
+                { className: _Info2.default.infoTitle },
+                'University of Queensland'
+              ),
+              _react2.default.createElement(
+                'h5',
+                { className: _Info2.default.infoSubtitle },
+                'Bachelor of Multimedia Design'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.when },
+              '2013'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.info },
+              _react2.default.createElement(
+                'h4',
+                { className: _Info2.default.infoTitle },
+                'UQ ITEE Outstanding Tutor Award'
+              ),
+              _react2.default.createElement(
+                'h5',
+                { className: _Info2.default.infoSubtitle },
+                'DECO1400 (Introduction to Web Design)'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.when },
+              '2013'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _Info2.default.info },
+              _react2.default.createElement(
+                'h4',
+                { className: _Info2.default.infoTitle },
+                'UQ ITEE Best User Centered Design Project'
+              ),
+              _react2.default.createElement(
+                'h5',
+                { className: _Info2.default.infoSubtitle },
+                'HTML THOR'
+              )
             )
           )
         )
@@ -6969,40 +7230,39 @@ module.exports =
     );
   }
   
-  exports.default = (0, _withStyles2.default)(HighlightedProjectsProject, _HighlightedProjectsProject2.default);
+  exports.default = (0, _withStyles2.default)(Info, _Info2.default);
 
 /***/ },
-/* 139 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
-  exports = module.exports = __webpack_require__(16)();
+  exports = module.exports = __webpack_require__(2)();
   // imports
   
   
   // module
-  exports.push([module.id, "* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\n\n.HighlightedProjectsProject_clearfix_1KI:after, .HighlightedProjectsProject_content_3lw:after {\n  display: block;\n  visibility: hidden;\n  clear: both;\n  height: 0;\n  content: \" \";\n  font-size: 0; }\n\n* html .HighlightedProjectsProject_clearfix_1KI, * html .HighlightedProjectsProject_content_3lw {\n  -ms-zoom: 1;\n  zoom: 1; }\n\n*:first-child + html .HighlightedProjectsProject_clearfix_1KI, *:first-child + html .HighlightedProjectsProject_content_3lw {\n  -ms-zoom: 1;\n  zoom: 1; }\n\n.HighlightedProjectsProject_root_1Fg {\n  margin: 280px 0; }\n\n.HighlightedProjectsProject_content_3lw {\n  max-width: 1106px;\n  margin: 0 auto; }\n\n.HighlightedProjectsProject_image_14e {\n  float: left;\n  width: 596px;\n  text-align: center; }\n\n.HighlightedProjectsProject_info_G-0 {\n  overflow: hidden; }\n\n.HighlightedProjectsProject_title_xSB {\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 12px; }\n\n.HighlightedProjectsProject_position_2JR {\n  color: #556165;\n  font-size: 13px;\n  font-weight: 700;\n  text-transform: uppercase; }\n\n.HighlightedProjectsProject_desc_1vb {\n  color: #A1AEB6;\n  font-size: 22px;\n  line-height: 36px;\n  margin-top: 10px; }\n\n.HighlightedProjectsProject_desc_1vb strong {\n    font-weight: 500; }\n\n.HighlightedProjectsProject_links_YdW {\n  margin-top: 15px; }\n\n.HighlightedProjectsProject_link_1Zw {\n  border: 1px solid #DCE4E8;\n  color: #424242;\n  display: inline-block;\n  font-size: 16px;\n  margin-right: 8px;\n  padding: 8px 12px;\n  text-transform: uppercase; }\n\n.HighlightedProjectsProject_link_1Zw:hover {\n    background-color: #DCE4E8; }\n", "", {"version":3,"sources":["/./src/components/HighlightedProjects/Project/src/components/common.scss","/./src/components/HighlightedProjects/Project/src/components/HighlightedProjects/Project/HighlightedProjectsProject.scss"],"names":[],"mappings":"AAAA;EACE,+BAAuB;UAAvB,uBAAuB,EACxB;;AAED;EACE,eAAc;EAAC,mBAAkB;EAAC,YAAW;EAAC,UAAS;EAAC,aAAY;EAAC,aACtE,EAAC;;AAEF;EACE,YAAW;EAAC,QACb,EAAC;;AAEF;EACE,YAAW;EAAC,QACb,EAAC;;ACXF;EACE,gBAAgB,EACjB;;AAED;EAGE,kBAAkB;EAClB,eAAe,EAChB;;AAED;EACE,YAAY;EACZ,aAAa;EACb,mBAAmB,EACpB;;AAED;EACE,iBAAiB,EAClB;;AAED;EACE,gBAAgB;EAChB,iBAAiB;EACjB,oBAAoB,EACrB;;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,0BAA0B,EAC3B;;AAED;EACE,eAAe;EACf,gBAAgB;EAChB,kBAAkB;EAClB,iBAAiB,EAMlB;;AAVD;IAOI,iBAAiB,EAClB;;AAIH;EACE,iBAAiB,EAClB;;AAEC;EACE,0BAA0B;EAC1B,eAAe;EACf,sBAAsB;EACtB,gBAAgB;EAChB,kBAAkB;EAClB,kBAAkB;EAClB,0BAA0B,EAM3B;;AAbD;IAUI,0BAA0B,EAC3B","file":"HighlightedProjectsProject.scss","sourcesContent":["* {\n  box-sizing: border-box;\n}\n\n.clearfix:after{\n  display:block;visibility:hidden;clear:both;height:0;content:\" \";font-size:0\n}\n\n* html .clearfix{\n  -ms-zoom:1;zoom:1\n}\n\n*:first-child+html .clearfix{\n  -ms-zoom:1;zoom:1\n}\n","\n@import '../../common.scss';\n\n.root {\n  margin: 280px 0;\n}\n\n.content {\n  @extend .clearfix;\n\n  max-width: 1106px;\n  margin: 0 auto;\n}\n\n.image {\n  float: left;\n  width: 1106px - 510px;\n  text-align: center;\n}\n\n.info {\n  overflow: hidden;\n}\n\n.title {\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 12px;\n}\n\n.position {\n  color: #556165;\n  font-size: 13px;\n  font-weight: 700;\n  text-transform: uppercase;\n}\n\n.desc {\n  color: #A1AEB6;\n  font-size: 22px;\n  line-height: 36px;\n  margin-top: 10px;\n\n  strong {\n    font-weight: 500;\n  }\n\n}\n\n.links {\n  margin-top: 15px;\n}\n\n  .link {\n    border: 1px solid #DCE4E8;\n    color: #424242;\n    display: inline-block;\n    font-size: 16px;\n    margin-right: 8px;\n    padding: 8px 12px;\n    text-transform: uppercase;\n\n    &:hover {\n      background-color: #DCE4E8;\n    }\n\n  }\n"],"sourceRoot":"webpack://"}]);
+  exports.push([module.id, "* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\n\n.Info_clearfix_2dI:after, .Info_details_1iM > li:after {\n  display: block;\n  visibility: hidden;\n  clear: both;\n  height: 0;\n  content: \" \";\n  font-size: 0; }\n\n* html .Info_clearfix_2dI, * html .Info_details_1iM > li {\n  -ms-zoom: 1;\n  zoom: 1; }\n\n*:first-child + html .Info_clearfix_2dI, *:first-child + html .Info_details_1iM > li {\n  -ms-zoom: 1;\n  zoom: 1; }\n\n.Info_root_3Sz {\n  background-color: #ffffff;\n  padding: 120px 0; }\n\n.Info_infoSection_zKn {\n  max-width: 680px;\n  margin: 120px auto 0 auto; }\n\n.Info_infoSection_zKn:first-of-type {\n    margin-top: 0; }\n\n.Info_title_1YP {\n  color: #424242;\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 20px;\n  text-align: center;\n  text-transform: uppercase; }\n\n.Info_details_1iM {\n  list-style-type: none;\n  font-size: 22px;\n  font-weight: 300; }\n\n.Info_details_1iM > li {\n    margin-top: 12px; }\n\n.Info_details_1iM > li:first-of-type {\n      margin-top: 0; }\n\n.Info_when_3Oj {\n  color: #A1AEB6;\n  float: left;\n  min-width: 210px;\n  padding-right: 20px; }\n\n.Info_info_Fiu {\n  overflow: hidden; }\n\n.Info_infoTitle_2IA, .Info_infoSubtitle_3Qv {\n  font-size: 22px; }\n\n.Info_infoTitle_2IA {\n  color: #A1AEB6;\n  font-weight: 400; }\n\n.Info_infoSubtitle_3Qv {\n  color: #556165;\n  font-weight: 500; }\n", "", {"version":3,"sources":["/./src/components/Info/src/components/common.scss","/./src/components/Info/src/components/Info/Info.scss"],"names":[],"mappings":"AAAA;EACE,+BAAuB;UAAvB,uBAAuB,EACxB;;AAED;EACE,eAAc;EAAC,mBAAkB;EAAC,YAAW;EAAC,UAAS;EAAC,aAAY;EAAC,aACtE,EAAC;;AAEF;EACE,YAAW;EAAC,QACb,EAAC;;AAEF;EACE,YAAW;EAAC,QACb,EAAC;;ACXF;EACE,0BAA0B;EAC1B,iBAAiB,EAClB;;AAED;EACE,iBAAiB;EACjB,0BAA0B,EAM3B;;AARD;IAKI,cAAc,EACf;;AAIH;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,oBAAoB;EACpB,mBAAmB;EACnB,0BAA0B,EAC3B;;AAED;EACE,sBAAsB;EACtB,gBAAgB;EAChB,iBAAiB,EAYlB;;AAfD;IAOI,iBAAiB,EAMlB;;AAbH;MAUM,cAAc,EACf;;AAMH;EACE,eAAe;EACf,YAAY;EACZ,iBAAiB;EACjB,oBAAoB,EACrB;;AAED;EACE,iBAAiB,EAClB;;AAEC;EAEE,gBAAgB,EACjB;;AAED;EACE,eAAe;EACf,iBAAiB,EAClB;;AAED;EACE,eAAe;EACf,iBAAiB,EAClB","file":"Info.scss","sourcesContent":["* {\n  box-sizing: border-box;\n}\n\n.clearfix:after{\n  display:block;visibility:hidden;clear:both;height:0;content:\" \";font-size:0\n}\n\n* html .clearfix{\n  -ms-zoom:1;zoom:1\n}\n\n*:first-child+html .clearfix{\n  -ms-zoom:1;zoom:1\n}\n","\n@import '../common.scss';\n\n.root {\n  background-color: #ffffff;\n  padding: 120px 0;\n}\n\n.infoSection {\n  max-width: 680px;\n  margin: 120px auto 0 auto;\n\n  &:first-of-type {\n    margin-top: 0;\n  }\n\n}\n\n.title {\n  color: #424242;\n  font-size: 34px;\n  font-weight: 400;\n  margin-bottom: 20px;\n  text-align: center;\n  text-transform: uppercase;\n}\n\n.details {\n  list-style-type: none;\n  font-size: 22px;\n  font-weight: 300;\n\n  > li {\n    @extend .clearfix;\n    margin-top: 12px;\n\n    &:first-of-type {\n      margin-top: 0;\n    }\n\n  }\n\n}\n\n  .when {\n    color: #A1AEB6;\n    float: left;\n    min-width: 210px;\n    padding-right: 20px;\n  }\n\n  .info {\n    overflow: hidden;\n  }\n\n    .infoTitle,\n    .infoSubtitle {\n      font-size: 22px;\n    }\n\n    .infoTitle {\n      color: #A1AEB6;\n      font-weight: 400;\n    }\n\n    .infoSubtitle {\n      color: #556165;\n      font-weight: 500;\n    }\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
-  	"clearfix": "HighlightedProjectsProject_clearfix_1KI",
-  	"content": "HighlightedProjectsProject_content_3lw",
-  	"root": "HighlightedProjectsProject_root_1Fg",
-  	"image": "HighlightedProjectsProject_image_14e",
-  	"info": "HighlightedProjectsProject_info_G-0",
-  	"title": "HighlightedProjectsProject_title_xSB",
-  	"position": "HighlightedProjectsProject_position_2JR",
-  	"desc": "HighlightedProjectsProject_desc_1vb",
-  	"links": "HighlightedProjectsProject_links_YdW",
-  	"link": "HighlightedProjectsProject_link_1Zw"
+  	"clearfix": "Info_clearfix_2dI",
+  	"details": "Info_details_1iM",
+  	"root": "Info_root_3Sz",
+  	"infoSection": "Info_infoSection_zKn",
+  	"title": "Info_title_1YP",
+  	"when": "Info_when_3Oj",
+  	"info": "Info_info_Fiu",
+  	"infoTitle": "Info_infoTitle_2IA",
+  	"infoSubtitle": "Info_infoSubtitle_3Qv"
   };
 
 /***/ },
-/* 140 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(139);
-      var insertCss = __webpack_require__(2);
+      var content = __webpack_require__(142);
+      var insertCss = __webpack_require__(3);
   
       if (typeof content === 'string') {
         content = [[module.id, content, '']];
@@ -7018,8 +7278,8 @@ module.exports =
       // https://webpack.github.io/docs/hot-module-replacement
       // Only activated in browser context
       if (false) {
-        module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjectsProject.scss", function() {
-          var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../../node_modules/sass-loader/index.js?sourceMap!./HighlightedProjectsProject.scss");
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../node_modules/sass-loader/index.js?sourceMap!./Info.scss", function() {
+          var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap&modules&localIdentName=[name]_[local]_[hash:base64:3]!./../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./../../../node_modules/sass-loader/index.js?sourceMap!./Info.scss");
           if (typeof newContent === 'string') {
             newContent = [[module.id, content, '']];
           }

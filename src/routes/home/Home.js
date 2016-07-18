@@ -12,6 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Intro from '../../components/Intro';
 import Skills from '../../components/Skills';
 import HighlightedProjects from '../../components/HighlightedProjects';
+import Info from '../../components/Info';
 import s from './Home.scss';
 
 function Home({ news }) {
@@ -20,6 +21,7 @@ function Home({ news }) {
       <Intro />
       <Skills />
       <HighlightedProjects />
+      <Info />
     </div>
   );
 }

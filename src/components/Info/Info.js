@@ -20,52 +20,52 @@ function Info() {
           </li>
           <li>
             <div className={s.when}>
-              2015 - Present
+              2013 - 2014
             </div>
             <div className={s.info}>
-              <h4 className={s.infoTitle}>Hydric Media</h4>
-              <h5 className={s.infoSubtitle}>Front End Developer</h5>
+              <h4 className={s.infoTitle}>Happen</h4>
+              <h5 className={s.infoSubtitle}>Lead Designer &amp; Front End Developer</h5>
             </div>
           </li>
           <li>
             <div className={s.when}>
-              2015 - Present
+              2013 - 2015
             </div>
             <div className={s.info}>
-              <h4 className={s.infoTitle}>Hydric Media</h4>
-              <h5 className={s.infoSubtitle}>Front End Developer</h5>
+              <h4 className={s.infoTitle}>University of Queensland</h4>
+              <h5 className={s.infoSubtitle}>Head Web Design Tutor</h5>
             </div>
           </li>
         </ul>
       </section>
-      <section>
-        <h3>Education &amp; Awards</h3>
+      <section className={s.infoSection}>
+        <h3 className={s.title}>Education &amp; Awards</h3>
         <ul className={s.details}>
           <li>
             <div className={s.when}>
-              2015 - Present
+              2011 - 2014
             </div>
             <div className={s.info}>
-              <h4 className={s.infoTitle}>Hydric Media</h4>
-              <h5 className={s.infoSubtitle}>Front End Developer</h5>
+              <h4 className={s.infoTitle}>University of Queensland</h4>
+              <h5 className={s.infoSubtitle}>Bachelor of Multimedia Design</h5>
             </div>
           </li>
           <li>
             <div className={s.when}>
-              2015 - Present
+              2013
             </div>
             <div className={s.info}>
-              <h4 className={s.infoTitle}>Hydric Media</h4>
-              <h5 className={s.infoSubtitle}>Front End Developer</h5>
+              <h4 className={s.infoTitle}>UQ ITEE Outstanding Tutor Award</h4>
+              <h5 className={s.infoSubtitle}>DECO1400 (Introduction to Web Design)</h5>
             </div>
           </li>
           <li>
             <div className={s.when}>
-              2015 - Present
+              2013
             </div>
             <div className={s.info}>
-              <h4 className={s.infoTitle}>Hydric Media</h4>
-              <h5 className={s.infoSubtitle}>Front End Developer</h5>
+              <h4 className={s.infoTitle}>UQ ITEE Best User Centered Design Project</h4>
+              <h5 className={s.infoSubtitle}>HTML THOR</h5>
             </div>
           </li>
         </ul>
