@@ -8,7 +8,7 @@ function HighlightedProjectsProject() {
     <div className={s.root}>
       <div className={s.content}>
         <div className={s.image}>
-          image
+          <img src="project-soonis.png" srcset="project-soonis@2x.png 2x" alt="soon.is preview"/>
         </div>
         <div className={s.info}>
           <h3 className={s.title}>soon.is</h3>
